@@ -24,10 +24,10 @@ blockquote {
 .document {
   .text {
     border-radius: 2px;
-    padding: 1.25rem;
+    padding: 1.5rem;
     padding-bottom: 2rem;
     line-height: 1.4;
-    word-spacing: -0.1em;
+    word-spacing: -0.15em;
     position: relative;
     background: var(--ripPath);
     background-position: bottom;
@@ -38,6 +38,9 @@ blockquote {
   strong {
     background: var(--yellow-10);
     font-weight: normal;
+    padding: 0 .5rem;
+    border-radius: 3px;;
+    margin: -.5rem
   }
 }
 

@@ -119,11 +119,18 @@
   background: white;
   grid-column: 2 / 3;
   margin-top: 2rem;
+  display: flex;
   a {
     padding: 1rem;
     display: block;
     text-decoration: none;
-    &:hover, &:focus-visible {
+    flex-basis: 50%;
+    border-right: 1px solid var(--gray-40);
+    &:last-of-type {
+      border-right: 0;
+    }
+    &:hover,
+    &:focus-visible {
       .pagination-title {
         text-decoration: underline;
       }
@@ -137,11 +144,11 @@
 .pagination-label {
   color: var(--blue-60);
   font-size: var(--ms--1);
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 .pagination-title {
   font-family: var(--serif);
   font-size: var(--ms-1);
-  margin-bottom: .25rem;
-  text-underline-offset: .12em;
+  margin-bottom: 0.25rem;
+  text-underline-offset: 0.12em;
 }
