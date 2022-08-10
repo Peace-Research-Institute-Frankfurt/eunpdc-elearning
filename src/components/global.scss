@@ -1,0 +1,87 @@
+:root {
+  --gray-10: rgb(252, 252, 253);
+  --gray-20: rgb(200, 200, 200);
+  --gray-40: rgb(108, 116, 126);
+  --blue-90: #0c131a;
+  --blue-80: #162635;
+  --blue-60: #36526d;
+  --blue-50: #5e8cba;
+  --blue-10: #f2f3f3;
+  --blue-20: #e1e2e5;
+  --yellow: #fbc202;
+  --yellow-40: #ffd650;
+  --yellow-10: #ffed9e;
+  --sans: "Untitled Sans";
+  --serif: "GT Super Text Trial";
+  --ms--1: 0.95rem;
+  --ms-1: 1.5rem;
+  --br: 3px;
+  --ripPath: url(../assets/rip.svg);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  font-weight: inherit;
+  box-sizing: border-box;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  background: var(--gray-10);
+  font-family: var(--sans);
+  font-size: 1.15rem;
+}
+
+.gatsby-image-wrapper [data-main-image] {
+  transition: 100ms;
+}
+
+.site__header {
+  background-color: white;
+  border-bottom: 1px solid var(--blue-20);
+  // color: white;
+  font-size: var(--ms--1);
+  padding: 0.5rem calc(1rem + 15%);
+}
+
+.footnotes {
+  border-top: 1px solid var(--blue-60);
+  padding-top: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: var(--ms--1);
+  grid-column: 2 / 3;
+  .footnote-backref {
+    // display: none;
+    margin-left: 0.2em;
+    text-decoration: none;
+  }
+  li {
+    display: inline-block;
+    counter-increment: li;
+    position: relative;
+    &:before {
+      content: counter(li) ".";
+      position: absolute;
+      left: -1.2em;
+    }
+  }
+  ol {
+    columns: 2;
+    column-gap: 2rem;
+  }
+  hr {
+    display: none;
+  }
+}

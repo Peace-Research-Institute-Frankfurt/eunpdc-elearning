@@ -1,0 +1,46 @@
+.container {
+  display: contents;
+}
+.caption {
+  font-size: var(--ms--1);
+  grid-column: 4 / 5;
+  span {
+    display: block;
+  }
+}
+.credit {
+  color: gray;
+  font-size: var(--ms--1);
+}
+.caption {
+  grid-column: 2 / 5;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+.image {
+  margin-top: 1rem;
+}
+
+.full {
+  .image {
+    grid-column: 1 / 7;
+  }
+}
+
+.large {
+  .image {
+    grid-column: 2 / 5;
+  }
+}
+.medium {
+  .image {
+    grid-column: 2 / 3;
+  }
+}
+
+.tiny {
+  .image {
+    grid-column: 2 / 5;
+    width: 8rem;
+  }
+}
