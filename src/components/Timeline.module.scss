@@ -1,0 +1,37 @@
+.container {
+  grid-column: 2/3;
+  display: grid;
+  position: relative;
+  grid-template-columns: max-content 2rem 1fr;
+  row-gap: .5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  ol {
+    display: contents;
+    margin-left: 0;
+  }
+}
+
+.line {
+  width: 1px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  display: block;
+  background: black;
+  grid-column: 2 / 3;
+}
+
+.event {
+  padding: 0;
+  display: contents;
+}
+
+.event-date {
+  grid-column: 1/2;
+}
+.event-description {
+  grid-column: 3/4;
+}

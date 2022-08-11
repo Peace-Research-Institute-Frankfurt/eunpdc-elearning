@@ -9,13 +9,18 @@ import Quote from "./Quote.js";
 import Term from "./Term";
 import Figure from "./Figure";
 import LectureVideo from "./LectureVideo";
+import { Timeline, Event } from "./Timeline";
 
-const shortCodes = { Quiz, MultipleChoice, Quote, Term, Figure, LectureVideo };
+const shortCodes = { Quiz, MultipleChoice, Quote, Term, Figure, LectureVideo, Event, Timeline };
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
     post: file(id: { eq: $id }) {
       childMdx {
+        headings {
+          value
+          depth
+        }
         frontmatter {
           title
           intro
@@ -59,6 +64,10 @@ const Chapter = ({ data, pageContext }) => {
     return el.childMdx.frontmatter.order === frontmatter.order;
   });
 
+  const tocItems = data.post.childMdx.headings.map((h) => {
+    return <li>{h.value}</li>;
+  });
+
   const next = data.chapters.nodes[currentIndex + 1];
   const previous = data.chapters.nodes[currentIndex - 1];
 
@@ -73,20 +82,24 @@ const Chapter = ({ data, pageContext }) => {
           <p className={ChapterStyles.intro}>{frontmatter.intro}</p>
         </header>
         <div className={ChapterStyles.body}>
+          {tocItems && (
+            <aside className={ChapterStyles.toc}>
+              <ol>{tocItems}</ol>
+            </aside>
+          )}
           <MDXProvider components={shortCodes}>
             <MDXRenderer>{data.post.childMdx.body}</MDXRenderer>
           </MDXProvider>
           <nav className={ChapterStyles.pagination}>
-            {previous && (
-              <Link to={`../../${previous.childMdx.slug}`}>
-                <span className={ChapterStyles.paginationLabel}>Previous</span>
-                <span className={ChapterStyles.paginationTitle}>{previous.childMdx.frontmatter.title}</span>
-              </Link>
-            )}
             {next && (
-              <Link to={`../../${next.childMdx.slug}`}>
+              <Link className={ChapterStyles.next} to={`../../${next.childMdx.slug}`}>
                 <span className={ChapterStyles.paginationLabel}>Next</span>
                 <span className={ChapterStyles.paginationTitle}>{next.childMdx.frontmatter.title}</span>
+              </Link>
+            )}
+            {previous && (
+              <Link className={ChapterStyles.previous} to={`../../${previous.childMdx.slug}`}>
+                <span className={ChapterStyles.paginationLabel}>Previous:</span> <span>{previous.childMdx.frontmatter.title}</span>
               </Link>
             )}
           </nav>

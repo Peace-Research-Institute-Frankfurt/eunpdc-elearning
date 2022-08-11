@@ -1,10 +1,10 @@
 .header {
   padding: 8rem;
-  padding-left: calc(1rem + 15%);
+  padding-left: calc(2rem + 15%);
   color: black;
   background: var(--blue-10);
   border-bottom: 1px solid var(--blue-20);
-  padding-bottom: 8rem;
+  padding-bottom: 9rem;
 }
 .unit {
   font-size: var(--ms--1);
@@ -36,8 +36,10 @@
 .body {
   display: grid;
   grid-template-columns: 15% 45rem repeat(4, 1fr);
-  column-gap: 1rem;
+  column-gap: 2rem;
   padding-bottom: 10rem;
+  position: relative;
+  font-feature-settings: "onum" 1;
   p,
   ol,
   ul,
@@ -108,42 +110,78 @@
   strong {
     font-weight: bold;
   }
-  a {
+  p a,
+  li a {
     text-decoration: underline;
+    background: var(--yellow-10);
+  }
+}
+
+.toc {
+  grid-column: 3/5;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  padding-top: 4rem;
+  ol {
+    list-style: none;
+    font-size: var(--ms--1);
+    position: sticky;
+    top: 4rem;
+    border: 1px solid gray;
+  }
+  li {
+    position: relative;
+    padding-left: 1rem;
+    border-bottom: 1px solid gray;
+    padding: .25rem .5rem;
+    &:last-of-type {
+      border-bottom: 0;
+    }
+    // font-weight: 500;
+    &:before {
+      content: "";
+      border-radius: 100%;
+      background: black;
+      left: 0;
+      top: .3rem;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.next {
+  border: 1px solid var(--gray-40);
+  border-radius: var(--br);
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  span {
+    display: block;
+  }
+  &:hover,
+  &:focus-visible {
+    .pagination-title {
+      text-decoration: underline;
+    }
+  }
+}
+
+.previous {
+  span {
   }
 }
 
 .pagination {
-  border: 1px solid var(--gray-40);
-  border-radius: var(--br);
-  background: white;
   grid-column: 2 / 3;
   margin-top: 2rem;
-  display: flex;
   a {
-    padding: 1rem;
-    display: block;
-    text-decoration: none;
-    flex-basis: 50%;
-    border-right: 1px solid var(--gray-40);
-    &:last-of-type {
-      border-right: 0;
-    }
-    &:hover,
-    &:focus-visible {
-      .pagination-title {
-        text-decoration: underline;
-      }
-    }
-  }
-  span {
     display: block;
   }
 }
 
 .pagination-label {
-  color: var(--blue-60);
-  font-size: var(--ms--1);
+  color: var(--gray-50);
   margin-bottom: 0.25rem;
 }
 .pagination-title {

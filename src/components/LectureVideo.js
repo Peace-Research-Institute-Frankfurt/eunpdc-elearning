@@ -13,7 +13,7 @@ export default function LectureVideo({ lu, vl, transcript, size, provider }) {
     <figure class={styles.container}>
       <div class={styles.iframeContainer}>
         {/* <video controls src={src}></video> */}
-        <iframe title={`lecture-${vl}`} src={src} loading="lazy" allowfullscreen frameborder="0"></iframe>
+        {/* <iframe title={`lecture-${vl}`} src={src} loading="lazy" allowfullscreen frameborder="0"></iframe> */}
       </div>
       <figcaption class="transcript">
         <span>{vl}</span>

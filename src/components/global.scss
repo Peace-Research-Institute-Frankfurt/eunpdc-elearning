@@ -2,6 +2,7 @@
   --gray-10: rgb(252, 252, 253);
   --gray-20: rgb(200, 200, 200);
   --gray-40: rgb(108, 116, 126);
+  --gray-50: rgb(87, 94, 101);
   --blue-90: #0c131a;
   --blue-80: #162635;
   --blue-60: #36526d;
@@ -10,7 +11,8 @@
   --blue-20: #e1e2e5;
   --yellow: #fbc202;
   --yellow-40: #ffd650;
-  --yellow-10: #ffe77b;
+  --yellow-20: #ffe77b;
+  --yellow-10: #fff7d6;
   --sans: "Untitled Sans";
   --serif: "GT Super Text Trial";
   --ms--1: 0.95rem;
@@ -48,11 +50,14 @@ body {
 }
 
 .site__header {
-  background-color: white;
+  background: var(--blue-10);
   border-bottom: 1px solid var(--blue-20);
-  // color: white;
   font-size: var(--ms--1);
   padding: 0.5rem calc(1rem + 15%);
+}
+.site__logo {
+  height: 4rem;
+  display: block;
 }
 
 .footnotes {
