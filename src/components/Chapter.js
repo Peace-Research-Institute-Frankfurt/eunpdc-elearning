@@ -10,9 +10,10 @@ import Term from "./Term";
 import Figure from "./Figure";
 import LectureVideo from "./LectureVideo";
 import Counter from "./Counter";
+import Footnote from "./Footnote";
 import { Timeline, Event } from "./Timeline";
 
-const shortCodes = { Quiz, MultipleChoice, Quote, Term, Figure, LectureVideo, Event, Timeline };
+const shortCodes = { Quiz, MultipleChoice, Quote, Term, Figure, LectureVideo, Event, Timeline, Footnote};
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
@@ -92,7 +93,7 @@ const Chapter = ({ data, pageContext }) => {
             <MDXRenderer>{data.post.childMdx.body}</MDXRenderer>
           </MDXProvider>
           <nav className={ChapterStyles.pagination}>
-            {next && (
+            {next.childMdx.frontmatter.title && (
               <Link className={ChapterStyles.next} to={`../../${next.childMdx.slug}`}>
                 <span className={ChapterStyles.paginationLabel}>Next</span>
                 <span className={ChapterStyles.paginationTitle}>

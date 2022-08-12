@@ -7,7 +7,7 @@
   margin-top: 1rem;
   margin-bottom: 2rem;
   align-items: baseline;
-  margin-left: -5rem;
+  margin-left: -6rem;
   ol {
     display: contents;
     margin-left: 0;
@@ -17,13 +17,13 @@
 .line {
   width: 1px;
   position: absolute;
-  top: 0;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
   display: block;
   grid-column: 2 / 3;
-  background: var(--gray-40);
+  background: var(--blue-50);
 }
 
 .event {
@@ -35,6 +35,20 @@
   grid-column: 1/2;
   text-align: right;
   font-size: var(--ms--1);
+  position: relative;
+  font-weight: 600;
+  &:after {
+    content: "";
+    position: absolute;
+    right: -2rem;
+    top: .2rem;
+    transform: translateX(-100%);
+    background: var(--blue-80);
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    grid-column: 2/3;
+  }
 }
 .event-description {
   grid-column: 3/4;

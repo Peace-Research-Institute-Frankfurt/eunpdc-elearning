@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import playIcon from "../assets/play.svg";
+import React, { useEffect, useRef, useState } from "react";
+import playIcon from "../assets/icon-play.svg";
 import pauseIcon from "../assets/pause.svg";
 import { graphql, useStaticQuery } from "gatsby";
 import * as Styles from "./Audio.module.scss";
@@ -25,9 +25,23 @@ export default function Audio({ src, type }) {
   });
 
   const [playing, setPlaying] = useState(false);
+  const [remaining, setRemaining] = useState(0);
   const audioRef = useRef();
+  const updateLoop = window.setInterval(() => {
+    setRemaining(audioRef.current.duration - audioRef.current.currentTime);
+  }, 500);
 
   function handleAudioError(err) {}
+
+  function formatDuration(d) {
+    let minutes = Math.floor(d / 60);
+    let seconds = Math.floor(d % 60);
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+    // return `${minutes}${d}`;
+    return `${minutes}:${seconds}`;
+  }
 
   function toggleAudio() {
     console.log("hi");
@@ -44,7 +58,7 @@ export default function Audio({ src, type }) {
       <audio src={file.publicURL} ref={audioRef} onError={handleAudioError}></audio>
       <button className={Styles.container} onClick={toggleAudio}>
         {playing ? <img src={pauseIcon} alt="" /> : <img src={playIcon} alt="" />}
-        {playing ? "Pause" : "Listen"}
+        {playing ? <>{formatDuration(remaining)}</> : "Listen"}
       </button>
     </>
   );
