@@ -19,7 +19,7 @@ function Event(props) {
     <li className={Styles.event}>
       <span className={Styles.eventDate}>{props.date}</span>
       <div className={Styles.eventDescription}>
-        <span className={Styles.eventTitle}>{props.title}</span>
+        <h3 className={Styles.eventTitle}>{props.title}</h3>
         {props.children}
       </div>
     </li>

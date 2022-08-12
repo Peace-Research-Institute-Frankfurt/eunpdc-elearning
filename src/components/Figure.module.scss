@@ -11,6 +11,9 @@
 .credit {
   color: gray;
   font-size: var(--ms--1);
+  a {
+    text-decoration: underline;
+  }
 }
 .caption {
   grid-column: 2 / 5;

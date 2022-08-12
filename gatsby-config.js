@@ -7,8 +7,8 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
-    "gatsby-transformer-json",
     "gatsby-transformer-sharp",
+    "gatsby-transformer-json",
     {
       resolve: "gatsby-plugin-mdx",
       options: {
@@ -21,6 +21,13 @@ module.exports = {
       options: {
         name: "authors",
         path: "./content/authors/",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "data",
+        path: "./content/data/",
       },
     },
     {

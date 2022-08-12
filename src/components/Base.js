@@ -9,7 +9,7 @@ function Base(props) {
       <header className="site__header">
         <h1>
           <Link to="/">
-            <img class="site__logo" src={logo} alt="EUNPDC Logo" />
+            <img className="site__logo" src={logo} alt="EUNPDC Logo" />
           </Link>
         </h1>
       </header>

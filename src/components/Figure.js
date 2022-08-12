@@ -6,6 +6,13 @@ import React from "react";
 export default function Figure(props) {
   const data = useStaticQuery(graphql`
     query ImageQuery {
+      licenses: allLicensesJson {
+        nodes {
+          title
+          license_id
+          url
+        }
+      }
       images: allFile {
         nodes {
           relativePath
@@ -26,6 +33,14 @@ export default function Figure(props) {
       image = img;
     }
   });
+  // Let's find our license
+  let license = null;
+  data.licenses.nodes.forEach((l) => {
+    if (l.license_id === props.license) {
+      license = l;
+    }
+  });
+
   const thisImage = getImage(image);
   let size = props.size;
   return (
@@ -33,7 +48,10 @@ export default function Figure(props) {
       <GatsbyImage className={FigureStyles.image} image={thisImage} alt={props.alt}></GatsbyImage>
       <figcaption className={FigureStyles.caption}>
         <span>{props.caption}</span>
-        <span className={FigureStyles.credit}>{props.credit}</span>
+        <span className={FigureStyles.credit}>
+          <>{props.credit}</>
+          {license && <>{","} <a href={license.url}>{license.title}</a></>}
+        </span>
       </figcaption>
     </figure>
   );

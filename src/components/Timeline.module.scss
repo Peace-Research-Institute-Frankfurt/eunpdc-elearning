@@ -3,9 +3,11 @@
   display: grid;
   position: relative;
   grid-template-columns: max-content 2rem 1fr;
-  row-gap: .5rem;
+  row-gap: 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  align-items: baseline;
+  margin-left: -5rem;
   ol {
     display: contents;
     margin-left: 0;
@@ -20,8 +22,8 @@
   transform: translateX(-50%);
   bottom: 0;
   display: block;
-  background: black;
   grid-column: 2 / 3;
+  background: var(--gray-40);
 }
 
 .event {
@@ -31,7 +33,13 @@
 
 .event-date {
   grid-column: 1/2;
+  text-align: right;
+  font-size: var(--ms--1);
 }
 .event-description {
   grid-column: 3/4;
+}
+.event-title {
+  font-weight: 500;
+  margin-top: 0;
 }

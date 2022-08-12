@@ -65,8 +65,8 @@ const Chapter = ({ data, pageContext }) => {
     return el.childMdx.frontmatter.order === frontmatter.order;
   });
 
-  const tocItems = data.post.childMdx.headings.map((h) => {
-    return <li>{h.value}</li>;
+  const tocItems = data.post.childMdx.headings.map((h,i) => {
+    return <li key={`${h.value}-${i}`}>{h.value}</li>;
   });
 
   const next = data.chapters.nodes[currentIndex + 1];

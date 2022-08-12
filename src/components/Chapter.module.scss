@@ -77,7 +77,6 @@
     letter-spacing: -0.015em;
   }
   h3 {
-    margin-top: 2rem;
     font-size: 1.4rem;
     font-weight: 500;
     letter-spacing: -0.015em;
@@ -99,12 +98,13 @@
     font-size: var(--ms--1);
     text-align: left;
   }
-  sup {
+  p sup, li sup {
     position: absolute;
     font-size: 0.8rem;
     font-family: monospace;
     a {
       text-decoration: none;
+      background: transparent;
     }
   }
   strong {
@@ -121,6 +121,7 @@
   grid-column: 3/5;
   top: 0;
   bottom: 0;
+  display: none;
   position: absolute;
   padding-top: 4rem;
   ol {
