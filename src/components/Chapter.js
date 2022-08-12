@@ -9,6 +9,7 @@ import Quote from "./Quote.js";
 import Term from "./Term";
 import Figure from "./Figure";
 import LectureVideo from "./LectureVideo";
+import Counter from "./Counter";
 import { Timeline, Event } from "./Timeline";
 
 const shortCodes = { Quiz, MultipleChoice, Quote, Term, Figure, LectureVideo, Event, Timeline };
@@ -94,7 +95,11 @@ const Chapter = ({ data, pageContext }) => {
             {next && (
               <Link className={ChapterStyles.next} to={`../../${next.childMdx.slug}`}>
                 <span className={ChapterStyles.paginationLabel}>Next</span>
-                <span className={ChapterStyles.paginationTitle}>{next.childMdx.frontmatter.title}</span>
+                <span className={ChapterStyles.paginationTitle}>
+                  <Counter n={next.childMdx.frontmatter.order} />
+                  {next.childMdx.frontmatter.title}
+                </span>
+                <p className={ChapterStyles.paginationIntro}>{next.childMdx.frontmatter.intro}</p>
               </Link>
             )}
             {previous && (

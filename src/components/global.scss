@@ -39,6 +39,14 @@ a {
   text-decoration: none;
 }
 
+button {
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  font-family: inherit;
+  letter-spacing: inherit;
+}
+
 body {
   background: var(--gray-10);
   font-family: var(--sans);

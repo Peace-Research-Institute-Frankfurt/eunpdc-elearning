@@ -17,8 +17,11 @@ function Timeline(props) {
 function Event(props) {
   return (
     <li className={Styles.event}>
-      <date className={Styles.eventDate}>{props.date}</date>
-      <span className={Styles.eventDescription}>{props.title}</span>
+      <span className={Styles.eventDate}>{props.date}</span>
+      <div className={Styles.eventDescription}>
+        <span className={Styles.eventTitle}>{props.title}</span>
+        {props.children}
+      </div>
     </li>
   );
 }

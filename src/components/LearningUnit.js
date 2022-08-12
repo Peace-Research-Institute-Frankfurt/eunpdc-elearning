@@ -4,6 +4,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import * as LuStyles from "./LearningUnit.module.scss";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Base from "./Base.js";
+import Counter from "./Counter";
 
 export const query = graphql`
   query LearningUnitQuery($id: String) {
@@ -91,7 +92,7 @@ const LearningUnit = ({ data, context }) => {
       <li key={node.name}>
         <Link to={node.name}>
           <h3 className={LuStyles.chapterTitle}>
-            <span className={LuStyles.chapterIndex}>{index + 1}</span>
+            <Counter n={index + 1}/>
             {frontmatter.title}
           </h3>
           <p className="chapter-intro">{frontmatter.intro}</p>
