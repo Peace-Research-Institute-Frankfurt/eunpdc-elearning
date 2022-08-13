@@ -40,18 +40,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `GatsbyJS`,
-        icon: `src/assets/logo.png`,
-        short_name: `GatsbyJS`,
+        name: `EUNPDC E-Learning`,
+        icon: `src/assets/favicon.png`,
+        short_name: `EUNPDC E-Learning`,
         start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
+        background_color: `#eeeeee`,
+        theme_color: `#0076A9`,
         display: `standalone`,
       },
-    },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {},
-    },
+    }
   ],
 };
