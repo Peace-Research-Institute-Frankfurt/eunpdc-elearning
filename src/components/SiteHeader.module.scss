@@ -1,0 +1,32 @@
+.container {
+  background: var(--gray-10);
+  font-size: var(--ms--1);
+  position: fixed;
+  left: 0rem;
+  right: 0rem;
+  top: 0;
+  border-bottom: 1px solid var(--gray-30);
+  box-shadow: 0 2px 6px -3px rgba(black, 0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 1rem;
+  nav {
+    display: flex;
+    margin-left: -0.75rem;
+  }
+  a {
+    padding: 0.75em 0.75rem;
+    border-right: 1px solid var(--gray-30);
+  }
+  button {
+    background: var(--gray-20);
+    padding: .2rem .5rem;
+    border-radius: var(--br);
+  }
+}
+.site__logo {
+  height: 4rem;
+  display: block;
+}

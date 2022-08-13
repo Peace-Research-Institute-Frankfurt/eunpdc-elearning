@@ -27,9 +27,14 @@ export default function Audio({ src, type }) {
   const [playing, setPlaying] = useState(false);
   const [remaining, setRemaining] = useState(0);
   const audioRef = useRef();
-  const updateLoop = window.setInterval(() => {
-    setRemaining(audioRef.current.duration - audioRef.current.currentTime);
-  }, 500);
+  useEffect(() => {
+    let updateLoop = window.setInterval(() => {
+      setRemaining(audioRef.current.duration - audioRef.current.currentTime);
+    }, 500);
+    return () => {
+      clearInterval(updateLoop);
+    };
+  }, []);
 
   function handleAudioError(err) {}
 

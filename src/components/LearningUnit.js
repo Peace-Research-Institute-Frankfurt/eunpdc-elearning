@@ -13,7 +13,9 @@ export const query = graphql`
         frontmatter {
           title
           intro
-          hero_image {
+          hero_alt
+          order
+        hero_image {
             childImageSharp {
               gatsbyImageData(width: 1000, layout: FULL_WIDTH)
             }
@@ -110,7 +112,7 @@ const LearningUnit = ({ data, context }) => {
               <GatsbyImage image={heroImage} alt={frontmatter.hero_alt} />
             </div>
             <div className={LuStyles.headerCopy}>
-              <p className={LuStyles.headerEyebrow}>Learning Unit 18</p>
+              <p className={LuStyles.headerEyebrow}>Unit {frontmatter.order}</p>
               <h1 className={LuStyles.headerTitle}>{frontmatter.title}</h1>
               <p className={LuStyles.headerIntro}>{frontmatter.intro}</p>
               <ul>{bylines}</ul>
@@ -151,5 +153,17 @@ const LearningUnit = ({ data, context }) => {
     </Base>
   );
 };
+
+export function Head({ data }) {
+  const post = data.post.childMdx.frontmatter;
+  return (
+    <>
+      <title>
+        {post.title}
+      </title>
+      <meta name="description" content={post.intro} />
+    </>
+  );
+}
 
 export default LearningUnit;

@@ -8,12 +8,12 @@ import { Quiz, MultipleChoice } from "./Quiz.js";
 import Quote from "./Quote.js";
 import Term from "./Term";
 import Figure from "./Figure";
+import SiteHeader from "./SiteHeader";
 import LectureVideo from "./LectureVideo";
 import Counter from "./Counter";
-import Footnote from "./Footnote";
 import { Timeline, Event } from "./Timeline";
 
-const shortCodes = { Quiz, MultipleChoice, Quote, Term, Figure, LectureVideo, Event, Timeline, Footnote};
+const shortCodes = { Quiz, MultipleChoice, Quote, Term, Figure, LectureVideo, Event, Timeline };
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
@@ -59,14 +59,14 @@ export const query = graphql`
     }
   }
 `;
-const Chapter = ({ data, pageContext }) => {
+const Chapter = ({ data, children }) => {
   const frontmatter = data.post.childMdx.frontmatter;
 
   const currentIndex = data.chapters.nodes.findIndex((el) => {
     return el.childMdx.frontmatter.order === frontmatter.order;
   });
 
-  const tocItems = data.post.childMdx.headings.map((h,i) => {
+  const tocItems = data.post.childMdx.headings.map((h, i) => {
     return <li key={`${h.value}-${i}`}>{h.value}</li>;
   });
 
@@ -75,10 +75,12 @@ const Chapter = ({ data, pageContext }) => {
 
   return (
     <Base>
+      <SiteHeader unit={data.unit.childMdx.frontmatter.order} chapter={frontmatter.title} />
+
       <article className={ChapterStyles.container}>
         <header className={ChapterStyles.header}>
           <Link className={ChapterStyles.unit} to={`../../${data.unit.childMdx.slug}`}>
-            <span>Unit {data.unit.childMdx.frontmatter.order}/25</span>
+            <span>Unit {data.unit.childMdx.frontmatter.order}</span>
           </Link>
           <h1 className={ChapterStyles.title}>{frontmatter.title}</h1>
           <p className={ChapterStyles.intro}>{frontmatter.intro}</p>
@@ -114,5 +116,18 @@ const Chapter = ({ data, pageContext }) => {
     </Base>
   );
 };
+
+export function Head({ data }) {
+  const chapter = data.post.childMdx.frontmatter;
+  const unit = data.unit.childMdx.frontmatter;
+  return (
+    <>
+      <title>
+        {chapter.title} – {unit.title}
+      </title>
+      <meta name="description" content={chapter.intro} />
+    </>
+  );
+}
 
 export default Chapter;

@@ -1,23 +1,25 @@
 :root {
-  --gray-10: rgb(252, 252, 253);
-  --gray-20: rgb(200, 200, 200);
+  --gray-10: rgb(254, 252, 254);
+  --gray-20: rgb(240, 240, 240);
+  --gray-30: rgb(210, 210, 210);
   --gray-40: rgb(108, 116, 126);
   --gray-50: rgb(87, 94, 101);
   --blue-90: #0c131a;
   --blue-80: #162635;
   --blue-60: #36526d;
   --blue-50: #5e8cba;
-  --blue-10: #f2f3f3;
   --blue-20: #e1e2e5;
+  --blue-10: #eff1fa;
   --yellow: #fbc202;
   --yellow-40: #ffd650;
-  --yellow-20: #ffe77b;
+  --yellow-20: #ffe057;
   --yellow-10: #fff7d6;
   --sans: "Untitled Sans";
   --serif: "GT Super Text Trial";
   --ms--1: 0.95rem;
   --ms-1: 1.5rem;
   --br: 3px;
+  --fast: 100ms;
   --ripPath: url(../assets/rip.svg);
 }
 
@@ -56,18 +58,6 @@ body {
 .gatsby-image-wrapper [data-main-image] {
   transition: 100ms;
 }
-
-.site__header {
-  background: var(--blue-10);
-  border-bottom: 1px solid var(--blue-20);
-  font-size: var(--ms--1);
-  padding: 0.5rem calc(1rem + 15%);
-}
-.site__logo {
-  height: 4rem;
-  display: block;
-}
-
 .footnotes {
   border-top: 1px solid var(--blue-60);
   padding-top: 2rem;

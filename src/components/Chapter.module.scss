@@ -1,7 +1,7 @@
 .header {
-  padding: 8rem;
+  padding: 10rem;
   padding-left: calc(2rem + 15%);
-  color: black;
+  color: var(--blue-90);
   background: var(--blue-10);
   border-bottom: 1px solid var(--blue-20);
   padding-bottom: 9rem;
@@ -20,7 +20,7 @@
 }
 
 .title {
-  font-size: 4.5rem;
+  font-size: 4rem;
   font-family: var(--serif);
   font-weight: 500;
   line-height: 1;
@@ -113,7 +113,6 @@
   p a,
   li a {
     text-decoration: underline;
-    background: var(--yellow-10);
   }
 }
 
