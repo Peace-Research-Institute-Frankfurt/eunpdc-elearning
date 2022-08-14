@@ -23,7 +23,7 @@
   bottom: 0;
   display: block;
   grid-column: 2 / 3;
-  background: var(--blue-50);
+  background: var(--gray-30);
 }
 
 .event {
@@ -43,8 +43,8 @@
     right: -2rem;
     top: .2rem;
     transform: translateX(-100%);
-    background: var(--blue-80);
-    width: 10px;
+    background: var(--gray-50);
+    width:  10px;
     height: 10px;
     border-radius: 100%;
     grid-column: 2/3;

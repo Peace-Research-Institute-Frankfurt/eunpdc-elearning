@@ -11,6 +11,7 @@ import Figure from "./Figure";
 import SiteHeader from "./SiteHeader";
 import LectureVideo from "./LectureVideo";
 import Counter from "./Counter";
+import SiteFooter from "./SiteFooter";
 import { Timeline, Event } from "./Timeline";
 
 const shortCodes = { Quiz, MultipleChoice, Quote, Term, Figure, LectureVideo, Event, Timeline };
@@ -66,31 +67,28 @@ const Chapter = ({ data, children }) => {
     return el.childMdx.frontmatter.order === frontmatter.order;
   });
 
-  const tocItems = data.post.childMdx.headings.map((h, i) => {
-    return <li key={`${h.value}-${i}`}>{h.value}</li>;
-  });
-
   const next = data.chapters.nodes[currentIndex + 1];
   const previous = data.chapters.nodes[currentIndex - 1];
 
   return (
     <Base>
       <SiteHeader unit={data.unit.childMdx.frontmatter.order} chapter={frontmatter.title} />
-
-      <article className={ChapterStyles.container}>
+      <article>
         <header className={ChapterStyles.header}>
           <Link className={ChapterStyles.unit} to={`../../${data.unit.childMdx.slug}`}>
             <span>Unit {data.unit.childMdx.frontmatter.order}</span>
           </Link>
           <h1 className={ChapterStyles.title}>{frontmatter.title}</h1>
           <p className={ChapterStyles.intro}>{frontmatter.intro}</p>
+          <aside className={ChapterStyles.actions}>
+            <ul>
+              <li><a href="#1">Bookmark</a></li>
+              <li><a href="#1">Print</a></li>
+              <li><a href="#1">Share</a></li>
+            </ul>
+          </aside>
         </header>
         <div className={ChapterStyles.body}>
-          {tocItems && (
-            <aside className={ChapterStyles.toc}>
-              <ol>{tocItems}</ol>
-            </aside>
-          )}
           <MDXProvider components={shortCodes}>
             <MDXRenderer>{data.post.childMdx.body}</MDXRenderer>
           </MDXProvider>
@@ -102,17 +100,18 @@ const Chapter = ({ data, children }) => {
                   <Counter n={next.childMdx.frontmatter.order} />
                   {next.childMdx.frontmatter.title}
                 </span>
-                <p className={ChapterStyles.paginationIntro}>{next.childMdx.frontmatter.intro}</p>
+                <p>{next.childMdx.frontmatter.intro}</p>
               </Link>
             )}
             {previous && (
-              <Link className={ChapterStyles.previous} to={`../../${previous.childMdx.slug}`}>
+              <Link to={`../../${previous.childMdx.slug}`}>
                 <span className={ChapterStyles.paginationLabel}>Previous:</span> <span>{previous.childMdx.frontmatter.title}</span>
               </Link>
             )}
           </nav>
         </div>
       </article>
+      <SiteFooter/>
     </Base>
   );
 };

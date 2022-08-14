@@ -38,14 +38,16 @@ export default function Term(props) {
   }
   if (term) {
     return (
-      <span onMouseEnter={showTooltip} onMouseLeave={hideTooltip} className={styles.container}>
-        {term.term_id}
-        <span className={`${styles.tooltip} ${active ? styles.tooltipActive : ""}`}>
+      <>
+        <button onMouseEnter={showTooltip} onFocus={showTooltip} onMouseLeave={hideTooltip} onBlur={hideTooltip} className={styles.container}>
+          {props.children}
+        <aside role="tooltip" className={`${styles.tooltip} ${active ? styles.tooltipActive : ""}`}>
           <span className={styles.tooltipTitle}>{term.title}</span>
           <span className={styles.tooltipDescription}>{term.description}</span>
           <span className={styles.tooltipArrow}></span>
-        </span>
-      </span>
+        </aside>
+        </button>
+      </>
     );
   } else {
     return <>{props.t}</>;

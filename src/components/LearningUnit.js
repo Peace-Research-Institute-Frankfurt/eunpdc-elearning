@@ -4,6 +4,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import * as LuStyles from "./LearningUnit.module.scss";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Base from "./Base.js";
+import SiteHeader from "./SiteHeader";
 import Counter from "./Counter";
 
 export const query = graphql`
@@ -15,7 +16,7 @@ export const query = graphql`
           intro
           hero_alt
           order
-        hero_image {
+          hero_image {
             childImageSharp {
               gatsbyImageData(width: 1000, layout: FULL_WIDTH)
             }
@@ -78,9 +79,7 @@ const LearningUnit = ({ data, context }) => {
         <div className={LuStyles.authorHeader}>
           <GatsbyImage className={LuStyles.authorImage} image={authorImage} alt={frontmatter.hero_alt} />
           <div>
-            <h3 className={LuStyles.authorTitle}>
-              {author.frontmatter.name}
-              </h3>
+            <h3 className={LuStyles.authorTitle}>{author.frontmatter.name}</h3>
             <span className={LuStyles.authorInstitution}>{author.frontmatter.institution}</span>
           </div>
         </div>
@@ -94,7 +93,7 @@ const LearningUnit = ({ data, context }) => {
       <li key={node.name}>
         <Link to={node.name}>
           <h3 className={LuStyles.chapterTitle}>
-            <Counter n={index + 1}/>
+            <Counter n={index + 1} />
             {frontmatter.title}
           </h3>
           <p className="chapter-intro">{frontmatter.intro}</p>
@@ -105,10 +104,11 @@ const LearningUnit = ({ data, context }) => {
   });
   return (
     <Base>
+      <SiteHeader unit={frontmatter.order} chapter={""} />
       <article className={LuStyles.container}>
         <header className={LuStyles.header}>
           <div className={LuStyles.headerInner}>
-            <div className={LuStyles.headerImage}>
+            <div>
               <GatsbyImage image={heroImage} alt={frontmatter.hero_alt} />
             </div>
             <div className={LuStyles.headerCopy}>
@@ -158,9 +158,7 @@ export function Head({ data }) {
   const post = data.post.childMdx.frontmatter;
   return (
     <>
-      <title>
-        {post.title}
-      </title>
+      <title>{post.title}</title>
       <meta name="description" content={post.intro} />
     </>
   );

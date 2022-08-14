@@ -49,6 +49,11 @@ button {
   letter-spacing: inherit;
 }
 
+::selection {
+  background-color: var(--blue-80);
+  color: white;
+}
+
 body {
   background: var(--gray-10);
   font-family: var(--sans);
