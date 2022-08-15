@@ -1,7 +1,7 @@
 import React from "react";
 import "./global.scss";
-import SiteHeader from "./SiteHeader";
-function Base(props) {
+
+function App(props) {
   return (
     <>
       <main className="site__content">{props.children}</main>
@@ -9,4 +9,4 @@ function Base(props) {
   );
 }
 
-export default Base;
+export default App;

@@ -5,39 +5,82 @@
   left: 0rem;
   right: 0rem;
   top: 0;
-  border-bottom: 1px solid var(--gray-30);
-  box-shadow: 0 1px 4px 0px rgba(black, 0.1);
+  border-bottom: 1px solid var(--gray-50);
+  // box-shadow: 0 1px 4px 0px rgba(black, 0.1);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  nav {
-    display: flex;
+  button {
+    background: var(--gray-20);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--br);
+    cursor: pointer;
   }
-  a, span {
-    padding: .8rem 1rem;
+}
+
+.navigation {
+  display: flex;
+  a,
+  span {
+    padding: 0.8rem 1rem;
     display: flex;
     align-items: flex-end;
   }
-  span {
-    font-weight: 600;
-  }
   a {
     border-right: 1px solid var(--gray-30);
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       text-decoration: underline;
       background: var(--gray-20);
     }
   }
-  button {
-    background: var(--gray-20);
-    padding: .2rem .5rem;
-    border-radius: var(--br);
-  }
 }
 .logo {
   height: 1.3rem;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   display: block;
+}
+
+.bookmarks {
+  position: absolute;
+  background: white;
+  top: 4rem;
+  right: 1rem;
+  max-width: 22rem;
+  border: 1px solid var(--gray-50);
+  box-shadow: 0 1px 2px 0px rgba(black, 0.1);
+  line-height: 1.2;
+  opacity: 0;
+  transition: var(--fast);
+  transform: translateY(-10px);
+  li {
+    list-style: none;
+    border-bottom: 1px solid var(--gray-30);
+  }
+  li:last-of-type {
+    border-bottom: 0;
+  }
+  a {
+    padding: 0.5rem;
+    display: block;
+  }
+  a:hover, &:focus-visible {
+    background: var(--gray-20);
+    .bookmark-title {
+      text-decoration: underline;
+    }
+  }
+}
+
+.bookmarks-active {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.bookmark-eyebrow {
+  display: block;
+}
+.bookmark-title {
+  font-weight: 500;
 }

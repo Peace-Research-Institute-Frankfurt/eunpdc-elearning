@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import Base from "./Base";
+import App from "./App";
 import { MDXProvider } from "@mdx-js/react";
 import * as ChapterStyles from "./Chapter.module.scss";
 import { Quiz, MultipleChoice } from "./Quiz.js";
@@ -13,6 +13,7 @@ import LectureVideo from "./LectureVideo";
 import Counter from "./Counter";
 import SiteFooter from "./SiteFooter";
 import { Timeline, Event } from "./Timeline";
+import useLocalStorage from "./useLocalStorage";
 
 const shortCodes = { Quiz, MultipleChoice, Quote, Term, Figure, LectureVideo, Event, Timeline };
 
@@ -20,6 +21,7 @@ export const query = graphql`
   query ($id: String, $lu_id: String) {
     post: file(id: { eq: $id }) {
       childMdx {
+        slug
         headings {
           value
           depth
@@ -62,6 +64,7 @@ export const query = graphql`
 `;
 const Chapter = ({ data, children }) => {
   const frontmatter = data.post.childMdx.frontmatter;
+  const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
 
   const currentIndex = data.chapters.nodes.findIndex((el) => {
     return el.childMdx.frontmatter.order === frontmatter.order;
@@ -69,10 +72,30 @@ const Chapter = ({ data, children }) => {
 
   const next = data.chapters.nodes[currentIndex + 1];
   const previous = data.chapters.nodes[currentIndex - 1];
+  const bookmarkIndex = bookmarks.findIndex((el) => {
+    return el.slug === data.post.childMdx.slug;
+  });
+  function toggleBookmark() {
+    setBookmarks((prevBookmarks) => {
+      if (bookmarkIndex === -1) {
+        const bookmark = {
+          eyebrow: `Unit ${data.unit.childMdx.frontmatter.order}`,
+          title: frontmatter.title,
+          slug: data.post.childMdx.slug,
+        };
+        return [...prevBookmarks, bookmark];
+      } else {
+        return prevBookmarks.filter((el) => {
+          return el.slug !== data.post.childMdx.slug;
+        });
+      }
+    });
+    console.log(bookmarks);
+  }
 
   return (
-    <Base>
-      <SiteHeader unit={data.unit.childMdx.frontmatter.order} chapter={frontmatter.title} />
+    <App>
+      <SiteHeader bookmarks={bookmarks} unit={data.unit.childMdx.frontmatter.order} chapter={frontmatter.title} />
       <article>
         <header className={ChapterStyles.header}>
           <Link className={ChapterStyles.unit} to={`../../${data.unit.childMdx.slug}`}>
@@ -82,9 +105,15 @@ const Chapter = ({ data, children }) => {
           <p className={ChapterStyles.intro}>{frontmatter.intro}</p>
           <aside className={ChapterStyles.actions}>
             <ul>
-              <li><a href="#1">Bookmark</a></li>
-              <li><a href="#1">Print</a></li>
-              <li><a href="#1">Share</a></li>
+              <li>
+                <button onClick={toggleBookmark}>{bookmarkIndex === -1 ? "Save to bookmarks" : "Saved"}</button>
+              </li>
+              <li>
+                <a href="#1">Print</a>
+              </li>
+              <li>
+                <a href="#1">Share</a>
+              </li>
             </ul>
           </aside>
         </header>
@@ -111,8 +140,8 @@ const Chapter = ({ data, children }) => {
           </nav>
         </div>
       </article>
-      <SiteFooter/>
-    </Base>
+      <SiteFooter />
+    </App>
   );
 };
 

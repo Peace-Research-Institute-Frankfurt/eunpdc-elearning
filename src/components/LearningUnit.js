@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import * as LuStyles from "./LearningUnit.module.scss";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import Base from "./Base.js";
+import App from "./App";
 import SiteHeader from "./SiteHeader";
 import Counter from "./Counter";
 
@@ -103,7 +103,7 @@ const LearningUnit = ({ data, context }) => {
     );
   });
   return (
-    <Base>
+    <App>
       <SiteHeader unit={frontmatter.order} chapter={""} />
       <article className={LuStyles.container}>
         <header className={LuStyles.header}>
@@ -150,7 +150,7 @@ const LearningUnit = ({ data, context }) => {
           </section>
         </main>
       </article>
-    </Base>
+    </App>
   );
 };
 
