@@ -5,16 +5,19 @@ import * as styles from "./SiteHeader.module.scss";
 
 export default function SiteHeader({ unit, chapter, bookmarks }) {
   const [showBookmarks, setShowBookmarks] = useState(false);
-  const bookmarkItems = bookmarks.map((b) => {
-    return (
-      <li key={b.slug}>
-        <Link to={`../../${b.slug}`}>
-          <span className={styles.bookmarkEyebrow}>{b.eyebrow}</span>
-          <span className={styles.bookmarkTitle}>{b.title}</span>
-        </Link>
-      </li>
-    );
-  });
+  let bookmarkItems = []
+  if (bookmarks) {
+    bookmarkItems = bookmarks.map((b) => {
+      return (
+        <li key={b.slug}>
+          <Link to={`../../${b.slug}`}>
+            <span className={styles.bookmarkEyebrow}>{b.eyebrow}</span>
+            <span className={styles.bookmarkTitle}>{b.title}</span>
+          </Link>
+        </li>
+      );
+    });
+  }
   function toggleBookmarks() {
     setShowBookmarks((prev) => !prev);
   }
@@ -29,8 +32,10 @@ export default function SiteHeader({ unit, chapter, bookmarks }) {
         <span>{chapter}</span>
       </nav>
       <div className="tools">
-        <button onClick={toggleBookmarks}>Saved chapters ({bookmarks.length})</button>
-        <ul className={`${styles.bookmarks} ${showBookmarks ? styles.bookmarksActive : ""}`}>{bookmarkItems}</ul>
+        <>
+          <button onClick={toggleBookmarks}>Saved chapters ({bookmarkItems.length})</button>
+          <ul className={`${styles.bookmarks} ${showBookmarks ? styles.bookmarksActive : ""}`}>{bookmarkItems}</ul>
+        </>
       </div>
     </header>
   );
