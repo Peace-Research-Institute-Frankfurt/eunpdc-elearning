@@ -4,7 +4,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import App from "./App";
 import { MDXProvider } from "@mdx-js/react";
 import * as ChapterStyles from "./Chapter.module.scss";
-import { Quiz, MultipleChoice } from "./Quiz.js";
+import { Quiz, Radio, RadioChoice } from "./Quiz.js";
 import Quote from "./Quote.js";
 import Term from "./Term";
 import Figure from "./Figure";
@@ -14,8 +14,10 @@ import Counter from "./Counter";
 import SiteFooter from "./SiteFooter";
 import { Timeline, Event } from "./Timeline";
 import useLocalStorage from "./useLocalStorage";
+import BookmarkAdd from "../assets/bookmark-add.svg";
+import BookmarkAdded from "../assets/bookmark-added.svg";
 
-const shortCodes = { Quiz, MultipleChoice, Quote, Term, Figure, LectureVideo, Event, Timeline };
+const shortCodes = { Quiz, Radio, RadioChoice, Quote, Term, Figure, LectureVideo, Event, Timeline };
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
@@ -106,13 +108,23 @@ const Chapter = ({ data, children }) => {
           <aside className={ChapterStyles.actions}>
             <ul>
               <li>
-                <button onClick={toggleBookmark}>{bookmarkIndex === -1 ? "Save to bookmarks" : "Saved"}</button>
-              </li>
-              <li>
                 <a href="#1">Print</a>
               </li>
               <li>
                 <a href="#1">Share</a>
+              </li>
+              <li>
+                <button onClick={toggleBookmark}>
+                  {bookmarkIndex === -1 ? (
+                    <>
+                      <img src={BookmarkAdd} /> Save to bookmarks
+                    </>
+                  ) : (
+                    <>
+                      <img src={BookmarkAdded} /> Saved
+                    </>
+                  )}
+                </button>
               </li>
             </ul>
           </aside>

@@ -12,12 +12,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  button {
-    background: var(--gray-20);
-    padding: 0.2rem 0.5rem;
-    border-radius: var(--br);
-    cursor: pointer;
-  }
 }
 
 .navigation {
@@ -66,7 +60,8 @@
     padding: 0.5rem;
     display: block;
   }
-  a:hover, &:focus-visible {
+  a:hover,
+  &:focus-visible {
     background: var(--gray-20);
     .bookmark-title {
       text-decoration: underline;
@@ -83,4 +78,30 @@
 }
 .bookmark-title {
   font-weight: 500;
+}
+
+.button {
+  background: var(--gray-20);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--br);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+  }
+}
+.button-counter {
+  background: var(--gray-70);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--br);
+  height: 1.1rem;
+  padding: 0 .3rem;
+  font-weight: 500;
+  font-size: 14px;
+  margin-left: .5rem;
 }

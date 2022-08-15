@@ -5,7 +5,7 @@ import * as styles from "./SiteHeader.module.scss";
 
 export default function SiteHeader({ unit, chapter, bookmarks }) {
   const [showBookmarks, setShowBookmarks] = useState(false);
-  let bookmarkItems = []
+  let bookmarkItems = [];
   if (bookmarks) {
     bookmarkItems = bookmarks.map((b) => {
       return (
@@ -33,7 +33,10 @@ export default function SiteHeader({ unit, chapter, bookmarks }) {
       </nav>
       <div className="tools">
         <>
-          <button onClick={toggleBookmarks}>Saved chapters ({bookmarkItems.length})</button>
+          <button className={styles.button} onClick={toggleBookmarks}>
+            Bookmarks
+            <span className={styles.buttonCounter}>{bookmarkItems.length}</span>
+          </button>
           <ul className={`${styles.bookmarks} ${showBookmarks ? styles.bookmarksActive : ""}`}>{bookmarkItems}</ul>
         </>
       </div>

@@ -13,7 +13,7 @@ export default function Figure(props) {
           url
         }
       }
-      images: allFile {
+      images: allFile(filter: {childImageSharp: {id: {ne: "null"}}}) {
         nodes {
           relativePath
           base
