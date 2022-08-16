@@ -5,6 +5,7 @@ import * as LuStyles from "./LearningUnit.module.scss";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import App from "./App";
 import SiteHeader from "./SiteHeader";
+import SiteFooter from "./SiteFooter";
 import Counter from "./Counter";
 
 export const query = graphql`
@@ -150,6 +151,7 @@ const LearningUnit = ({ data, context }) => {
           </section>
         </main>
       </article>
+      <SiteFooter />
     </App>
   );
 };

@@ -3,5 +3,10 @@
         "term_id": "CWC",
         "title": "Chemical Weapons Convention (CWC)",
         "description": "The Convention on the Prohibition of the Development, Production and Stockpiling of Bacteriological (Biological) and Toxin Weapons and on their Destruction entered into force on 26 March 1975. It was the first multilateral disarmament treaty banning the production of an entire category of weapons."
+    },
+    {
+        "term_id": "BWC",
+        "title": "Biological Weapons Convention (BWC)",
+        "description": "The Convention on the Prohibition of the Development, Production and Stockpiling of Bacteriological (Biological) and Toxin Weapons and on their Destruction entered into force on 26 March 1975. It was the first multilateral disarmament treaty banning the production of an entire category of weapons."
     }
 ]

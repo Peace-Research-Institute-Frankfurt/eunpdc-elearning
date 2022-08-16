@@ -8,5 +8,10 @@
         "license_id": "cc-by-4",
         "title": "CC BY 4.0",
         "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+        "license_id": "all-reserved",
+        "title": "All rights reserved",
+        "url": ""
     }
 ]

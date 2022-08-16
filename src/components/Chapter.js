@@ -116,9 +116,7 @@ const Chapter = ({ data, children }) => {
               <li>
                 <button onClick={toggleBookmark}>
                   {bookmarkIndex === -1 ? (
-                    <>
-                      <img src={BookmarkAdd} /> Save to bookmarks
-                    </>
+                    <>Save to bookmarks</>
                   ) : (
                     <>
                       <img src={BookmarkAdded} /> Saved

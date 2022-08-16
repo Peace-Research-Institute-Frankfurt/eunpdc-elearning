@@ -32,15 +32,11 @@ export default function Term(props) {
     setActive(false);
   }
 
-  let tooltipClasses = [styles.tooltip];
-  if (active) {
-    tooltipClasses.push("is-active");
-  }
   if (term) {
     return (
       <>
         <button onMouseEnter={showTooltip} onFocus={showTooltip} onMouseLeave={hideTooltip} onBlur={hideTooltip} className={styles.container}>
-          {props.children}
+          {props.children ? <>{props.children}</> : <>{term.term_id}</>}
         <aside role="tooltip" className={`${styles.tooltip} ${active ? styles.tooltipActive : ""}`}>
           <span className={styles.tooltipTitle}>{term.title}</span>
           <span className={styles.tooltipDescription}>{term.description}</span>

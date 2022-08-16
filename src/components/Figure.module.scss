@@ -1,24 +1,26 @@
 .container {
   display: contents;
 }
-.caption {
-  font-size: var(--ms--1);
-  grid-column: 4 / 5;
-  span {
-    display: block;
-  }
-}
 .credit {
-  color: gray;
+  color: var(--gray-50);
   font-size: var(--ms--1);
+  font-weight: 400;
+  padding-top: .1em;
   a {
     text-decoration: underline;
   }
 }
 .caption {
+  font-size: var(--ms--1);
+  font-weight: 500;
   grid-column: 2 / 5;
-  padding-top: 1rem;
+  padding-top: .75em;
+  line-height: 1.15;
+  max-width: 45em;
   margin-bottom: 1rem;
+  span {
+    display: block;
+  }
 }
 .image {
   margin-top: 1rem;
