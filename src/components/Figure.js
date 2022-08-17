@@ -13,11 +13,13 @@ export default function Figure(props) {
           url
         }
       }
-      images: allFile(filter: {childImageSharp: {id: {ne: "null"}}}) {
+      images: allFile(filter: { childImageSharp: { id: { ne: "null" } } }) {
         nodes {
           relativePath
           base
           name
+          extension
+          publicURL
           childImageSharp {
             gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
@@ -41,16 +43,23 @@ export default function Figure(props) {
     }
   });
 
-  const thisImage = getImage(image);
   let size = props.size;
   return (
     <figure className={[FigureStyles[size], FigureStyles.container].join(" ")}>
-      <GatsbyImage className={FigureStyles.image} image={thisImage} alt={props.alt}></GatsbyImage>
+      {image.extension === "svg"
+      ? <img className={FigureStyles.image} alt={props.alt} src={image.publicURL}/>
+      : <GatsbyImage className={FigureStyles.image} image={getImage(image)} alt={props.alt}></GatsbyImage>
+      }
+
       <figcaption className={FigureStyles.caption}>
         <span>{props.caption}</span>
         <span className={FigureStyles.credit}>
           <>{props.credit}</>
-          {license && <>{","} <a href={license.url}>{license.title}</a></>}
+          {license && (
+            <>
+              {","} <a href={license.url}>{license.title}</a>
+            </>
+          )}
         </span>
       </figcaption>
     </figure>

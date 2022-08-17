@@ -24,8 +24,8 @@ export default function SiteHeader({ unit, chapter, bookmarks }) {
   return (
     <header className={styles.container}>
       <nav className={styles.navigation}>
-        <Link to="/">
-          <img className={styles.logo} src={Icon} alt="" />
+        <Link className={styles.logo} to="/">
+          <img src={Icon} alt="" />
           EUNPDC E-Learning
         </Link>
         <Link to="/">Unit {unit}</Link>

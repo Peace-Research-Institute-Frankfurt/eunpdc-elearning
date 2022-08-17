@@ -5,8 +5,7 @@
   left: 0rem;
   right: 0rem;
   top: 0;
-  border-bottom: 1px solid var(--gray-50);
-  // box-shadow: 0 1px 4px 0px rgba(black, 0.1);
+  border-bottom: 1px solid var(--gray-30);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -20,10 +19,11 @@
   span {
     padding: 0.8rem 1rem;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
   }
   a {
     border-right: 1px solid var(--gray-30);
+    display: flex;
     &:hover,
     &:focus {
       text-decoration: underline;
@@ -31,10 +31,19 @@
     }
   }
 }
-.logo {
-  height: 1.3rem;
-  margin-right: 0.5rem;
+a.logo {
   display: block;
+  position: relative;
+  padding-left: 2.25rem;
+  font-weight: 500;
+
+  img {
+    position: absolute;
+    height: 1.5rem;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 .bookmarks {
@@ -100,8 +109,8 @@
   justify-content: center;
   border-radius: var(--br);
   height: 1.1rem;
-  padding: 0 .3rem;
+  padding: 0 0.3rem;
   font-weight: 500;
   font-size: 14px;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
