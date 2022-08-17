@@ -77,6 +77,11 @@ const Chapter = ({ data, children }) => {
   const bookmarkIndex = bookmarks.findIndex((el) => {
     return el.slug === data.post.childMdx.slug;
   });
+
+  function handlePrint() {
+    window.print();
+  }
+
   function toggleBookmark() {
     setBookmarks((prevBookmarks) => {
       if (bookmarkIndex === -1) {
@@ -108,10 +113,10 @@ const Chapter = ({ data, children }) => {
           <aside className={ChapterStyles.actions}>
             <ul>
               <li>
-                <a href="#1">Print</a>
+                <button onClick={handlePrint}>Print</button>
               </li>
               <li>
-                <a href="#1">Share</a>
+                <button href="#1">Share</button>
               </li>
               <li>
                 <button onClick={toggleBookmark}>
@@ -136,7 +141,6 @@ const Chapter = ({ data, children }) => {
               <Link className={ChapterStyles.next} to={`../../${next.childMdx.slug}`}>
                 <span className={ChapterStyles.paginationLabel}>Next</span>
                 <span className={ChapterStyles.paginationTitle}>
-                  <Counter n={next.childMdx.frontmatter.order} />
                   {next.childMdx.frontmatter.title}
                 </span>
                 <p>{next.childMdx.frontmatter.intro}</p>

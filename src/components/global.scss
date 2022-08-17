@@ -15,10 +15,12 @@
   --yellow-40: #ffd650;
   --yellow-20: #ffe057;
   --yellow-10: #fff7d6;
-  --sans: "Untitled Sans";
-  --serif: "GT Super Text Trial";
-  --ms--1: 0.95rem;
+  --sans: "Untitled Sans", sans-serif;
+  --serif: "Roboto Serif", "GT Super Text Trial";
+  --mono: Courier Prime, monospace;
+  --ms--1: 0.92rem;
   --ms-1: 1.5rem;
+  --ms-2: 2rem;
   --br: 3px;
   --fast: 100ms;
   --ripPath: url(../assets/rip.svg);

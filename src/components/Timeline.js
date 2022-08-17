@@ -17,8 +17,8 @@ function Timeline(props) {
 function Event(props) {
   return (
     <li className={Styles.event}>
-      <span className={Styles.eventDate}>{props.date}</span>
       <div className={Styles.eventDescription}>
+        <span className={Styles.eventDate}>{props.date}</span>
         <h3 className={Styles.eventTitle}>{props.title}</h3>
         {props.children}
       </div>

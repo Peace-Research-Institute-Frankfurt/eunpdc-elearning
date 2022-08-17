@@ -8,7 +8,7 @@
 }
 .unit {
   font-size: var(--ms--1);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   display: block;
   font-weight: 700;
   span {
@@ -26,7 +26,7 @@
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 .intro {
   font-family: var(--serif);
@@ -81,10 +81,12 @@
     letter-spacing: -0.015em;
   }
   h3 {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 500;
+    line-height: 1.2;
+    margin-top: 1rem;
     letter-spacing: -0.015em;
-    margin-bottom: 0.125rem;
+    margin-bottom: 0.25rem;
   }
   table {
     margin-top: 1.5rem;
@@ -159,6 +161,7 @@
   &:focus-visible {
     .pagination-title {
       text-decoration: underline;
+      text-decoration-thickness: 1px;
     }
   }
 }
@@ -173,12 +176,15 @@
 
 .pagination-label {
   color: var(--gray-50);
-  margin-bottom: 0.25rem;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 .pagination-title {
   font-family: var(--serif);
-  font-size: var(--ms-1);
+  font-size: var(--ms-2);
   margin-bottom: 0.5rem;
+  font-weight: 600;
+  letter-spacing: -.01em;
   text-underline-offset: 0.12em;
   display: flex;
   align-items: baseline;
