@@ -1,6 +1,7 @@
+@import "vars";
 :root {
   --gray-10: rgb(255, 255, 255);
-  --gray-20: rgb(244, 244, 245);
+  --gray-20: rgb(249, 249, 248);
   --gray-30: rgb(210, 210, 210);
   --gray-40: rgb(108, 116, 126);
   --gray-50: rgb(87, 94, 101);
@@ -20,6 +21,7 @@
   --mono: Courier Prime, monospace;
   --ms--2: 0.8rem;
   --ms--1: 0.95rem;
+  --ms-0: 1.155rem;
   --ms-1: 1.5rem;
   --ms-2: 2rem;
   --br: 3px;
@@ -61,7 +63,7 @@ button {
 body {
   background: var(--gray-10);
   font-family: var(--sans);
-  font-size: 1.15rem;
+  font-size: var(--ms-0);
 }
 
 .gatsby-image-wrapper [data-main-image] {
@@ -73,7 +75,10 @@ body {
   margin-top: 2rem;
   margin-bottom: 2rem;
   font-size: var(--ms--1);
-  grid-column: 3 / 4;
+  grid-column: 1 / 6;
+  @include bp(m) {
+    grid-column: 3 / 4;
+  }
   .footnote-backref {
     // display: none;
     margin-left: 0.2em;

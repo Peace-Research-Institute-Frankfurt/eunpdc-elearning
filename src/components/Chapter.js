@@ -124,7 +124,7 @@ const Chapter = ({ data, children }) => {
                     <>Save to bookmarks</>
                   ) : (
                     <>
-                      <img src={BookmarkAdded} /> Saved
+                      <img alt="" src={BookmarkAdded} /> Saved
                     </>
                   )}
                 </button>
