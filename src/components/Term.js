@@ -17,6 +17,7 @@ export default function Term(props) {
   `);
 
   const [active, setActive] = useState(false);
+  const delay = 200;
 
   // Let's find our term
   let term = null;
@@ -27,7 +28,9 @@ export default function Term(props) {
   });
 
   function showTooltip() {
-    setActive(true);
+    window.setTimeout(()=>{
+      setActive(true);
+    }, delay)
   }
   function hideTooltip() {
     setActive(false);
@@ -38,9 +41,11 @@ export default function Term(props) {
       <>
         <button onMouseEnter={showTooltip} onFocus={showTooltip} onMouseLeave={hideTooltip} onBlur={hideTooltip} className={styles.container}>
           {props.children ? <>{props.children}</> : <>{term.term_id}</>}
-          <Tooltip active={active}>
-            <span className={styles.title}>{term.title}</span>
-            <span className={styles.description}>{term.description}</span>
+          <Tooltip position="top-center" active={active}>
+            <div className={styles.content}>
+              <span className={styles.title}>{term.title}</span>
+              <span className={styles.description}>{term.description}</span>
+            </div>
           </Tooltip>
         </button>
       </>

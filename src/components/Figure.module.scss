@@ -13,7 +13,7 @@
 .caption {
   font-size: var(--ms--1);
   font-weight: 500;
-  grid-column: 2 / 5;
+  grid-column: 3 / 4;
   padding-top: 0.75em;
   line-height: 1.15;
   max-width: 45em;
@@ -29,7 +29,7 @@
 
 .full {
   .image {
-    grid-column: 1 / 7;
+    grid-column: 1 / 6;
   }
 }
 
@@ -40,7 +40,7 @@
 }
 .medium {
   .image {
-    grid-column: 2 / 3;
+    grid-column: 3 / 4;
   }
 }
 

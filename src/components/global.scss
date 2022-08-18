@@ -18,7 +18,8 @@
   --sans: "Untitled Sans", sans-serif;
   --serif: "Roboto Serif", "GT Super Text Trial";
   --mono: Courier Prime, monospace;
-  --ms--1: 0.92rem;
+  --ms--2: 0.8rem;
+  --ms--1: 0.95rem;
   --ms-1: 1.5rem;
   --ms-2: 2rem;
   --br: 3px;
@@ -72,7 +73,7 @@ body {
   margin-top: 2rem;
   margin-bottom: 2rem;
   font-size: var(--ms--1);
-  grid-column: 2 / 3;
+  grid-column: 3 / 4;
   .footnote-backref {
     // display: none;
     margin-left: 0.2em;

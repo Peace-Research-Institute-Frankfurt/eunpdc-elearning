@@ -1,7 +1,8 @@
 .header {
   background: var(--blue-20);
   padding: 5% 10%;
-  padding-top: 7%;
+  padding-top: 8%;
+  margin-bottom: 2rem;
 }
 .header-inner {
   position: relative;
@@ -65,8 +66,8 @@
   }
 }
 .section-title {
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-size: 1.75rem;
+  font-weight: 600;
   font-family: var(--sans);
   margin-bottom: 1.5rem;
 }
@@ -80,7 +81,7 @@
 .author {
   list-style: none;
   border-radius: var(--br);
-  max-width: 60rem;
+  max-width: 50rem;
   p {
     margin-bottom: 0.5em;
     &:last-of-type {
@@ -90,8 +91,8 @@
   a {
     text-decoration: underline;
     background: var(--gray-10);
-    text-decoration-color: var(--blue-50);
-    text-decoration-thickness: 1px;
+    text-decoration-color: var(--yellow);
+    text-decoration-thickness: 3px;
   }
 }
 
@@ -103,17 +104,17 @@
 
 .author-image {
   border-radius: 100px;
-  width: 3.2rem;
+  width: 3rem;
   margin-right: 1rem;
 }
 .author-institution {
-  // color: var(--blue-60);
+  color: var(--blue-60);
   font-weight: 400;
 }
 
 .author-title {
   font-size: var(--ms-1);
-  font-family: var(--serif);
+  // font-family: var(--serif);
   font-weight: 500;
 }
 
@@ -168,8 +169,12 @@
 
 .disclosures {
   font-size: var(--ms--1);
-  max-width: 35rem;
+  max-width: 45rem;
+  columns: 2;
+  p {
+    margin-bottom: 1rem;
+  }
   h3 {
-    margin-top: 1rem;
+    font-weight: 500;
   }
 }

@@ -35,15 +35,15 @@ export default function SiteHeader({ unit, chapter, bookmarks }) {
         {chapter && <span className={styles.navigationItem}>{chapter}</span>}
       </nav>
       <div className={styles.tools}>
-        <>
+        <div className={styles.bookmarksContainer}>
           <button className={styles.bookmarksToggle} onClick={toggleBookmarks}>
             Bookmarks
             <span className={styles.buttonCounter}>{bookmarkItems.length}</span>
-            <Tooltip position="bottom" arrow="top-right" active={showBookmarks}>
-              <ul className={`${styles.bookmarks} ${showBookmarks ? styles.bookmarksActive : ""}`}>{bookmarkItems}</ul>
-            </Tooltip>
           </button>
-        </>
+          <Tooltip position="bottom-left" arrow="top-right" active={showBookmarks}>
+            <ul className={`${styles.bookmarks} ${showBookmarks ? styles.bookmarksActive : ""}`}>{bookmarkItems}</ul>
+          </Tooltip>
+        </div>
       </div>
     </header>
   );

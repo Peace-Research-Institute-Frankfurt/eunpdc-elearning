@@ -65,7 +65,7 @@
     border-bottom: 0;
   }
   a {
-    padding: 0.5rem;
+    padding: 0.75rem;
     display: block;
   }
   a:hover,
@@ -77,9 +77,12 @@
   }
 }
 
+.bookmarks-container {
+  position: relative;
+}
+
 .bookmarks-toggle {
   composes: navigation-item;
-  position: relative;
   padding-right: 1.75rem;
 }
 .bookmarks-active {
@@ -88,6 +91,9 @@
 }
 .bookmark-eyebrow {
   display: block;
+  font-size: var(--ms--2);
+  margin-bottom: -.1em;
+  letter-spacing: .02em;
 }
 .bookmark-title {
   font-weight: 500;
@@ -101,7 +107,7 @@
   justify-content: center;
   border-radius: var(--br);
   padding: 0.1rem 0.4rem;
-  padding-top: .2rem;
+  padding-top: 0.2rem;
   font-weight: 500;
   font-size: 12px;
   position: absolute;
