@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import Icon from "../assets/favicon.svg";
+import Tooltip from "./Tooltip";
 import * as styles from "./SiteHeader.module.scss";
 
 export default function SiteHeader({ unit, chapter, bookmarks }) {
@@ -28,16 +29,20 @@ export default function SiteHeader({ unit, chapter, bookmarks }) {
           <img src={Icon} alt="" />
           EUNPDC E-Learning
         </Link>
-        <Link to="/">Unit {unit}</Link>
-        <span>{chapter}</span>
+        <Link to="/" className={styles.navigationItem}>
+          Unit {unit}
+        </Link>
+        {chapter && <span className={styles.navigationItem}>{chapter}</span>}
       </nav>
-      <div className="tools">
+      <div className={styles.tools}>
         <>
-          <button className={styles.button} onClick={toggleBookmarks}>
+          <button className={styles.bookmarksToggle} onClick={toggleBookmarks}>
             Bookmarks
             <span className={styles.buttonCounter}>{bookmarkItems.length}</span>
+            <Tooltip position="bottom" arrow="top-right" active={showBookmarks}>
+              <ul className={`${styles.bookmarks} ${showBookmarks ? styles.bookmarksActive : ""}`}>{bookmarkItems}</ul>
+            </Tooltip>
           </button>
-          <ul className={`${styles.bookmarks} ${showBookmarks ? styles.bookmarksActive : ""}`}>{bookmarkItems}</ul>
         </>
       </div>
     </header>

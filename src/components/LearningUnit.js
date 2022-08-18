@@ -7,6 +7,7 @@ import App from "./App";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import Counter from "./Counter";
+import useLocalStorage from "./useLocalStorage";
 
 export const query = graphql`
   query LearningUnitQuery($id: String) {
@@ -65,6 +66,7 @@ export const query = graphql`
 const LearningUnit = ({ data, context }) => {
   const frontmatter = data.post.childMdx.frontmatter;
   const heroImage = getImage(frontmatter.hero_image);
+  const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
   const bylines = frontmatter.authors.map((author) => {
     return (
       <li key={author.frontmatter.name} className={LuStyles.byline}>
@@ -105,7 +107,7 @@ const LearningUnit = ({ data, context }) => {
   });
   return (
     <App>
-      <SiteHeader unit={frontmatter.order} chapter={""} />
+      <SiteHeader unit={frontmatter.order} chapter={""} bookmarks={bookmarks} />
       <article className={LuStyles.container}>
         <header className={LuStyles.header}>
           <div className={LuStyles.headerInner}>
@@ -128,7 +130,7 @@ const LearningUnit = ({ data, context }) => {
             </div>
           </section>
           <section className="authors">
-            <h2 className={LuStyles.sectionTitle}>About the author</h2>
+            <h2 className={LuStyles.sectionTitle}>Credits</h2>
             <div className="section__content">{bios}</div>
           </section>
           <section className={LuStyles.disclosures}>

@@ -6,48 +6,11 @@
   cursor: pointer;
   text-align: left;
 }
-
-.tooltip {
-  position: absolute;
-  background: white;
-  padding: 0.6rem;
-  border-radius: var(--br);
-  top: 0;
-  left: 50%;
-  font-size: var(--ms--1);
-  filter: drop-shadow(0px 2px 2px rgba(black, 0.2));
-  border: 1px solid var(--gray-40);
-  width: 26rem;
-  transform: translateX(-50%) translateY(calc(-100% - 0rem));
-  opacity: 0;
-  transition: var(--fast);
-  transition-delay: 300ms;
-  pointer-events: none;
-}
-
-.tooltip-active {
-  opacity: 1;
-  transform: translateX(-50%) translateY(calc(-100% - 1rem));
-  pointer-events: all;
-}
-.tooltip-description {
-  hyphens: auto;
-}
-
-.tooltip-arrow {
-  background-color: white;
-  width:  1rem;
-  height: 1rem;
-  position: absolute;
-  display: block;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%) translateY(50%) rotate(45deg);
-  border-bottom: 1px solid var(--gray-40);
-  border-right: 1px  solid var(--gray-40);
-}
-
-.tooltip-title {
+.title {
   display: block;
   font-weight: 500;
+}
+
+.description {
+  hyphens: auto;
 }

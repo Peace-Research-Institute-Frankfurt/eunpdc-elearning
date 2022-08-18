@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import * as styles from "./Term.module.scss";
+import Tooltip from "./Tooltip";
 
 export default function Term(props) {
   const data = useStaticQuery(graphql`
@@ -37,11 +38,10 @@ export default function Term(props) {
       <>
         <button onMouseEnter={showTooltip} onFocus={showTooltip} onMouseLeave={hideTooltip} onBlur={hideTooltip} className={styles.container}>
           {props.children ? <>{props.children}</> : <>{term.term_id}</>}
-        <aside role="tooltip" className={`${styles.tooltip} ${active ? styles.tooltipActive : ""}`}>
-          <span className={styles.tooltipTitle}>{term.title}</span>
-          <span className={styles.tooltipDescription}>{term.description}</span>
-          <span className={styles.tooltipArrow}></span>
-        </aside>
+          <Tooltip active={active}>
+            <span className={styles.title}>{term.title}</span>
+            <span className={styles.description}>{term.description}</span>
+          </Tooltip>
         </button>
       </>
     );

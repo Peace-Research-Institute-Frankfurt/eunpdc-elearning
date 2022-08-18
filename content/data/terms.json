@@ -10,8 +10,13 @@
         "description": "The Convention on the Prohibition of the Development, Production and Stockpiling of Bacteriological (Biological) and Toxin Weapons and on their Destruction entered into force on 26 March 1975. It was the first multilateral disarmament treaty banning the production of an entire category of weapons."
     },
     {
-        "term_id": "plenipotentiary",
-        "title": "Plenipotentiary (Noun)",
-        "description": "A plenipotentiary (from the Latin plenus 'full' and potens 'powerful') is a diplomat who has full powers—authorization to sign a treaty or convention on behalf of his or her sovereign."
+        "term_id": "NPT",
+        "title": "Nuclear Non-Proliferation Treaty",
+        "description": "The Convention on the Prohibition of the Development, Production and Stockpiling of Bacteriological (Biological) and Toxin Weapons and on their Destruction entered into force on 26 March 1975. It was the first multilateral disarmament treaty banning the production of an entire category of weapons."
+    },
+    {
+        "term_id": "CD",
+        "title": "Conference on Disarmament",
+        "description": "The Convention on the Prohibition of the Development, Production and Stockpiling of Bacteriological (Biological) and Toxin Weapons and on their Destruction entered into force on 26 March 1975. It was the first multilateral disarmament treaty banning the production of an entire category of weapons."
     }
 ]

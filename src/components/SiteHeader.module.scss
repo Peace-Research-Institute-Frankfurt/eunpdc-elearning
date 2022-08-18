@@ -13,51 +13,50 @@
   padding: 0 1rem;
 }
 
-.navigation {
+.navigation-item {
+  padding: 0.7rem 1rem;
+  padding-top: 0.85rem;
   display: flex;
-  a,
-  span {
-    padding: 0.8rem 1rem;
-    display: flex;
-    align-items: center;
+  align-items: center;
+  border-right: 1px solid var(--gray-30);
+  cursor: pointer;
+  &:last-of-type {
+    border-right: 0;
   }
-  a {
-    border-right: 1px solid var(--gray-30);
-    display: flex;
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-      background: var(--gray-20);
-    }
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    background: var(--gray-20);
   }
 }
-a.logo {
-  display: block;
+
+.navigation {
+  display: flex;
+  border-right: 1px solid var(--gray-30);
+}
+
+.tools {
+  display: flex;
+  border-left: 1px solid var(--gray-30);
+}
+.logo {
+  composes: navigation-item;
   position: relative;
   padding-left: 2.25rem;
-  font-weight: 500;
+  font-weight: 600;
 
   img {
     position: absolute;
     height: 1.5rem;
     left: 0;
+
     top: 50%;
     transform: translateY(-50%);
   }
 }
 
 .bookmarks {
-  position: absolute;
-  background: white;
-  top: 4rem;
-  right: 1rem;
-  max-width: 22rem;
-  border: 1px solid var(--gray-50);
-  box-shadow: 0 1px 2px 0px rgba(black, 0.1);
-  line-height: 1.2;
-  opacity: 0;
-  transition: var(--fast);
-  transform: translateY(-10px);
+  text-align: left;
   li {
     list-style: none;
     border-bottom: 1px solid var(--gray-30);
@@ -78,6 +77,11 @@ a.logo {
   }
 }
 
+.bookmarks-toggle {
+  composes: navigation-item;
+  position: relative;
+  padding-right: 1.75rem;
+}
 .bookmarks-active {
   opacity: 1;
   transform: translateY(0px);
@@ -89,18 +93,6 @@ a.logo {
   font-weight: 500;
 }
 
-.button {
-  background: var(--gray-20);
-  padding: 0.3rem 0.6rem;
-  border-radius: var(--br);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  &:hover,
-  &:focus-visible {
-    text-decoration: underline;
-  }
-}
 .button-counter {
   background: var(--gray-70);
   color: white;
@@ -108,9 +100,10 @@ a.logo {
   align-items: center;
   justify-content: center;
   border-radius: var(--br);
-  height: 1.1rem;
-  padding: 0 0.3rem;
+  padding: 0.1rem 0.4rem;
+  padding-top: .2rem;
   font-weight: 500;
-  font-size: 14px;
-  margin-left: 0.5rem;
+  font-size: 12px;
+  position: absolute;
+  right: 0;
 }
