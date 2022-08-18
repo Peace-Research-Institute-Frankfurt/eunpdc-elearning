@@ -1,3 +1,47 @@
+@import "vars";
+
 .container {
-  grid-column: 2 / 3;
+  grid-column: 1 / 6;
+  @include bp(m) {
+    grid-column: 3 / 4;
+  }
+}
+
+.questions {
+}
+
+.question {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--gray-30);
+}
+.question-text {
+  font-weight: 500;
+}
+.question-hint {
+  display: block;
+  font-weight: 400;
+  font-size: var(--ms--1);
+}
+
+.choices {
+  border: 1px solid var(--gray-40);
+  border-radius: var(--br);
+}
+
+.radio-choice {
+  display: block;
+  padding: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  cursor: pointer;
+  border-bottom: 1px solid gray;
+  &:hover,
+  &:focus-visible {
+    background: var(--gray-20);
+    text-decoration: underline;
+  }
+  &:last-of-type {
+    border-bottom: 0;
+  }
 }

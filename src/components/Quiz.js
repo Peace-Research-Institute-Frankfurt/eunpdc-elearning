@@ -7,8 +7,7 @@ function Quiz(props) {
   });
   return (
     <div className={styles.container}>
-      <h2>This is a quiz component</h2>
-      <div className="questions">{questions}</div>
+      <div className={styles.questions}>{questions}</div>
       <div className="controls">
         <button>Submit answers</button>
       </div>
@@ -16,12 +15,15 @@ function Quiz(props) {
   );
 }
 
-const RadioChoice = function (props) {
+const Question = function ({ question, hint, children }) {
   return (
-    <label htmlFor={props.id}>
-      <input type="radio" name={props.name} id={props.id} />
-      {props.children}
-    </label>
+    <div className={styles.question}>
+      <p className={styles.questionText}>
+        {question}
+        {hint && <span className={styles.questionHint}>{hint}</span>}
+      </p>
+      {children}
+    </div>
   );
 };
 
@@ -32,13 +34,41 @@ const Radio = function (props) {
     });
   });
   return (
-    <div>
-      {props.question}
-      {choices}
-    </div>
+    <Question question={props.question} hint={props.hint}>
+      <div className={styles.choices}>{choices}</div>
+    </Question>
   );
 };
 
-Radio.Choice = RadioChoice;
+const RadioChoice = function (props) {
+  return (
+    <label className={styles.radioChoice} htmlFor={props.id}>
+      <input type="radio" name={props.name} id={props.id} />
+      {props.children}
+    </label>
+  );
+};
 
-export { Quiz, Radio, RadioChoice };
+const MultipleChoice = function (props) {
+  const choices = React.Children.map(props.children, (child) => {
+    return React.cloneElement(child, {
+      name: "test",
+    });
+  });
+  return (
+    <Question question={props.question} hint={props.hint}>
+      <div className={styles.choices}>{choices}</div>
+    </Question>
+  );
+};
+
+const Choice = function (props) {
+  return (
+    <label className={styles.radioChoice} htmlFor={props.id}>
+      <input type="checkbox" name={props.name} id={props.id} />
+      {props.children}
+    </label>
+  );
+};
+
+export { Quiz, Radio, RadioChoice, MultipleChoice, Choice };
