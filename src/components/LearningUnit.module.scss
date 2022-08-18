@@ -39,6 +39,17 @@
   justify-content: flex-start;
 }
 
+.header-credit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  padding: .1rem .4rem;
+  border-top-left-radius: var(--br);
+  font-size: var(--ms--2);
+  background: rgba(white, .8);
+}
+
 .header-intro {
   margin-bottom: 1rem;
   font-size: 1.4rem;

@@ -119,7 +119,7 @@ const Chapter = ({ data, children }) => {
                 <button href="#1">Share</button>
               </li>
               <li>
-                <button onClick={toggleBookmark}>
+                <button className={bookmarkIndex === -1 ? ChapterStyles.saveButton : ChapterStyles.saveButtonActive} onClick={toggleBookmark}>
                   {bookmarkIndex === -1 ? (
                     <>Save to bookmarks</>
                   ) : (

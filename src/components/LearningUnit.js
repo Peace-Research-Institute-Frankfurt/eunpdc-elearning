@@ -16,8 +16,9 @@ export const query = graphql`
         frontmatter {
           title
           intro
-          hero_alt
           order
+          hero_alt
+          hero_credit
           hero_image {
             childImageSharp {
               gatsbyImageData(width: 1000, layout: FULL_WIDTH)
@@ -111,6 +112,7 @@ const LearningUnit = ({ data, context }) => {
       <article className={LuStyles.container}>
         <header className={LuStyles.header}>
           <div className={LuStyles.headerInner}>
+            <p className={LuStyles.headerCredit}>{frontmatter.hero_credit}</p>
             <div>
               <GatsbyImage image={heroImage} alt={frontmatter.hero_alt} />
             </div>
