@@ -62,12 +62,12 @@
 }
 .body {
   display: grid;
-  grid-template-columns: 1fr minmax(auto, 5rem) minmax(auto, 50rem) minmax(auto, 5rem) 1fr;
+  grid-template-columns: 1fr minmax(auto, 5rem) minmax(auto, 48rem) minmax(auto, 5rem) 1fr;
   column-gap: 2rem;
   padding-bottom: 10rem;
   position: relative;
   font-feature-settings: "onum" 1;
-  padding: 5%;
+  padding: min(5%, 2rem);
   padding-top: 2rem;
   p,
   ol,

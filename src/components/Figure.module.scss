@@ -5,16 +5,16 @@
 }
 .credit {
   color: var(--gray-50);
-  font-size: var(--ms--1);
+  font-size: var(--ms--2);
   font-weight: 400;
-  padding-top: 0.1em;
+  padding-top: 0.25rem;
+  letter-spacing: .02em;
   a {
     text-decoration: underline;
   }
 }
 .caption {
   font-size: var(--ms--1);
-  font-weight: 500;
   padding-top: 0.75em;
   line-height: 1.15;
   max-width: 45em;
@@ -35,6 +35,17 @@
 .full {
   .image {
     grid-column: 1 / 6;
+    @include bp(m){
+      margin-bottom: 1.5rem;
+    }
+  }
+  .caption {
+    @include bp(m){
+      max-width: 18em;
+      grid-column: 1 / 3;
+      grid-row: span 4;
+      padding-top: 0;
+    }
   }
 }
 
