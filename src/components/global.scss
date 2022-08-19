@@ -1,33 +1,4 @@
 @import "vars";
-:root {
-  --gray-10: rgb(255, 255, 255);
-  --gray-20: rgb(249, 249, 248);
-  --gray-30: rgb(210, 210, 210);
-  --gray-40: rgb(108, 116, 126);
-  --gray-50: rgb(87, 94, 101);
-  --gray-70: rgb(14, 14, 14);
-  --blue-90: #0c131a;
-  --blue-80: #162635;
-  --blue-60: #36526d;
-  --blue-50: #5e8cba;
-  --blue-20: #e1e2e5;
-  --blue-10: #ecedf1;
-  --yellow: #fbc202;
-  --yellow-40: #ffd650;
-  --yellow-20: #ffe057;
-  --yellow-10: #fff7d6;
-  --sans: "Untitled Sans", sans-serif;
-  --serif: "Roboto Serif", "GT Super Text Trial";
-  --mono: Courier Prime, monospace;
-  --ms--2: 0.8rem;
-  --ms--1: 0.95rem;
-  --ms-0: 1.155rem;
-  --ms-1: 1.5rem;
-  --ms-2: 2rem;
-  --br: 3px;
-  --fast: 100ms;
-  --ripPath: url(../assets/rip.svg);
-}
 
 * {
   padding: 0;

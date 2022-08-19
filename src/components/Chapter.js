@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import App from "./App";
@@ -10,12 +10,11 @@ import Term from "./Term";
 import Figure from "./Figure";
 import SiteHeader from "./SiteHeader";
 import LectureVideo from "./LectureVideo";
-import Counter from "./Counter";
 import SiteFooter from "./SiteFooter";
 import { Timeline, Event } from "./Timeline";
 import useLocalStorage from "./useLocalStorage";
-import BookmarkAdd from "../assets/bookmark-add.svg";
 import BookmarkAdded from "../assets/bookmark-added.svg";
+import Counter from "./Counter";
 
 const shortCodes = { Quiz, Radio, RadioChoice, MultipleChoice, Choice, Quote, Term, Figure, LectureVideo, Event, Timeline };
 

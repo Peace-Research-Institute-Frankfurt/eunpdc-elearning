@@ -6,8 +6,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import App from "./App";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
-import Counter from "./Counter";
 import useLocalStorage from "./useLocalStorage";
+import Counter from "./Counter";
 
 export const query = graphql`
   query LearningUnitQuery($id: String) {
@@ -113,7 +113,7 @@ const LearningUnit = ({ data, context }) => {
         <header className={LuStyles.header}>
           <div className={LuStyles.headerInner}>
             <p className={LuStyles.headerCredit}>{frontmatter.hero_credit}</p>
-            <GatsbyImage className={LuStyles.headerImage} image={heroImage} alt={frontmatter.hero_alt} />
+            <GatsbyImage image={heroImage} alt={frontmatter.hero_alt} />
             <div className={LuStyles.headerCopy}>
               <p className={LuStyles.headerEyebrow}>Unit {frontmatter.order}</p>
               <h1 className={LuStyles.headerTitle}>{frontmatter.title}</h1>

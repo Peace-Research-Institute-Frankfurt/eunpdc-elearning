@@ -17,3 +17,39 @@
     }
   }
 }
+
+:root {
+  --gray-10: rgb(255, 255, 255);
+  --gray-20: rgb(249, 249, 248);
+  --gray-30: rgb(210, 210, 210);
+  --gray-40: rgb(108, 116, 126);
+  --gray-50: rgb(87, 94, 101);
+  --gray-70: rgb(14, 14, 14);
+  --blue-90: #0c131a;
+  --blue-80: #162635;
+  --blue-60: #36526d;
+  --blue-50: #5e8cba;
+  --blue-20: #e1e2e5;
+  --blue-10: #ecedf1;
+  --yellow: #fbc202;
+  --yellow-40: #ffd650;
+  --yellow-20: #ffe057;
+  --yellow-10: #fff7d6;
+  --sans: "Untitled Sans", sans-serif;
+  --serif: "GT Super Text Trial", Georgia, serif;
+  --mono: Courier Prime, monospace;
+  --ratio: 1.25; // Major 3
+  --ms-0: clamp(0.95rem, calc(1.3vw + 0.2rem), 1.2rem);
+  --ms--2: calc(var(--ms--1) / var(--ratio));
+  --ms--1: calc(var(--ms-0) / var(--ratio));
+  --ms-1: calc(var(--ms-0) * var(--ratio));
+  --ms-2: calc(var(--ms-1) * var(--ratio));
+  --ms-3: calc(var(--ms-2) * var(--ratio));
+  --ms-4: calc(var(--ms-3) * var(--ratio));
+  --ms-5: calc(var(--ms-4) * var(--ratio));
+  --ms-6: calc(var(--ms-5) * var(--ratio));
+  --ms-7: calc(var(--ms-6) * var(--ratio));
+  --br: 3px;
+  --fast: 100ms;
+  --ripPath: url(../assets/rip.svg);
+}

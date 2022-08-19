@@ -50,5 +50,10 @@ module.exports = {
         display: `standalone`,
       },
     },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+      },
+    }
   ],
 };

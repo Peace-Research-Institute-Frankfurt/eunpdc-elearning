@@ -7,7 +7,7 @@ function Quiz(props) {
   });
   return (
     <div className={styles.container}>
-      <div className={styles.questions}>{questions}</div>
+      <div>{questions}</div>
       <div className="controls">
         <button>Submit answers</button>
       </div>

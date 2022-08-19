@@ -5,7 +5,7 @@ import Tooltip from "./Tooltip";
 import * as styles from "./SiteHeader.module.scss";
 
 export default function SiteHeader({ unit, chapter, bookmarks }) {
-  const [showBookmarks, setShowBookmarks] = useState(false);
+  const [bookmarksActive, setBookmarksActive] = useState(false);
   let bookmarkItems = [];
   if (bookmarks) {
     bookmarkItems = bookmarks.map((b) => {
@@ -20,7 +20,13 @@ export default function SiteHeader({ unit, chapter, bookmarks }) {
     });
   }
   function toggleBookmarks() {
-    setShowBookmarks((prev) => !prev);
+    setBookmarksActive((prev) => !prev);
+  }
+  function showBookmarks() {
+    setBookmarksActive(true);
+  }
+  function hideBookmarks() {
+    setBookmarksActive(false);
   }
   return (
     <header className={styles.container}>
@@ -36,12 +42,14 @@ export default function SiteHeader({ unit, chapter, bookmarks }) {
       </nav>
       <div className={styles.tools}>
         <div className={styles.bookmarksContainer}>
-          <button className={styles.bookmarksToggle} onClick={toggleBookmarks}>
+          <button aria-controls="bookmarksOverlay" className={styles.bookmarksToggle} onClick={toggleBookmarks}>
             Bookmarks
             <span className={styles.buttonCounter}>{bookmarkItems.length}</span>
           </button>
-          <Tooltip position="bottom-left" arrow="top-right" active={showBookmarks}>
-            <ul className={`${styles.bookmarks} ${showBookmarks ? styles.bookmarksActive : ""}`}>{bookmarkItems}</ul>
+          <Tooltip id="bookmarksOverlay" position="bottom-left" arrow="top-right" active={bookmarksActive}>
+            <ul onFocusCapture={showBookmarks} onBlurCapture={hideBookmarks} className={`${styles.bookmarks} ${bookmarksActive ? styles.bookmarksActive : ""}`}>
+              {bookmarkItems}
+            </ul>
           </Tooltip>
         </div>
       </div>
