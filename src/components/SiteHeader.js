@@ -30,11 +30,11 @@ export default function SiteHeader({ unit, chapter, bookmarks }) {
   }
   return (
     <header className={styles.container}>
-      <nav className={styles.navigation}>
-        <Link className={styles.logo} to="/">
-          <img src={Icon} alt="" />
-          EUNPDC E-Learning
-        </Link>
+      <Link className={styles.logo} to="/">
+        <img src={Icon} alt="" />
+        EUNPDC E-Learning
+      </Link>
+      <nav className={styles.breadcrumbs}>
         <Link to="/" className={styles.navigationItem}>
           Unit {unit}
         </Link>
@@ -47,7 +47,11 @@ export default function SiteHeader({ unit, chapter, bookmarks }) {
             <span className={styles.buttonCounter}>{bookmarkItems.length}</span>
           </button>
           <Tooltip id="bookmarksOverlay" position="bottom-left" arrow="top-right" active={bookmarksActive}>
-            <ul onFocusCapture={showBookmarks} onBlurCapture={hideBookmarks} className={`${styles.bookmarks} ${bookmarksActive ? styles.bookmarksActive : ""}`}>
+            <ul
+              onFocusCapture={showBookmarks}
+              onBlurCapture={hideBookmarks}
+              className={`${styles.bookmarks} ${bookmarksActive ? styles.bookmarksActive : ""}`}
+            >
               {bookmarkItems}
             </ul>
           </Tooltip>

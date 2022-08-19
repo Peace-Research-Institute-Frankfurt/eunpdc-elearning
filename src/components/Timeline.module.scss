@@ -39,13 +39,14 @@
     content: "";
     position: absolute;
     left: -1rem;
-    top: 0rem;
+    top: -3px;
     transform: translateX(-50%);
     background: var(--gray-70);
     width: 10px;
     height: 10px;
     border-radius: 100%;
     grid-column: 2/3;
+    border: 5px solid var(--gray-10);
   }
 }
 .event-description {

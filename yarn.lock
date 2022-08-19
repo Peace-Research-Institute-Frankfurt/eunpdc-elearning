@@ -1133,11 +1133,6 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/roboto-serif@^4.5.7":
-  version "4.5.7"
-  resolved "https://registry.yarnpkg.com/@fontsource/roboto-serif/-/roboto-serif-4.5.7.tgz#1da61b79e0ad22b09071e3258a9ad9c168c497e6"
-  integrity sha512-/PENTPJoga/bo7yZ+cCw1QUSVIDBRPfoRYnFEcv3CkF2hkotrSpo5Kjd6PtqcCFMcjrD4p/LMLqyJREZDBxQqg==
-
 "@gatsbyjs/parcel-namer-relative-to-cwd@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@gatsbyjs/parcel-namer-relative-to-cwd/-/parcel-namer-relative-to-cwd-1.5.0.tgz#ec4691e834f3c3b6fa1f36846454dd43cf8e04f4"

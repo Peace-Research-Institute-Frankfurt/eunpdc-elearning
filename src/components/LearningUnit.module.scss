@@ -18,12 +18,12 @@
 }
 .header-title {
   margin-bottom: 1rem;
-  line-height: 1;
+  line-height: .96;
   font-weight: 600;
   font-family: var(--serif);
-  font-size: 3rem;
+  font-size: var(--ms-4);
   @include bp(m) {
-    font-size: 3.5rem;
+    font-size: var(--ms-6);
   }
 }
 
@@ -63,7 +63,7 @@
 
 .header-intro {
   margin-bottom: 1rem;
-  font-size: 1.4rem;
+  font-size: var(--ms-1);
 }
 
 .byline {
@@ -139,7 +139,6 @@
 
 .author-title {
   font-size: var(--ms-1);
-  // font-family: var(--serif);
   font-weight: 500;
 }
 
@@ -170,7 +169,10 @@
     }
   }
   a {
-    padding: 1.25rem;
+    padding: 1rem;
+    @include bp(m){
+      padding: 1.5rem;
+    }
     display: block;
     &:hover,
     &:focus-visible {
@@ -183,15 +185,22 @@
 }
 
 .chapter-title {
-  margin-bottom: 0.25rem;
-  font-size: 1.5rem;
-  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-weight: 500;
   text-underline-offset: 0.12em;
   font-family: var(--serif);
+  font-size: var(--ms-1);
+  @include bp(m){
+    font-size: var(--ms-2);
+  }
 }
 
+.chapter-intro {
+  font-size: var(--ms-0);
+  margin-bottom: 0.5rem;
+}
 .chapter-meta {
-  margin-top: 0.5rem;
   color: var(--blue-60);
   font-size: var(--ms--1);
 }

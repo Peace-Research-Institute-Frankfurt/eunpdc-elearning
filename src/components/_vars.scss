@@ -30,16 +30,16 @@
   --blue-60: #36526d;
   --blue-50: #5e8cba;
   --blue-20: #e1e2e5;
-  --blue-10: #ecedf1;
+  --blue-10: #f4f6fa;
   --yellow: #fbc202;
   --yellow-40: #ffd650;
   --yellow-20: #ffe057;
-  --yellow-10: #fff7d6;
+  --yellow-10: rgb(255, 250, 236);
   --sans: "Untitled Sans", sans-serif;
   --serif: "GT Super Text Trial", Georgia, serif;
   --mono: Courier Prime, monospace;
-  --ratio: 1.25; // Major 3
-  --ms-0: clamp(0.95rem, calc(1.3vw + 0.2rem), 1.2rem);
+  --ratio: 1.2; // Minor 3
+  --ms-0: clamp(0.95rem, calc(1.3vw + 0.2rem), 1.155rem);
   --ms--2: calc(var(--ms--1) / var(--ratio));
   --ms--1: calc(var(--ms-0) / var(--ratio));
   --ms-1: calc(var(--ms-0) * var(--ratio));

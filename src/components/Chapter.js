@@ -57,6 +57,7 @@ export const query = graphql`
         slug
         frontmatter {
           title
+          short_title
           order
         }
       }

@@ -100,7 +100,7 @@ const LearningUnit = ({ data, context }) => {
             <Counter n={index + 1} />
             {frontmatter.title}
           </h3>
-          <p className="chapter-intro">{frontmatter.intro}</p>
+          <p className={LuStyles.chapterIntro}>{frontmatter.intro}</p>
           <p className={LuStyles.chapterMeta}>{frontmatter.reading_time} min read</p>
         </Link>
       </li>

@@ -1,3 +1,5 @@
+@import "vars";
+
 .container {
   background: white;
   font-size: var(--ms--1);
@@ -18,11 +20,7 @@
   padding-top: 0.85rem;
   display: flex;
   align-items: center;
-  border-right: 1px solid var(--gray-30);
   cursor: pointer;
-  &:last-of-type {
-    border-right: 0;
-  }
   &:hover,
   &:focus {
     text-decoration: underline;
@@ -30,8 +28,11 @@
   }
 }
 
-.navigation {
-  display: flex;
+.breadcrumbs {
+  display: none;
+  @include bp(m){
+    display: flex;
+  }
 }
 
 .tools {
@@ -41,8 +42,9 @@
 .logo {
   composes: navigation-item;
   position: relative;
-  padding-left: 2.25rem;
-  font-weight: 600;
+  padding-left: 2rem;
+  font-weight: 500;
+  border-right: 1px solid var(--gray-30);
 
   img {
     position: absolute;
