@@ -179,6 +179,7 @@
     padding-left: 0;
     padding-right: 1rem;
     border-bottom: 1px solid var(--gray-30);
+    vertical-align: top;
   }
   th {
     text-transform: uppercase;
@@ -211,8 +212,12 @@
   box-shadow: 0 2px 6px -2px rgba(black, 0.2);
   padding: 1rem;
   margin-bottom: 1rem;
+  max-width: 40rem;
   @include bp(m) {
-    padding: 1.5rem;
+    padding: 1.25rem;
+  }
+  p {
+    margin-bottom: 0;
   }
   &:hover,
   &:focus-visible {
@@ -220,6 +225,14 @@
       text-decoration: underline;
       text-decoration-thickness: 1px;
     }
+  }
+}
+
+.previous {
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
   }
 }
 
@@ -237,11 +250,11 @@
 .pagination-label {
   color: var(--blue-60);
   display: inline-block;
-  margin-bottom: 0.5rem;
 }
 .pagination-title {
   font-family: var(--serif);
   font-size: var(--ms-3);
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   font-weight: 600;
   text-underline-offset: 0.12em;

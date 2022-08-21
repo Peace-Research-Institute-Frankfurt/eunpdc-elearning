@@ -148,9 +148,12 @@ const Chapter = ({ data, children }) => {
               </Link>
             )}
             {previous && (
-              <Link to={`../../${previous.childMdx.slug}`}>
-                <span className={ChapterStyles.paginationLabel}>Previous:</span> <span>{previous.childMdx.frontmatter.title}</span>
-              </Link>
+              <>
+                <span className={ChapterStyles.paginationLabel}>Previous</span>
+                <Link className={ChapterStyles.previous} to={`../../${previous.childMdx.slug}`}>
+                  <span>{previous.childMdx.frontmatter.title}</span>
+                </Link>
+              </>
             )}
           </nav>
         </div>

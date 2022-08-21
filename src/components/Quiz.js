@@ -1,4 +1,5 @@
 import React, { useEffect, useId, useState } from "react";
+import Button from "./Button";
 import * as styles from "./Quiz.module.scss";
 
 function Quiz(props) {
@@ -9,7 +10,7 @@ function Quiz(props) {
     <div className={styles.container}>
       <div>{questions}</div>
       <div className="controls">
-        <button>Submit answers</button>
+        <Button label="Submit answers" />
       </div>
     </div>
   );
@@ -19,8 +20,7 @@ const Question = function ({ question, hint, children, status }) {
   return (
     <div className={styles.question}>
       <p className={styles.questionText}>
-        {question} ({status})
-        {hint && <span className={styles.questionHint}>{hint}</span>}
+        {question} ({status}){hint && <span className={styles.questionHint}>{hint}</span>}
       </p>
       {children}
     </div>
