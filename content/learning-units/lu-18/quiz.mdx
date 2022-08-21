@@ -1,12 +1,10 @@
 ---
 title: Quiz
-intro:
+intro: Test your knowledge!
 unit: lu-18
 order: 7
 reading_time: 8
 ---
-
-This page has an embedded quiz:
 
 <Quiz>
   <Radio question="This is the question" hint="This is a hint">
@@ -21,9 +19,15 @@ This page has an embedded quiz:
     <RadioChoice value="And here is the third choice" />
     <RadioChoice value="And here is the fourth choice" />
   </Radio>
-  <MultipleChoice question="This is the question" hint="This is a hint">
-    <Choice correct="true">This is a choice</Choice>
-    <Choice>This is anoter choice</Choice>
-    <Choice correct>And here is the third choice</Choice>
+  <MultipleChoice question="Proponents of disarmament believe that weapons..." hint="Select all that apply">
+    <Choice value="...have an opportunity cost, because ressources spent on weapons can no longer be used to fund economic development."/>
+    <Choice value="... constitutes a risk to international security as it facilitates the emergence of conflicts or increases the complexity of existing conflicts."/>
+    <Choice correct="true" value="... are caused by conficts"/>
+  </MultipleChoice>
+  <MultipleChoice question="The First Committee of the General Assembly..." hint="Select all that apply">
+    <Choice value="...deliberates disarmament principles, concepts and norms."/>
+    <Choice value="...negotiates multilateral treaties."/>
+    <Choice value="... can convene conferences for negotiating and adopting multilateral treaties."/>
+    <Choice value="... was established in 1978."/>
   </MultipleChoice>
 </Quiz>

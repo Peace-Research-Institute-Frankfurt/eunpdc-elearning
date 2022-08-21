@@ -97,7 +97,7 @@ const Choice = function (props) {
   return (
     <label className={styles.radioChoice} htmlFor={props.id}>
       <input type="checkbox" name={props.name} id={props.id} />
-      {props.children}
+      {props.value}
     </label>
   );
 };
