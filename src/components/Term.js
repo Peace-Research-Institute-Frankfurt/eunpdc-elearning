@@ -17,7 +17,6 @@ export default function Term(props) {
   `);
 
   const [active, setActive] = useState(false);
-  const delay = 200;
 
   // Let's find our term
   let term = null;
@@ -28,9 +27,7 @@ export default function Term(props) {
   });
 
   function showTooltip() {
-    window.setTimeout(()=>{
-      setActive(true);
-    }, delay)
+    setActive(true);
   }
   function hideTooltip() {
     setActive(false);

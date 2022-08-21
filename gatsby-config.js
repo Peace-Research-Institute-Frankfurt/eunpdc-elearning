@@ -21,14 +21,14 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "authors",
-        path: "./content/authors/",
+        path: `${__dirname}/content/authors/`,
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "data",
-        path: "./content/data/",
+        path: `${__dirname}/content/data/`,
       },
     },
     {

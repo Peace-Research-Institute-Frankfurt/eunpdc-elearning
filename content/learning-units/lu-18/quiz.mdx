@@ -10,14 +10,20 @@ This page has an embedded quiz:
 
 <Quiz>
   <Radio question="This is the question" hint="This is a hint">
-    <RadioChoice correct="true">This is a choice</RadioChoice>
-    <RadioChoice>This is anoter choice</RadioChoice>
-    <RadioChoice>And here is the third choice</RadioChoice>
-    <RadioChoice>And here is the fourth choice</RadioChoice>
+    <RadioChoice value="This is a choice" />
+    <RadioChoice correct="true" value="This is anoter choice" />
+    <RadioChoice value="And here is the third choice" />
+    <RadioChoice value="And here is the fourth choice" />
+  </Radio>
+  <Radio question="Here's another Radio Question" hint="This is a hint">
+    <RadioChoice value="This is a choice" />
+    <RadioChoice correct="true" value="This is anoter choice" />
+    <RadioChoice value="And here is the third choice" />
+    <RadioChoice value="And here is the fourth choice" />
   </Radio>
   <MultipleChoice question="This is the question" hint="This is a hint">
     <Choice correct="true">This is a choice</Choice>
     <Choice>This is anoter choice</Choice>
-    <Choice>And here is the third choice</Choice>
+    <Choice correct>And here is the third choice</Choice>
   </MultipleChoice>
 </Quiz>

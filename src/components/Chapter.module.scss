@@ -46,14 +46,14 @@
   margin-bottom: 1rem;
   font-size: var(--ms-4);
   font-weight: 600;
-  @include bp(m) {
+  @include bp(s) {
     margin-bottom: 1.75rem;
     font-size: var(--ms-5);
-    grid-column: 3 / 5;
   }
-  @include bp(l) {
+  @include bp(m) {
+    grid-column: 3 / 5;
     letter-spacing: -0.03em;
-    font-size: var(--ms-6);
+    font-size: var(--ms-7);
   }
 }
 .intro {
@@ -62,10 +62,11 @@
   font-family: var(--serif);
   font-weight: 100;
   line-height: 1.2;
-  letter-spacing: -0.015em;
   max-width: 30em;
   hyphens: auto;
   @include bp(m) {
+    letter-spacing: -0.015em;
+    font-size: var(--ms-2);
     grid-column: 3 / 5;
   }
 }
@@ -177,12 +178,13 @@
     padding: 0.2rem;
     padding-left: 0;
     padding-right: 1rem;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid var(--gray-30);
   }
   th {
     text-transform: uppercase;
-    font-size: var(--ms--1);
+    font-size: var(--ms--2);
     text-align: left;
+    letter-spacing: 0.025em;
   }
   p sup,
   li sup {
@@ -206,10 +208,10 @@
   border: 1px solid var(--gray-40);
   border-radius: var(--br);
   background: white;
-  box-shadow: 0 2px 6px -2px rgba(black, .2);
+  box-shadow: 0 2px 6px -2px rgba(black, 0.2);
   padding: 1rem;
   margin-bottom: 1rem;
-  @include bp(m){
+  @include bp(m) {
     padding: 1.5rem;
   }
   &:hover,

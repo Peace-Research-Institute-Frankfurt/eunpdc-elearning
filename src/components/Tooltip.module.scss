@@ -12,6 +12,8 @@
   opacity: 0;
   transition: var(--fast);
   pointer-events: none;
+  scale: 0.98;
+  transform-origin: center;
 }
 
 .tooltip-bottom-left {
@@ -28,7 +30,7 @@
 }
 .tooltip-top-center {
   composes: tooltip;
-  top: -.5rem;
+  top: -0.5rem;
   left: 50%;
   transform: translateX(-50%) translateY(-100%);
   right: 0;
@@ -41,6 +43,7 @@
 
 .active {
   opacity: 1;
+  scale: 1;
   pointer-events: all;
 }
 
