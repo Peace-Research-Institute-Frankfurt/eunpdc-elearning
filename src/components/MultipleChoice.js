@@ -1,6 +1,5 @@
-import React, { useState, useId, useEffect } from "react";
+import React from "react";
 import * as styles from "./Quiz.module.scss";
-
 
 const Choice = function (props) {
   function handleChange(e) {

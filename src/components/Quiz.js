@@ -1,6 +1,6 @@
-import React, { useId, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "./Button";
-import { MultipleChoice, Choice } from "./MultipleChoice";
+import { Choice } from "./MultipleChoice";
 import * as styles from "./Quiz.module.scss";
 
 function Quiz(props) {
@@ -97,7 +97,14 @@ function Quiz(props) {
     if (q.type === "Radio") {
       let choices = q.choices.map((c) => {
         return (
-          <RadioChoice value={c.value} questionId={q.id} choiceId={c.id} checked={q.value === c.id} handleChange={handleRadioChange}></RadioChoice>
+          <RadioChoice
+            key={c.id}
+            value={c.value}
+            questionId={q.id}
+            choiceId={c.id}
+            checked={q.value === c.id}
+            handleChange={handleRadioChange}
+          ></RadioChoice>
         );
       });
       if (q.value === q.solution) {
@@ -122,7 +129,7 @@ function Quiz(props) {
       if (score === q.solution.length) {
         status = "full";
       }
-      const choices = q.choices.map((c) => {
+      const choices = q.choices.map((c, i) => {
         return (
           <Choice
             handleChange={handleMultipleChoiceChange}
@@ -130,13 +137,14 @@ function Quiz(props) {
             checked={q.value.indexOf(c.id) !== -1}
             questionId={q.id}
             choiceId={c.id}
+            key={c.id}
           ></Choice>
         );
       });
       inner = <>{choices}</>;
     }
     return (
-      <Question question={q.questionText} hint={q.questionHint} status={status} resultsVisible={true}>
+      <Question key={q.id} question={q.questionText} hint={q.questionHint} status={status} resultsVisible={resultsVisible}>
         {inner}
       </Question>
     );
@@ -146,7 +154,7 @@ function Quiz(props) {
     <div className={styles.container}>
       <div>{questionElements}</div>
       <div className="controls">
-        <Button label="Submit answers" onClick={handleSubmit} />
+        <Button label="Show answers" onClick={handleSubmit} />
       </div>
     </div>
   );
@@ -171,10 +179,8 @@ const RadioChoice = function (props) {
   }
   return (
     <label className={props.checked ? styles.radioChoiceChecked : styles.radioChoice} htmlFor={props.id}>
-      {JSON.stringify(props.handleChange)}
       <input type="radio" name={props.questionId} id={props.id} checked={props.checked} onChange={handleChange} />
       {props.value}
-      {props.questionId}
     </label>
   );
 };
