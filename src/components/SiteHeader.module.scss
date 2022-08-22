@@ -12,7 +12,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
 }
 
 .navigation-item {
@@ -37,19 +36,19 @@
 
 .tools {
   display: flex;
-  border-left: 1px solid var(--gray-30);
+  border-left: 1px solid var(--gray-40);
 }
 .logo {
   composes: navigation-item;
   position: relative;
-  padding-left: 2rem;
+  padding-left: 3rem;
   font-weight: 500;
-  border-right: 1px solid var(--gray-30);
+  border-right: 1px solid var(--gray-40);
 
   img {
     position: absolute;
     height: 1.4rem;
-    left: 0;
+    left: 1rem;
 
     top: 50%;
     transform: translateY(-50%);
@@ -85,7 +84,7 @@
 
 .bookmarks-toggle {
   composes: navigation-item;
-  padding-right: 1.75rem;
+  padding-right: 2.75rem;
 }
 .bookmarks-active {
   opacity: 1;
@@ -117,5 +116,5 @@
   font-weight: 500;
   font-size: 12px;
   position: absolute;
-  right: 0;
+  right: 1rem;
 }

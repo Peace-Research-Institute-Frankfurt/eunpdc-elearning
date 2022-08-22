@@ -34,12 +34,6 @@ export default function SiteHeader({ unit, chapter, bookmarks }) {
         <img src={Icon} alt="" />
         EUNPDC E-Learning
       </Link>
-      <nav className={styles.breadcrumbs}>
-        <Link to="/" className={styles.navigationItem}>
-          Unit {unit}
-        </Link>
-        {chapter && <span className={styles.navigationItem}>{chapter}</span>}
-      </nav>
       <div className={styles.tools}>
         <div className={styles.bookmarksContainer}>
           <button aria-controls="bookmarksOverlay" className={styles.bookmarksToggle} onClick={toggleBookmarks}>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button";
+import Chip from "./Chip";
 import { Choice } from "./MultipleChoice";
 import * as styles from "./Quiz.module.scss";
 
@@ -112,7 +113,7 @@ function Quiz(props) {
       } else {
         status = "none";
       }
-      inner = <>{choices}</>;
+      inner = <div className={styles.choices}>{choices}</div>;
     } else if (q.type === "MultipleChoice") {
       let score = 0;
       status = "none";
@@ -134,6 +135,7 @@ function Quiz(props) {
           <Choice
             handleChange={handleMultipleChoiceChange}
             value={c.value}
+            correct={c.correct}
             checked={q.value.indexOf(c.id) !== -1}
             questionId={q.id}
             choiceId={c.id}
@@ -141,7 +143,7 @@ function Quiz(props) {
           ></Choice>
         );
       });
-      inner = <>{choices}</>;
+      inner = <div className={styles.choices}>{choices}</div>;
     }
     return (
       <Question key={q.id} question={q.questionText} hint={q.questionHint} status={status} resultsVisible={resultsVisible}>
@@ -161,12 +163,22 @@ function Quiz(props) {
 }
 
 const Question = function (props) {
+  let color = "red";
+  let statusString = "False";
+  if (props.status === "full") {
+    color = "green";
+    statusString = "Correct";
+  } else if (props.status === "partial") {
+    color = "yellow";
+    statusString = "Partially Correct";
+  }
+
   return (
     <div className={styles.question}>
-      <p className={styles.questionText}>
-        {props.question}
-        {props.resultsVisible && <span> ({props.status})</span>}
-      </p>
+      <div className={styles.questionHeader}>
+        <p className={styles.questionText}>{props.question}</p>
+        {props.resultsVisible && <Chip text={statusString} color={color} />}
+      </div>
       {props.hint && <p className={styles.questionHint}>{props.hint}</p>}
       {props.children}
     </div>

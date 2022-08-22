@@ -1,18 +1,18 @@
 .container {
   background: var(--yellow-10);
-  text-decoration: underline;
-  text-decoration-style: dotted;
   position: relative;
   cursor: pointer;
   text-align: left;
+  border-bottom: 1px dotted rgba(black, 1);
 }
 .title {
   display: block;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .description {
   hyphens: auto;
+  font-weight: 400;
 }
 
 .content {
