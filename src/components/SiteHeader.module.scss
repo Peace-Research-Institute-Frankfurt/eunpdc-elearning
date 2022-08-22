@@ -30,7 +30,7 @@
 
 .breadcrumbs {
   display: none;
-  @include bp(m){
+  @include bp(m) {
     display: flex;
   }
 }
@@ -48,7 +48,7 @@
 
   img {
     position: absolute;
-    height: 1.5rem;
+    height: 1.4rem;
     left: 0;
 
     top: 50%;
@@ -94,15 +94,15 @@
 .bookmark-eyebrow {
   display: block;
   font-size: var(--ms--2);
-  letter-spacing: .05em;
-  margin-bottom: .02em;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.02em;
   text-transform: uppercase;
 }
 .bookmark-title {
   display: block;
   font-weight: 500;
   line-height: 1.15;
-  letter-spacing: -.01em;
+  letter-spacing: -0.01em;
 }
 
 .button-counter {
