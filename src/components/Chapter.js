@@ -145,7 +145,9 @@ const Chapter = ({ data, children }) => {
                   <Counter n={next.childMdx.frontmatter.order} />
                   {next.childMdx.frontmatter.title}
                 </span>
-                <p>{next.childMdx.frontmatter.intro}</p>
+                {next.childMdx.frontmatter.intro &&
+                  <p className={ChapterStyles.paginationIntro}>{next.childMdx.frontmatter.intro}</p>
+                }
               </Link>
             )}
             {previous && (

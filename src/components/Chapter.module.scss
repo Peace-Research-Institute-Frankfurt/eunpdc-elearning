@@ -255,7 +255,6 @@
   font-family: var(--serif);
   font-size: var(--ms-3);
   margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
   font-weight: 600;
   text-underline-offset: 0.12em;
   letter-spacing: -.01em;
@@ -264,4 +263,8 @@
   span {
     transform: translateY(-0.125em);
   }
+}
+
+.pagination-intro {
+  padding-top: .5rem;
 }
