@@ -116,6 +116,7 @@
   font-feature-settings: "onum" 1;
   padding: min(5%, 2rem);
   padding-top: 2rem;
+  letter-spacing: 0.001em;
   @include bp(m) {
     padding-top: 5rem;
   }
@@ -130,6 +131,7 @@
   blockquote,
   table {
     grid-column: 1 / 6;
+    line-height: 1.35;
     @include bp(m) {
       grid-column: 3 / 4;
     }
@@ -152,11 +154,11 @@
   }
   h2 {
     font-size: var(--ms-2);
-    margin-top: 3rem;
+    margin-top: 2rem;
     line-height: 1.1;
     margin-bottom: 0.5rem;
-    font-weight: 700;
-    letter-spacing: -0.015em;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     &:first-child {
       margin-top: 0;
     }
@@ -257,7 +259,7 @@
   margin-top: 0.5rem;
   font-weight: 600;
   text-underline-offset: 0.12em;
-  letter-spacing: -.01em;
+  letter-spacing: -0.01em;
   display: block;
   align-items: flex-start;
   span {
@@ -266,5 +268,5 @@
 }
 
 .pagination-intro {
-  padding-top: .5rem;
+  padding-top: 0.5rem;
 }

@@ -49,11 +49,6 @@ module.exports = {
         theme_color: `#0076A9`,
         display: `standalone`,
       },
-    },
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-      },
     }
   ],
 };

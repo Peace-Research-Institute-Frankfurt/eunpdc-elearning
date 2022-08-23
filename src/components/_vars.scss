@@ -18,6 +18,27 @@
   }
 }
 
+@font-face {
+  font-family: "GT Super";
+  font-weight: 500;
+  src: url("../assets/fonts/GT-Super-Text-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "GT Super";
+  font-weight: 400;
+  src: url("../assets/fonts/GT-Super-Text-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Untitled";
+  font-weight: 400;
+  src: url("../assets/fonts/test-untitled-sans-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Untitled";
+  font-weight: 600;
+  src: url("../assets/fonts/test-untitled-sans-bold.woff2") format("woff2");
+}
+
 :root {
   --gray-10: rgb(255, 255, 255);
   --gray-20: rgb(249, 249, 248);
@@ -35,11 +56,11 @@
   --yellow-40: #ffd650;
   --yellow-20: #ffe057;
   --yellow-10: rgb(255, 250, 236);
-  --sans: "Untitled Sans", sans-serif;
-  --serif: "GT Super Text Trial", Georgia, serif;
+  --sans: "Untitled", sans-serif;
+  --serif: "GT Super", Georgia, serif;
   --mono: Courier Prime, monospace;
   --ratio: 1.2; // Minor 3
-  --ms-0: clamp(0.95rem, calc(1.3vw + 0.2rem), 1.155rem);
+  --ms-0: clamp(0.95rem, calc(1.3vw + 0.2rem), 1.2rem);
   --ms--2: calc(var(--ms--1) / var(--ratio));
   --ms--1: calc(var(--ms-0) / var(--ratio));
   --ms-1: calc(var(--ms-0) * var(--ratio));
