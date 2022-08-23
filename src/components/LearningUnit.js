@@ -96,10 +96,8 @@ const LearningUnit = ({ data, context }) => {
     return (
       <li key={node.name}>
         <Link to={node.name}>
-          <h3 className={LuStyles.chapterTitle}>
-            <Counter n={index + 1} />
-            {frontmatter.title}
-          </h3>
+          <Counter n={index + 1} />
+          <h3 className={LuStyles.chapterTitle}>{frontmatter.title}</h3>
           <p className={LuStyles.chapterIntro}>{frontmatter.intro}</p>
           <p className={LuStyles.chapterMeta}>{frontmatter.reading_time} min read</p>
         </Link>
@@ -113,7 +111,7 @@ const LearningUnit = ({ data, context }) => {
         <header className={LuStyles.header}>
           <div className={LuStyles.headerInner}>
             <p className={LuStyles.headerCredit}>{frontmatter.hero_credit}</p>
-            <GatsbyImage image={heroImage} alt={frontmatter.hero_alt} />
+            <GatsbyImage className={LuStyles.headerImage} image={heroImage} alt={frontmatter.hero_alt} />
             <div className={LuStyles.headerCopy}>
               <p className={LuStyles.headerEyebrow}>Unit {frontmatter.order}</p>
               <h1 className={LuStyles.headerTitle}>{frontmatter.title}</h1>

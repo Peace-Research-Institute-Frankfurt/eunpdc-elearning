@@ -56,9 +56,13 @@ body {
     text-decoration: none;
   }
   li {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
     display: inline-block;
     counter-increment: li;
     position: relative;
+
     &:before {
       content: counter(li) ".";
       position: absolute;
@@ -66,8 +70,10 @@ body {
     }
   }
   ol {
-    columns: 2;
     column-gap: 2rem;
+    @include bp(m) {
+      columns: 2;
+    }
   }
   hr {
     display: none;

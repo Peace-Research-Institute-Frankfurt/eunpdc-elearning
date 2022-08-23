@@ -116,7 +116,6 @@
   font-feature-settings: "onum" 1;
   padding: min(5%, 2rem);
   padding-top: 2rem;
-  letter-spacing: 0.001em;
   @include bp(m) {
     padding-top: 5rem;
   }
@@ -131,7 +130,7 @@
   blockquote,
   table {
     grid-column: 1 / 6;
-    line-height: 1.35;
+    line-height: 1.3;
     @include bp(m) {
       grid-column: 3 / 4;
     }

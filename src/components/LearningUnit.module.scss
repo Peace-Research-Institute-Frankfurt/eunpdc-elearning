@@ -1,11 +1,12 @@
 @import "vars";
 
 .header {
-  background: rgb(241, 236, 220);
+  background: rgb(231, 235, 238);
   padding-top: 8%;
   margin-bottom: 2rem;
   padding: 5%;
   padding-top: 5rem;
+  max-height: 100vh;
   @include bp(m) {
     padding: 5%;
     padding-top: calc(5% + 2rem);
@@ -14,11 +15,16 @@
 .header-inner {
   position: relative;
   overflow: hidden;
+  max-height: 80vh;
   border-radius: var(--br);
 }
+.header-image {
+  max-height: 100%;
+}
+
 .header-title {
   margin-bottom: 1rem;
-  line-height: .96;
+  line-height: 0.96;
   font-weight: 600;
   font-family: var(--serif);
   font-size: var(--ms-4);
@@ -46,6 +52,7 @@
   padding: 5%;
   @include bp(m) {
     max-width: 35rem;
+    padding: 2.5rem;
     position: absolute;
   }
 }
@@ -102,10 +109,11 @@
 
 .author {
   list-style: none;
-  border-radius: var(--br);
   max-width: 50rem;
   p {
     margin-bottom: 0.5em;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
     &:last-of-type {
       margin-bottom: 0;
     }
@@ -113,8 +121,8 @@
   a {
     text-decoration: underline;
     background: var(--gray-10);
-    text-decoration-color: var(--yellow);
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.1em;
   }
 }
 
@@ -167,7 +175,7 @@
   }
   a {
     padding: 1rem;
-    @include bp(m){
+    @include bp(m) {
       padding: 1.5rem;
     }
     display: block;
@@ -176,21 +184,22 @@
       background: var(--gray-10);
       h3 {
         text-decoration: underline;
+        text-decoration-thickness: 1px;
       }
     }
   }
 }
 
 .chapter-title {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25em;
   display: block;
-  font-weight: 500;
+  font-weight: 700;
+  line-height: 1;
   text-underline-offset: 0.12em;
   font-family: var(--serif);
-  font-size: var(--ms-1);
-  @include bp(m){
-    font-size: var(--ms-2);
-  }
+  font-size: var(--ms-2);
+  position: relative;
+  padding-top: .2em
 }
 
 .chapter-intro {
@@ -204,7 +213,7 @@
 
 .disclosures {
   font-size: var(--ms--1);
-  max-width: 45rem;
+  max-width: 48rem;
   columns: 2;
   p {
     margin-bottom: 1rem;
