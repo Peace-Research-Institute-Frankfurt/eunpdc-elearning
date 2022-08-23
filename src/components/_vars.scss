@@ -19,6 +19,11 @@
 }
 
 @font-face {
+  font-family: "Courier Prime";
+  font-weight: 400;
+  src: url("../assets/fonts/courierprime-regular-webfont.woff2") format("woff2");
+}
+@font-face {
   font-family: "GT Super";
   font-weight: 600;
   src: url("../assets/fonts/GT-Super-Text-Medium.woff2") format("woff2");
@@ -60,7 +65,7 @@
   --serif: "GT Super", Georgia, serif;
   --mono: Courier Prime, monospace;
   --ratio: 1.2; // Minor 3
-  --ms-0: clamp(0.95rem, calc(1.3vw + 0.2rem), 1.2rem);
+  --ms-0: clamp(0.95rem, calc(1.3vw + 0.2rem), 1.15rem);
   --ms--2: calc(var(--ms--1) / var(--ratio));
   --ms--1: calc(var(--ms-0) / var(--ratio));
   --ms-1: calc(var(--ms-0) * var(--ratio));

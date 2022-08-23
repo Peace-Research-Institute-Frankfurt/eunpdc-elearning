@@ -1,5 +1,6 @@
+@import "vars";
+
 .container {
-  grid-column: 3/4;
   display: grid;
   position: relative;
   grid-template-columns: 1rem 1fr;
@@ -8,6 +9,10 @@
   margin-bottom: 2rem;
   align-items: baseline;
   margin-left: .5rem;
+  grid-column: 1/6;
+  @include bp(m){
+    grid-column: 3/4;
+  }
   ol {
     display: contents;
     margin-left: 0;

@@ -42,10 +42,10 @@ body {
 }
 .footnotes {
   border-top: 1px solid var(--blue-60);
-  padding-top: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
   font-size: var(--ms--1);
+  padding-top: 2em;
+  margin-top: 2em;
   grid-column: 1 / 6;
   @include bp(m) {
     grid-column: 3 / 4;
