@@ -45,7 +45,7 @@
   grid-column: 1 / 6;
   margin-bottom: 1rem;
   font-size: var(--ms-4);
-  font-weight: 600;
+  font-weight: 700;
   @include bp(s) {
     margin-bottom: 1.75rem;
     font-size: var(--ms-5);
@@ -53,20 +53,18 @@
   @include bp(m) {
     grid-column: 3 / 5;
     letter-spacing: -0.03em;
-    font-size: var(--ms-7);
+    font-size: var(--ms-6);
   }
 }
 .intro {
   grid-column: 1 / 6;
   font-size: var(--ms-1);
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-weight: 100;
   line-height: 1.2;
   max-width: 30em;
   hyphens: auto;
   @include bp(m) {
-    letter-spacing: -0.015em;
-    font-size: var(--ms-2);
     grid-column: 3 / 5;
   }
 }
