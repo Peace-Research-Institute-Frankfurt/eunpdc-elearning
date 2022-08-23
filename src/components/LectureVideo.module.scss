@@ -10,11 +10,12 @@
   padding-bottom: 56.25%;
   position: relative;
   overflow: hidden;
-  // display: none;
   iframe {
+    border-bottom: 1px solid var(--gray-50);
     display: block;
     position: absolute;
     width: 100%;
+    left: 0;
     height: 100%;
   }
 }
