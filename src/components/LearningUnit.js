@@ -36,7 +36,7 @@ export const query = graphql`
               institution
               image {
                 childImageSharp {
-                  gatsbyImageData(width: 100)
+                  gatsbyImageData(width: 250)
                 }
               }
             }
@@ -131,8 +131,9 @@ const LearningUnit = ({ data, context }) => {
             <h2 className={LuStyles.sectionTitle}>Credits</h2>
             <div className="section__content">{bios}</div>
           </section>
-          <section className={LuStyles.disclosures}>
-            <div className="section__content">
+          <section>
+            <h2 className={LuStyles.sectionTitle}>Disclosures</h2>
+            <div className={LuStyles.disclosures}>
               <h3>Funding</h3>
               <p>
                 This Learning Unit was produced with financial assistance from the European Union. The contents of this Learning Unit are however the

@@ -2,7 +2,6 @@
 
 .header {
   background: rgb(231, 235, 238);
-  padding-top: 8%;
   margin-bottom: 2rem;
   @include bp(m) {
     padding: 5%;
@@ -52,7 +51,7 @@
   padding: 5%;
   position: relative;
   @include bp(m) {
-    max-width: 35rem;
+    max-width: 30rem;
     padding: 2.5rem;
     position: absolute;
   }
@@ -72,6 +71,7 @@
     top: auto;
     bottom: 0;
     left: 5%;
+    color: var(--gray-30);
     background: transparent;
   }
 }
@@ -118,9 +118,10 @@
 .author {
   list-style: none;
   max-width: 50rem;
+  gap: 1rem;
   p {
     margin-bottom: 0.5em;
-    line-height: 1.3;
+    line-height: 1.35;
     letter-spacing: 0.01em;
     &:last-of-type {
       margin-bottom: 0;
@@ -137,22 +138,25 @@
 .author-header {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: .5em;
+  gap: 1rem;
+  align-items: flex-end;
 }
 
 .author-image {
-  border-radius: 100px;
-  width: 3rem;
-  margin-right: 1rem;
+  border-radius: var(--br);
+  display: block;
+  width: 5rem;
+  flex-shrink: 0;
 }
 .author-institution {
   color: var(--blue-60);
-  font-weight: 400;
+  display: block;
 }
 
 .author-title {
   font-size: var(--ms-1);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .chapters {
@@ -202,7 +206,7 @@
   margin-bottom: 0.25em;
   display: block;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.1;
   text-underline-offset: 0.12em;
   font-family: var(--serif);
   font-size: var(--ms-2);
@@ -213,6 +217,7 @@
 .chapter-intro {
   font-size: var(--ms-0);
   margin-bottom: 0.5rem;
+  line-height: 1.25;
 }
 .chapter-meta {
   color: var(--blue-60);
@@ -227,6 +232,6 @@
     margin-bottom: 1rem;
   }
   h3 {
-    font-weight: 500;
+    font-weight: 700;
   }
 }
