@@ -107,7 +107,7 @@ const Chapter = ({ data, children }) => {
       <article>
         <header className={ChapterStyles.header}>
           <Link className={ChapterStyles.unit} to={`../../${data.unit.childMdx.slug}`}>
-            <span>Unit {data.unit.childMdx.frontmatter.order}</span>
+            Unit {data.unit.childMdx.frontmatter.order}
           </Link>
           <h1 className={ChapterStyles.title}>{frontmatter.title}</h1>
           <p className={ChapterStyles.intro}>{frontmatter.intro}</p>
@@ -145,9 +145,7 @@ const Chapter = ({ data, children }) => {
                   <Counter n={next.childMdx.frontmatter.order} />
                   {next.childMdx.frontmatter.title}
                 </span>
-                {next.childMdx.frontmatter.intro &&
-                  <p className={ChapterStyles.paginationIntro}>{next.childMdx.frontmatter.intro}</p>
-                }
+                {next.childMdx.frontmatter.intro && <p className={ChapterStyles.paginationIntro}>{next.childMdx.frontmatter.intro}</p>}
               </Link>
             )}
             {previous && (

@@ -12,6 +12,7 @@ const Choice = function (props) {
     <label className={styles.radioChoice} htmlFor={props.id}>
       <input data-index={props.index} checked={props.checked} type="checkbox" name={props.name} id={props.id} onChange={handleChange} />
       {props.value}
+      {correctlyChecked && "Ayyeee"}
     </label>
   );
 };

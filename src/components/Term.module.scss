@@ -3,11 +3,12 @@
   position: relative;
   cursor: pointer;
   text-align: left;
-  border-bottom: 1px dotted rgba(black, 1);
+  font-weight: 700;
+  padding: 0 .3rem;
 }
 .title {
   display: block;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .description {
@@ -16,5 +17,5 @@
 }
 
 .content {
-  padding: .75rem;
+  padding: 0.75rem;
 }

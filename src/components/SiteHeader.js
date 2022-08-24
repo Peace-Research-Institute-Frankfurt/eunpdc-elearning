@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import Icon from "../assets/favicon.svg";
+import BookmarkAdded from "../assets/bookmark-added.svg";
 import Tooltip from "./Tooltip";
 import * as styles from "./SiteHeader.module.scss";
 
@@ -38,7 +39,7 @@ export default function SiteHeader({ unit, chapter, bookmarks }) {
         <div className={styles.bookmarksContainer}>
           <button aria-controls="bookmarksOverlay" className={styles.bookmarksToggle} onClick={toggleBookmarks}>
             Bookmarks
-            <span className={styles.buttonCounter}>{bookmarkItems.length}</span>
+            <img alt="" src={BookmarkAdded} />
           </button>
           <Tooltip id="bookmarksOverlay" position="bottom-left" arrow="top-right" active={bookmarksActive}>
             <ul

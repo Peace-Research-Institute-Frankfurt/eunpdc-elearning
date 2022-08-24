@@ -1,13 +1,12 @@
 @import "vars";
 
 .container {
-  background: white;
   font-size: var(--ms--1);
   position: fixed;
-  left: 0rem;
-  right: 0rem;
+  left: 5%;
+  right: 5%;
   top: 0;
-  border-bottom: 1px solid var(--gray-30);
+  border-bottom: 1px solid var(--gray-40);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -15,7 +14,7 @@
 }
 
 .navigation-item {
-  padding: 0.6rem 1rem;
+  padding: 1rem 0;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -35,19 +34,17 @@
 
 .tools {
   display: flex;
-  border-left: 1px solid var(--gray-30);
 }
 .logo {
   composes: navigation-item;
   position: relative;
-  padding-left: 3rem;
+  padding-left: 2rem;
   font-weight: 700;
-  border-right: 1px solid var(--gray-30);
 
   img {
     position: absolute;
     height: 1.2rem;
-    left: 1rem;
+    left: 0;
 
     top: 50%;
     transform: translateY(-50%);
@@ -83,7 +80,18 @@
 
 .bookmarks-toggle {
   composes: navigation-item;
-  padding-right: 2.75rem;
+  display: flex;
+  align-items: center;
+  font-size: 0;
+  @include bp(s){
+    font-size: inherit;
+  }
+  img {
+    height: 1.2rem;
+    position: relative;
+    top: .1em;
+    margin-left: .2em;
+  }
 }
 .bookmarks-active {
   opacity: 1;

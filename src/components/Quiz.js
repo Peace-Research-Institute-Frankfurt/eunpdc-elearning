@@ -156,7 +156,10 @@ function Quiz(props) {
     <div className={styles.container}>
       <div>{questionElements}</div>
       <div className="controls">
-        <Button label="Show answers" onClick={handleSubmit} />
+        <label htmlFor="show-answers" className={styles.showAnswers}>
+          <input id="show-answers" onChange={handleSubmit} checked={resultsVisible} type="checkbox" />
+          Show answers
+        </label>
       </div>
     </div>
   );

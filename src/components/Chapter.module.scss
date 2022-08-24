@@ -10,9 +10,8 @@
   composes: grid;
   padding: 5%;
   color: var(--blue-90);
-  background: var(--blue-10);
-  border-bottom: 1px solid var(--gray-30);
-  padding-top: 6rem;
+background: var(--blue-10);
+padding-top: 6rem;
   padding-bottom: 2rem;
   @include bp(m) {
     padding-top: 10rem;
@@ -22,19 +21,22 @@
 .unit {
   font-size: var(--ms--1);
   display: block;
-  font-weight: 800;
+  font-weight: 700;
   grid-column: 1 / 6;
   margin-bottom: 1em;
   @include bp(m) {
     margin-bottom: 1.8em;
     grid-column: 3 / 4;
   }
-  span {
-    text-decoration: underline;
-    text-decoration-color: var(--yellow-40);
-    text-decoration-thickness: 4px;
-    text-decoration-skip-ink: none;
-    display: block;
+  text-decoration: underline;
+  text-decoration-color: var(--yellow-40);
+  text-decoration-thickness: 8px;
+  text-decoration-skip-ink: none;
+  text-underline-offset: -.2em;
+  display: block;
+  &:hover,
+  &:focus-visible {
+    text-decoration-color: var(--yellow);
   }
 }
 
@@ -45,6 +47,7 @@
   font-size: var(--ms-4);
   font-weight: 700;
   margin-bottom: 0.25em;
+  letter-spacing: -0.02em;
   @include bp(s) {
     font-size: var(--ms-5);
   }
@@ -164,7 +167,7 @@
     }
   }
   h3 {
-    font-size: var(--ms-1);
+    font-size: var(--ms-0);
     font-weight: 700;
     line-height: 1.2;
     margin-top: 1rem;
@@ -187,7 +190,8 @@
     text-transform: uppercase;
     font-size: var(--ms--2);
     text-align: left;
-    letter-spacing: 0.025em;
+    letter-spacing: 0.04em;
+    font-weight: 400;
   }
   sup {
     font-size: var(--ms--1);
