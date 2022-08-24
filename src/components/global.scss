@@ -61,6 +61,11 @@ body {
     display: inline-block;
     counter-increment: li;
     position: relative;
+    padding-bottom: .5em;
+
+    &:target {
+      font-weight: bold;
+    }
 
     &:before {
       content: counter(li) ".";
@@ -77,4 +82,8 @@ body {
   hr {
     display: none;
   }
+}
+
+.footnote-backref {
+  font-family: monospaced;
 }
