@@ -49,7 +49,6 @@ export default function Audio({ src, type }) {
   }
 
   function toggleAudio() {
-    console.log("hi");
     if (playing) {
       setPlaying(false);
       audioRef.current.pause();

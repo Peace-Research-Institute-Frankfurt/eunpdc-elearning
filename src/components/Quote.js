@@ -7,13 +7,10 @@ export default function Quote(props) {
     quoteType = props.type;
   }
 
-  console.log(props.children);
   return (
     <>
       <blockquote className={[QuoteStyles[quoteType]].join(" ")}>
-        <div className={QuoteStyles.text}>
-          {props.children}
-        </div>
+        <div className={QuoteStyles.text}>{props.children}</div>
         <cite>{props.cite}</cite>
         <div className={QuoteStyles.actions}>
           {props.audio && <Audio src={props.audio} type="minimal"></Audio>}

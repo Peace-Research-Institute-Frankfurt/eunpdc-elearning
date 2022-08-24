@@ -98,7 +98,6 @@ const Chapter = ({ data, children }) => {
         });
       }
     });
-    console.log(bookmarks);
   }
 
   return (
@@ -110,7 +109,7 @@ const Chapter = ({ data, children }) => {
             Unit {data.unit.childMdx.frontmatter.order}
           </Link>
           <h1 className={ChapterStyles.title}>{frontmatter.title}</h1>
-          <p className={ChapterStyles.intro}>{frontmatter.intro}</p>
+          {frontmatter.intro && <p className={ChapterStyles.intro}>{frontmatter.intro}</p>}
           <aside className={ChapterStyles.actions}>
             <ul>
               <li>

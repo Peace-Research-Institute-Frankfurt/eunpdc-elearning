@@ -23,7 +23,6 @@ function Quiz(props) {
   }
 
   function handleMultipleChoiceChange(questionId, choiceId) {
-    console.log(questionId);
     const newQuestions = questions.map((q) => {
       if (q.id === questionId) {
         let newValue = [];
