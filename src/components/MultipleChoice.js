@@ -9,7 +9,7 @@ const Choice = function (props) {
   const correctlyChecked = props.checked === props.correct;
 
   return (
-    <label className={styles.radioChoice} htmlFor={props.id}>
+    <label className={props.checked ? styles.radioChoiceChecked : styles.radioChoice} htmlFor={props.id}>
       <input data-index={props.index} checked={props.checked} type="checkbox" name={props.name} id={props.id} onChange={handleChange} />
       {props.value}
       {correctlyChecked && "Ayyeee"}

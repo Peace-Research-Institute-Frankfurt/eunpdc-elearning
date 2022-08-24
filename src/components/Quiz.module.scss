@@ -19,24 +19,25 @@
 
 .question-text {
   font-weight: 600;
-  letter-spacing: -0.015em;
   font-size: var(--ms-1);
   margin-bottom: 0 !important;
 }
 .question-hint {
   display: block;
   font-weight: 400;
-  padding-top: 0.25em;
+  padding-top: 0.1em;
   font-size: var(--ms--1);
 }
 
 .choices {
+  margin-top: .75rem;
   border-radius: var(--br);
+  border: 1px solid var(--gray-30);
 }
 
 .radio-choice {
   display: block;
-  padding: 0.75rem 0;
+  padding: 0.75rem;
   display: flex;
   gap: 1rem;
   align-items: baseline;
@@ -45,6 +46,7 @@
   &:hover,
   &:focus-visible {
     text-decoration: underline;
+    background: var(--gray-20);
   }
   &:last-of-type {
     border-bottom: 0;
@@ -53,7 +55,7 @@
 
 .radio-choice-checked {
   composes: radio-choice;
-  background: var(--gray-60);
+  background: var(--gray-20);
 }
 .radio-choice-checked-correct {
   composes: radio-choice;
