@@ -96,8 +96,10 @@ const LearningUnit = ({ data, context }) => {
     return (
       <li key={node.name}>
         <Link to={node.name}>
-          <Counter n={index + 1} />
-          <h3 className={LuStyles.chapterTitle}>{frontmatter.title}</h3>
+          <h3 className={LuStyles.chapterTitle}>
+            <Counter n={index + 1} />
+            {frontmatter.title}
+          </h3>
           <p className={LuStyles.chapterIntro}>{frontmatter.intro}</p>
           <p className={LuStyles.chapterMeta}>{frontmatter.reading_time} min read</p>
         </Link>
