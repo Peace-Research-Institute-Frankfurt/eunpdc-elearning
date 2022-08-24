@@ -13,7 +13,7 @@ export default function Figure(props) {
           url
         }
       }
-      images: allFile(filter: {extension: {nin: ["mdx", "json", "svg", "mp3"]}}) {
+      images: allFile(filter: { extension: { nin: ["mdx", "json", "mp3"] } }) {
         nodes {
           relativePath
           base
@@ -46,10 +46,11 @@ export default function Figure(props) {
   let size = props.size;
   return (
     <figure className={[FigureStyles[size], FigureStyles.container].join(" ")}>
-      {image.extension === "svg"
-      ? <img className={FigureStyles.image} alt={props.alt} src={image.publicURL}/>
-      : <GatsbyImage className={FigureStyles.image} image={getImage(image)} alt={props.alt}></GatsbyImage>
-      }
+      {image.extension === "svg" ? (
+        <img className={FigureStyles.image} alt={props.alt} src={image.publicURL} />
+      ) : (
+        <GatsbyImage className={FigureStyles.image} image={getImage(image)} alt={props.alt}></GatsbyImage>
+      )}
 
       <figcaption className={FigureStyles.caption}>
         <span>{props.caption}</span>

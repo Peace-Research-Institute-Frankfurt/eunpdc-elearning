@@ -4,19 +4,19 @@
   background: rgb(231, 235, 238);
   padding-top: 8%;
   margin-bottom: 2rem;
-  padding: 5%;
-  padding-top: 5rem;
-  max-height: 100vh;
   @include bp(m) {
     padding: 5%;
     padding-top: calc(5% + 2rem);
+    max-height: 100vh;
   }
 }
 .header-inner {
   position: relative;
   overflow: hidden;
-  max-height: 80vh;
-  border-radius: var(--br);
+  @include bp(m) {
+    max-height: 80vh;
+    border-radius: var(--br);
+  }
 }
 .header-image {
   max-height: 100%;
@@ -50,6 +50,7 @@
   flex-flow: column;
   justify-content: flex-start;
   padding: 5%;
+  position: relative;
   @include bp(m) {
     max-width: 35rem;
     padding: 2.5rem;
@@ -59,13 +60,20 @@
 
 .header-credit {
   position: absolute;
-  bottom: 0;
   right: 0;
   z-index: 100;
   padding: 0.1rem 0.4rem;
   border-top-left-radius: var(--br);
   font-size: var(--ms--2);
   background: rgba(white, 0.8);
+  top: 0;
+  transform: translateY(-100%);
+  @include bp(m) {
+    top: auto;
+    bottom: 0;
+    left: 5%;
+    background: transparent;
+  }
 }
 
 .header-intro {
@@ -96,7 +104,7 @@
 }
 .section-title {
   font-size: 1.75rem;
-  font-weight: 600;
+  font-weight: 700;
   font-family: var(--sans);
   margin-bottom: 1.5rem;
 }
@@ -162,7 +170,7 @@
     &:last-of-type {
       border-bottom: 0;
     }
-    @include bp(m) {
+    @include bp(s) {
       border-right: 1px solid var(--gray-40);
       grid-column: span 1;
       &:nth-of-type(2n) {
@@ -199,7 +207,7 @@
   font-family: var(--serif);
   font-size: var(--ms-2);
   position: relative;
-  padding-top: .2em
+  padding-top: 0.2em;
 }
 
 .chapter-intro {

@@ -110,13 +110,13 @@ const LearningUnit = ({ data, context }) => {
       <article className={LuStyles.container}>
         <header className={LuStyles.header}>
           <div className={LuStyles.headerInner}>
-            <p className={LuStyles.headerCredit}>{frontmatter.hero_credit}</p>
             <GatsbyImage className={LuStyles.headerImage} image={heroImage} alt={frontmatter.hero_alt} />
             <div className={LuStyles.headerCopy}>
               <p className={LuStyles.headerEyebrow}>Unit {frontmatter.order}</p>
               <h1 className={LuStyles.headerTitle}>{frontmatter.title}</h1>
               <p className={LuStyles.headerIntro}>{frontmatter.intro}</p>
               <ul>{bylines}</ul>
+              <p className={LuStyles.headerCredit}>{frontmatter.hero_credit}</p>
             </div>
           </div>
         </header>

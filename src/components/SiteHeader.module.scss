@@ -7,7 +7,7 @@
   left: 0rem;
   right: 0rem;
   top: 0;
-  border-bottom: 1px solid var(--gray-50);
+  border-bottom: 1px solid var(--gray-30);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -15,8 +15,7 @@
 }
 
 .navigation-item {
-  padding: 0.7rem 1rem;
-  padding-top: 0.85rem;
+  padding: 0.6rem 1rem;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -36,18 +35,18 @@
 
 .tools {
   display: flex;
-  border-left: 1px solid var(--gray-40);
+  border-left: 1px solid var(--gray-30);
 }
 .logo {
   composes: navigation-item;
   position: relative;
   padding-left: 3rem;
-  font-weight: 500;
-  border-right: 1px solid var(--gray-40);
+  font-weight: 700;
+  border-right: 1px solid var(--gray-30);
 
   img {
     position: absolute;
-    height: 1.4rem;
+    height: 1.2rem;
     left: 1rem;
 
     top: 50%;
