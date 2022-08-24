@@ -2,8 +2,9 @@
 
 .header {
   background: rgb(231, 235, 238);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   @include bp(m) {
+    margin-bottom: 4rem;
     padding: 5%;
     padding-top: calc(5% + 2rem);
     max-height: 100vh;
@@ -33,7 +34,7 @@
     letter-spacing: -0.015em;
   }
   @include bp(m) {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5em;
     line-height: 0.96;
     font-weight: 400;
     font-size: var(--ms-6);
@@ -42,9 +43,9 @@
 
 .header-eyebrow {
   font-size: var(--ms--1);
-  padding-bottom: 0.5em;
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
   @include bp(m) {
+    padding-bottom: 0.5em;
     margin-bottom: 3em;
     border-bottom: 1px solid var(--gray-40);
   }
@@ -80,6 +81,7 @@
   background: rgba(white, 0.8);
   top: 0;
   transform: translateY(-100%);
+  color: var(--blue-80);
   @include bp(m) {
     top: auto;
     bottom: 1rem;
@@ -111,14 +113,16 @@
     padding: 0 5%;
   }
   section {
-    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--gray-30);
   }
 }
 .section-title {
-  font-size: 1.75rem;
+  font-size: var(--ms-3);
   font-weight: 700;
   font-family: var(--sans);
-  margin-bottom: 1.5rem;
+  margin-bottom: .5em;
 }
 
 .authors {
