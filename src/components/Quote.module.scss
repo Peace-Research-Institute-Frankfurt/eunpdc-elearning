@@ -43,7 +43,7 @@ blockquote {
   }
   
   p {
-    line-height: 1.5;
+    line-height: 1.4;
     margin-bottom: 0.25em;
     word-spacing: -0.05em;
   }
@@ -62,24 +62,25 @@ blockquote {
   font-size: var(--ms--1);
   text-decoration: none;
   text-decoration-color: var(--gray-10);
-  gap: 0.5rem;
-  align-items: flex-start;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .actionItem {
   display: flex;
   align-items: center;
   text-decoration: underline;
+  letter-spacing: .005em;
 }
 
 cite {
   font-family: var(--sans);
   font-size: var(--ms--1);
-  line-height: 1.3;
+  line-height: 1.2;
   display: block;
-  padding-top: 1rem;
+  padding-top: .5rem;
   font-weight: 400;
   font-style: normal;
-  margin-bottom: .15rem;
   max-width: 40em;
+  letter-spacing: .005em;
 }
