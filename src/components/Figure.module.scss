@@ -59,6 +59,8 @@
 .medium {
   .image {
     grid-column: 1 / 6;
+    max-height: 80vh;
+    width: auto;
     @include bp(m) {
       grid-column: 3 / 4;
     }
