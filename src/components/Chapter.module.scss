@@ -200,15 +200,14 @@
     font-weight: 400;
   }
   sup {
-    font-size: var(--ms--1);
-    font-family: monospace;
+    font-size: var(--ms--2);
     vertical-align: baseline;
     display: inline-block;
     position: relative;
     top: -0.3em;
     left: 0.1em;
     color: var(--blue-50);
-    font-weight: 700;
+    font-weight: 900;
     font-feature-settings: "tnum";
     a {
       text-decoration: none;

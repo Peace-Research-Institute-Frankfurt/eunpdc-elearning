@@ -61,6 +61,7 @@
     grid-column: 1 / 6;
     max-height: 80vh;
     width: auto;
+    max-width: 100%;
     @include bp(m) {
       grid-column: 3 / 4;
     }
