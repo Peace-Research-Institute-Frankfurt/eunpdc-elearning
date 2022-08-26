@@ -3,19 +3,21 @@
 .container {
   font-size: var(--ms--1);
   position: fixed;
-  left: 5%;
-  right: 5%;
+  left: 0;
+  right: 0;
   top: 0;
-  border-bottom: 1px solid var(--gray-40);
+  border-bottom: 1px solid var(--gray-30);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // background: white;
+  background: white;
+  padding: 0 5%;
 }
 
 .navigation-item {
-  padding: 1rem 0;
+  padding: 0.6em 0;
+  font-weight: 600;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -39,8 +41,7 @@
 .logo {
   composes: navigation-item;
   position: relative;
-  padding-left: 2rem;
-  font-weight: 700;
+  padding-left: 1.75em;
 
   img {
     position: absolute;
