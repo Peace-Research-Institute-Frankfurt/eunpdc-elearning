@@ -8,7 +8,7 @@
       @content;
     }
   } @else if $point==m {
-    @media (min-width: 60rem) {
+    @media (min-width: 55rem) {
       @content;
     }
   } @else if $point==s {
