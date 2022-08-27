@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Button from "./Button";
 import Chip from "./Chip";
 import { Choice } from "./MultipleChoice";
 import * as styles from "./Quiz.module.scss";
+import Check from "../assets/check.svg";
 
 function Quiz(props) {
   const [resultsVisible, setResultsVisible] = useState(false);
@@ -102,7 +102,9 @@ function Quiz(props) {
             value={c.value}
             questionId={q.id}
             choiceId={c.id}
+            correct={q.solution === c.id}
             checked={q.value === c.id}
+            resultsVisible={resultsVisible}
             handleChange={handleRadioChange}
           ></RadioChoice>
         );
@@ -135,6 +137,7 @@ function Quiz(props) {
             handleChange={handleMultipleChoiceChange}
             value={c.value}
             correct={c.correct}
+            resultsVisible={resultsVisible}
             checked={q.value.indexOf(c.id) !== -1}
             questionId={q.id}
             choiceId={c.id}
@@ -195,6 +198,7 @@ const RadioChoice = function (props) {
     <label className={props.checked ? styles.radioChoiceChecked : styles.radioChoice} htmlFor={props.id}>
       <input type="radio" name={props.questionId} id={props.id} checked={props.checked} onChange={handleChange} />
       {props.value}
+      {(props.correct && props.resultsVisible) && <img className={styles.correctIndicator} alt="" src={Check} />}
     </label>
   );
 };
