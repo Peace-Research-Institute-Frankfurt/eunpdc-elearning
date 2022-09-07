@@ -9,8 +9,7 @@
 .header {
   composes: grid;
   padding: 5%;
-  color: var(--blue-90);
-  background: var(--blue-10);
+  background: var(--yellow-10);
   padding-top: 6rem;
   padding-bottom: 2rem;
   @include bp(m) {
@@ -42,10 +41,10 @@
 
 .title {
   font-family: var(--serif);
-  line-height: 1.05;
+  line-height: 1;
   grid-column: 1 / 6;
   font-size: var(--ms-4);
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0.25em;
   letter-spacing: -0.02em;
   @include bp(s) {
@@ -53,7 +52,7 @@
   }
   @include bp(m) {
     grid-column: 3 / 5;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.45em;
     letter-spacing: -0.03em;
     font-size: var(--ms-6);
   }
@@ -66,7 +65,7 @@
   hyphens: auto;
   font-size: var(--ms-0);
   @include bp(m) {
-    font-size: var(--ms-1);
+    font-size: var(--ms-2);
     grid-column: 3 / 5;
   }
 }
