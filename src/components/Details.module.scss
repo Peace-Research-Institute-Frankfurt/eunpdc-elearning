@@ -1,0 +1,16 @@
+.container {
+  grid-column: 3/4;
+  border: 1px solid var(--gray-30);
+  border-radius: var(--br);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.summary {
+    font-weight: 700;
+    padding: 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid var(--gray-30);
+}
+.body {
+    padding: 1rem;
+}
