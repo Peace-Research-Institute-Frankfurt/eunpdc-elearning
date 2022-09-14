@@ -139,7 +139,7 @@ const Chapter = ({ data, children }) => {
             <MDXRenderer>{data.post.childMdx.body}</MDXRenderer>
           </MDXProvider>
           <nav className={ChapterStyles.pagination}>
-            {next.childMdx.frontmatter.title && (
+            {next && next.childMdx.frontmatter.title && (
               <Link className={ChapterStyles.next} to={`../../${next.childMdx.slug}`}>
                 <span className={ChapterStyles.paginationLabel}>Next</span>
                 <span className={ChapterStyles.paginationTitle}>
