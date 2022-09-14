@@ -7,7 +7,7 @@ import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import useLocalStorage from "./useLocalStorage";
 import Counter from "./Counter";
-import MarkdownRenderer from 'react-markdown-renderer';
+import MarkdownRenderer from "react-markdown-renderer";
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
@@ -15,6 +15,17 @@ export const query = graphql`
       childMdx {
         frontmatter {
           title
+          authors {
+            frontmatter {
+              name
+              institution
+            }
+            parent {
+              ... on Mdx {
+                body
+              }
+            }
+          }
           intro
           order
           hero_alt
@@ -22,23 +33,6 @@ export const query = graphql`
           hero_image {
             childImageSharp {
               gatsbyImageData(width: 1000, layout: FULL_WIDTH)
-            }
-          }
-        }
-      }
-    }
-    authors: allFile(filter: { sourceInstanceName: { eq: "authors" }, extension: { eq: "mdx" } }) {
-      nodes {
-        relativePath
-        childMdx {
-          body
-          frontmatter {
-            name
-            institution
-            image {
-              childImageSharp {
-                gatsbyImageData(width: 250)
-              }
             }
           }
         }
@@ -73,12 +67,12 @@ export const query = graphql`
 
 const LearningUnit = ({ data, context }) => {
   const frontmatter = data.post.childMdx.frontmatter;
-  const authors = data.authors.nodes;
+  const authors = data.post.childMdx.frontmatter.authors;
   const heroImage = getImage(frontmatter.hero_image);
   const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
 
   const bylines = authors.map((author) => {
-    const fm = author.childMdx.frontmatter;
+    const fm = author.frontmatter;
     return (
       <li key={fm.name} className={LuStyles.byline}>
         <em>{fm.name}</em>
@@ -87,7 +81,7 @@ const LearningUnit = ({ data, context }) => {
     );
   });
   const bios = authors.map((author) => {
-    const fm = author.childMdx.frontmatter;
+    const fm = author.frontmatter;
     const authorImage = getImage(fm.image);
     return (
       <li className={LuStyles.author} key={fm.author_id}>
@@ -98,7 +92,7 @@ const LearningUnit = ({ data, context }) => {
             <span className={LuStyles.authorInstitution}>{fm.institution}</span>
           </div>
         </div>
-        <MarkdownRenderer markdown={author.childMdx.body} />
+        <MarkdownRenderer markdown={author.parent.body} />
       </li>
     );
   });
