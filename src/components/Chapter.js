@@ -16,8 +16,10 @@ import { Timeline, Event } from "./Timeline";
 import useLocalStorage from "./useLocalStorage";
 import BookmarkAdded from "../assets/bookmark-added.svg";
 import Counter from "./Counter";
+import { FlipCards, Card } from "./FlipCards";
+import { Details } from "./Details";
 
-const shortCodes = { Quiz, RadioChoice, Choice, Quote, Term, Figure, LectureVideo, Event, Timeline };
+const shortCodes = { Quiz, RadioChoice, Choice, Quote, Term, Figure, LectureVideo, Event, Timeline, FlipCards, Card, Details };
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
