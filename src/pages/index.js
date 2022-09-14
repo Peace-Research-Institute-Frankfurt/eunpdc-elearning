@@ -11,6 +11,7 @@ export const query = graphql`
           slug
           frontmatter {
             title
+            order
           }
         }
       }
@@ -22,7 +23,7 @@ const IndexPage = ({ data }) => {
   const units = data.units.nodes.map((node) => {
     return (
       <li >
-        <Link to={node.childMdx.slug}>{node.childMdx.frontmatter.title}</Link>
+        <Link to={node.childMdx.slug}>{node.childMdx.frontmatter.order}. {node.childMdx.frontmatter.title}</Link>
       </li>
     );
   });
