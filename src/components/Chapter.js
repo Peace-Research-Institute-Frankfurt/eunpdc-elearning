@@ -1,10 +1,9 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import App from "./App";
 import { MDXProvider } from "@mdx-js/react";
 import * as ChapterStyles from "./Chapter.module.scss";
-import { Quiz, RadioChoice } from "./Quiz.js";
+import { Quiz, RadioChoice, Question } from "./Quiz.js";
 import { Choice } from "./MultipleChoice";
 import Quote from "./Quote.js";
 import Term from "./Term";
@@ -19,7 +18,7 @@ import Counter from "./Counter";
 import { FlipCards, Card } from "./FlipCards";
 import { Details } from "./Details";
 
-const shortCodes = { Quiz, RadioChoice, Choice, Quote, Term, Figure, LectureVideo, Event, Timeline, FlipCards, Card, Details };
+const shortCodes = { Quiz, RadioChoice, Question, Choice, Quote, Term, Figure, LectureVideo, Event, Timeline, FlipCards, Card, Details };
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
