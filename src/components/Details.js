@@ -5,7 +5,6 @@ function Details({ summary, children }) {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleOpen() {
-    console.log("hi");
     if (isOpen) {
       setIsOpen(false);
     } else {
