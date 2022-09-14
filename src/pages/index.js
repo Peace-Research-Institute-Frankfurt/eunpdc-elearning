@@ -4,11 +4,13 @@ import { graphql } from "gatsby";
 
 export const query = graphql`
   query {
-    units: allFile(filter: { extension: { eq: "mdx" }, name: {eq: "index"}, sourceInstanceName: { eq: "luContent" } }) {
+    units: allFile(filter: { extension: { eq: "mdx" }, name: { eq: "index" }, sourceInstanceName: { eq: "luContent" } }) {
       nodes {
         id
         childMdx {
-          slug
+          fields {
+            slug
+          }
           frontmatter {
             title
             order
@@ -22,8 +24,10 @@ export const query = graphql`
 const IndexPage = ({ data }) => {
   const units = data.units.nodes.map((node) => {
     return (
-      <li >
-        <Link to={node.childMdx.slug}>{node.childMdx.frontmatter.order}. {node.childMdx.frontmatter.title}</Link>
+      <li>
+        <Link to={node.childMdx.fields.slug}>
+          {node.childMdx.frontmatter.order}. {node.childMdx.frontmatter.title}
+        </Link>
       </li>
     );
   });

@@ -23,12 +23,15 @@ const shortCodes = { Quiz, RadioChoice, Choice, Quote, Term, Figure, LectureVide
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
+    mdx(id: { eq: $id }) {
+      frontmatter {
+        title
+      }
+    }
     post: file(id: { eq: $id }) {
       childMdx {
-        slug
-        headings {
-          value
-          depth
+        fields {
+          slug
         }
         frontmatter {
           title
@@ -45,7 +48,9 @@ export const query = graphql`
       nodes {
         name
         childMdx {
-          slug
+          fields {
+            slug
+          }
           frontmatter {
             title
             intro
@@ -57,7 +62,9 @@ export const query = graphql`
     unit: file(name: { eq: "index" }, childMdx: { frontmatter: { unit: { eq: $lu_id } } }) {
       name
       childMdx {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           short_title
@@ -107,7 +114,7 @@ const Chapter = ({ data, children }) => {
       <SiteHeader bookmarks={bookmarks} unit={data.unit.childMdx.frontmatter.order} chapter={frontmatter.title} />
       <article>
         <header className={ChapterStyles.header}>
-          <Link className={ChapterStyles.unit} to={`../../${data.unit.childMdx.slug}`}>
+          <Link className={ChapterStyles.unit} to={`../`}>
             Unit {data.unit.childMdx.frontmatter.order}
           </Link>
           <h1 className={ChapterStyles.title}>{frontmatter.title}</h1>
@@ -135,12 +142,10 @@ const Chapter = ({ data, children }) => {
           </aside>
         </header>
         <div className={ChapterStyles.body}>
-          <MDXProvider components={shortCodes}>
-            <MDXRenderer>{data.post.childMdx.body}</MDXRenderer>
-          </MDXProvider>
+          <MDXProvider components={shortCodes}>{children}</MDXProvider>
           <nav className={ChapterStyles.pagination}>
             {next && next.childMdx.frontmatter.title && (
-              <Link className={ChapterStyles.next} to={`../../${next.childMdx.slug}`}>
+              <Link className={ChapterStyles.next} to={`../..${next.childMdx.fields.slug}`}>
                 <span className={ChapterStyles.paginationLabel}>Next</span>
                 <span className={ChapterStyles.paginationTitle}>
                   <Counter n={next.childMdx.frontmatter.order} />
@@ -152,7 +157,7 @@ const Chapter = ({ data, children }) => {
             {previous && (
               <>
                 <span className={ChapterStyles.paginationLabel}>Previous</span>
-                <Link className={ChapterStyles.previous} to={`../../${previous.childMdx.slug}`}>
+                <Link className={ChapterStyles.previous} to={`../..${previous.childMdx.fields.slug}`}>
                   <span>{previous.childMdx.frontmatter.title}</span>
                 </Link>
               </>

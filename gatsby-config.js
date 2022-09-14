@@ -1,3 +1,4 @@
+
 module.exports = {
   siteMetadata: {
     title: `eunpdc-next`,
@@ -13,8 +14,10 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
-        gatsbyRemarkPlugins: ["gatsby-remark-smartypants"],
-        remarkPlugins: [import("remark-gfm")],
+        mdxOptions: {
+          remarkPlugins: [require("remark-gfm")],
+        },
+        gatsbyRemarkPlugins: ["gatsby-remark-smartypants", "gatsby-plugin-remark-footnotes"],
       },
     },
     {
@@ -38,17 +41,5 @@ module.exports = {
         path: `${__dirname}/content/learning-units`,
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `EUNPDC E-Learning`,
-        icon: `src/assets/favicon.png`,
-        short_name: `EUNPDC E-Learning`,
-        start_url: `/`,
-        background_color: `#eeeeee`,
-        theme_color: `#0076A9`,
-        display: `standalone`,
-      },
-    }
   ],
 };
