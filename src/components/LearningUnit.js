@@ -10,7 +10,7 @@ import useLocalStorage from "./useLocalStorage";
 import Counter from "./Counter";
 
 export const query = graphql`
-  query LearningUnitQuery($id: String) {
+  query LearningUnitQuery($id: String, $lu_id: String) {
     post: file(id: { eq: $id }) {
       childMdx {
         frontmatter {
@@ -45,7 +45,12 @@ export const query = graphql`
       }
     }
     chapters: allFile(
-      filter: { extension: { eq: "mdx" }, name: { ne: "index" }, sourceInstanceName: { eq: "luContent" } }
+      filter: {
+        extension: { eq: "mdx" }
+        name: { ne: "index" }
+        sourceInstanceName: { eq: "luContent" }
+        childMdx: { frontmatter: { unit: { eq: $lu_id } } }
+      }
       sort: { order: ASC, fields: childMdx___frontmatter___order }
     ) {
       nodes {

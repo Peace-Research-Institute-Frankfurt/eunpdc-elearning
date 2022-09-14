@@ -16,6 +16,9 @@ exports.createPages = async function ({ actions, graphql }) {
           id
           childMdx {
             slug
+            frontmatter {
+              unit
+            }
           }
         }
       }
@@ -35,7 +38,8 @@ exports.createPages = async function ({ actions, graphql }) {
   data.units.nodes.forEach((node) => {
     const id = node.id;
     const slug = node.childMdx.slug;
-    const lu_id = node.childMdx.lu_id;
+    console.log(node.childMdx)
+    const lu_id = node.childMdx.frontmatter.unit;
     actions.createPage({
       path: slug,
       component: require.resolve(`./src/components/LearningUnit.js`),
