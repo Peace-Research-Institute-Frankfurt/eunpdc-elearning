@@ -19,6 +19,11 @@ export const query = graphql`
             frontmatter {
               name
               institution
+              image {
+                childImageSharp {
+                  gatsbyImageData(width: 1000, layout: FULL_WIDTH)
+                }
+              }
             }
             parent {
               ... on Mdx {
