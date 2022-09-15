@@ -6,6 +6,7 @@ exports.createPages = async function ({ actions, graphql }) {
       chapters: allFile(filter: { extension: { eq: "mdx" }, name: { ne: "index" }, sourceInstanceName: { eq: "luContent" } }) {
         nodes {
           id
+          relativeDirectory
           childMdx {
             fields {
               slug
@@ -13,21 +14,16 @@ exports.createPages = async function ({ actions, graphql }) {
             internal {
               contentFilePath
             }
-            frontmatter {
-              unit
-            }
           }
         }
       }
       units: allFile(filter: { extension: { eq: "mdx" }, name: { eq: "index" }, sourceInstanceName: { eq: "luContent" } }) {
         nodes {
           id
+          relativeDirectory
           childMdx {
             fields {
               slug
-            }
-            frontmatter {
-              unit
             }
           }
         }
@@ -36,8 +32,9 @@ exports.createPages = async function ({ actions, graphql }) {
   `);
 
   data.chapters.nodes.forEach((node) => {
+    console.log(node);
     const slug = node.childMdx.fields.slug;
-    const lu_id = node.childMdx.frontmatter.unit;
+    const lu_id = node.relativeDirectory;
     const id = node.id;
     const template = require.resolve(`./src/components/Chapter.js`);
     actions.createPage({
@@ -50,7 +47,7 @@ exports.createPages = async function ({ actions, graphql }) {
   data.units.nodes.forEach((node) => {
     const id = node.id;
     const slug = node.childMdx.fields.slug;
-    const lu_id = node.childMdx.frontmatter.unit;
+    const lu_id = node.relativeDirectory;
     actions.createPage({
       path: slug,
       component: require.resolve(`./src/components/LearningUnit.js`),

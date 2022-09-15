@@ -41,7 +41,7 @@ export const query = graphql`
       }
     }
     chapters: allFile(
-      filter: { childMdx: { frontmatter: { unit: { eq: $lu_id } } }, name: { ne: "index" }, ext: { eq: ".mdx" } }
+      filter: { relativeDirectory: { eq: $lu_id }, name: { ne: "index" }, ext: { eq: ".mdx" } }
       sort: { fields: childMdx___frontmatter___order }
     ) {
       nodes {
@@ -58,7 +58,7 @@ export const query = graphql`
         }
       }
     }
-    unit: file(name: { eq: "index" }, childMdx: { frontmatter: { unit: { eq: $lu_id } } }) {
+    unit: file(name: { eq: "index" }, relativeDirectory: { eq: $lu_id }) {
       name
       childMdx {
         fields {

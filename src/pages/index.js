@@ -1,10 +1,13 @@
-import * as React from "react";
 import { Link } from "gatsby";
+import * as React from "react";
 import { graphql } from "gatsby";
 
 export const query = graphql`
   query {
-    units: allFile(filter: { extension: { eq: "mdx" }, name: { eq: "index" }, sourceInstanceName: { eq: "luContent" } }) {
+    units: allFile(
+      filter: { extension: { eq: "mdx" }, name: { eq: "index" }, sourceInstanceName: { eq: "luContent" } }
+      sort: { fields: childMdx___frontmatter___order }
+    ) {
       nodes {
         id
         childMdx {

@@ -39,17 +39,13 @@ export const query = graphql`
       }
     }
     chapters: allFile(
-      filter: {
-        extension: { eq: "mdx" }
-        name: { ne: "index" }
-        sourceInstanceName: { eq: "luContent" }
-        childMdx: { frontmatter: { unit: { eq: $lu_id } } }
-      }
+      filter: { extension: { eq: "mdx" }, name: { ne: "index" }, sourceInstanceName: { eq: "luContent" }, relativeDirectory: { eq: $lu_id } }
       sort: { order: ASC, fields: childMdx___frontmatter___order }
     ) {
       nodes {
         id
         name
+        relativeDirectory
         childMdx {
           fields {
             slug
