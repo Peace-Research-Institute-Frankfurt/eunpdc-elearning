@@ -32,7 +32,6 @@ exports.createPages = async function ({ actions, graphql }) {
   `);
 
   data.chapters.nodes.forEach((node) => {
-    console.log(node);
     const slug = node.childMdx.fields.slug;
     const lu_id = node.relativeDirectory;
     const id = node.id;
@@ -58,7 +57,6 @@ exports.createPages = async function ({ actions, graphql }) {
 
 exports.onCreateNode = ({ node, actions, createNodeId, getNode }) => {
   if (node.internal.type === "Mdx" && node.internal.contentFilePath.indexOf("authors") !== -1) {
-    console.log(node.internal.contentFilePath);
     actions.createNode({
       id: createNodeId(`author-${node.id}`),
       parent: node.id,

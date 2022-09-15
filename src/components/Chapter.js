@@ -12,13 +12,14 @@ import SiteHeader from "./SiteHeader";
 import LectureVideo from "./LectureVideo";
 import SiteFooter from "./SiteFooter";
 import { Timeline, Event } from "./Timeline";
+import { Tabs, Tab } from "./Tabs";
 import useLocalStorage from "./useLocalStorage";
 import BookmarkAdded from "../assets/bookmark-added.svg";
 import Counter from "./Counter";
 import { FlipCards, Card } from "./FlipCards";
 import { Details } from "./Details";
 
-const shortCodes = { Quiz, RadioChoice, Question, Choice, Quote, Term, Figure, LectureVideo, Event, Timeline, FlipCards, Card, Details };
+const shortCodes = { Quiz, RadioChoice, Question, Choice, Quote, Term, Figure, LectureVideo, Event, Timeline, FlipCards, Card, Details, Tabs, Tab };
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
