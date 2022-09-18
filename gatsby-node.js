@@ -6,16 +6,25 @@ exports.createPages = async function ({ actions, graphql }) {
       chapters: allFile(filter: { extension: { eq: "mdx" }, name: { ne: "index" }, sourceInstanceName: { eq: "luContent" } }) {
         nodes {
           id
+          relativeDirectory
           childMdx {
-            slug
+            fields {
+              slug
+            }
+            internal {
+              contentFilePath
+            }
           }
         }
       }
       units: allFile(filter: { extension: { eq: "mdx" }, name: { eq: "index" }, sourceInstanceName: { eq: "luContent" } }) {
         nodes {
           id
+          relativeDirectory
           childMdx {
-            slug
+            fields {
+              slug
+            }
           }
         }
       }
@@ -23,19 +32,21 @@ exports.createPages = async function ({ actions, graphql }) {
   `);
 
   data.chapters.nodes.forEach((node) => {
-    const slug = node.childMdx.slug;
+    const slug = node.childMdx.fields.slug;
+    const lu_id = node.relativeDirectory;
     const id = node.id;
+    const template = require.resolve(`./src/components/Chapter.js`);
     actions.createPage({
       path: slug,
-      component: require.resolve(`./src/components/Chapter.js`),
-      context: { id: id },
+      component: `${template}?__contentFilePath=${node.childMdx.internal.contentFilePath}`,
+      context: { id: id, lu_id: lu_id },
     });
   });
 
   data.units.nodes.forEach((node) => {
     const id = node.id;
-    const slug = node.childMdx.slug;
-    const lu_id = node.childMdx.lu_id;
+    const slug = node.childMdx.fields.slug;
+    const lu_id = node.relativeDirectory;
     actions.createPage({
       path: slug,
       component: require.resolve(`./src/components/LearningUnit.js`),
@@ -45,7 +56,7 @@ exports.createPages = async function ({ actions, graphql }) {
 };
 
 exports.onCreateNode = ({ node, actions, createNodeId, getNode }) => {
-  if (node.internal.type == "Mdx" && node.fileAbsolutePath.indexOf("authors") !== -1) {
+  if (node.internal.type === "Mdx" && node.internal.contentFilePath.indexOf("authors") !== -1) {
     actions.createNode({
       id: createNodeId(`author-${node.id}`),
       parent: node.id,
@@ -55,6 +66,13 @@ exports.onCreateNode = ({ node, actions, createNodeId, getNode }) => {
         type: `Author`,
         contentDigest: node.internal.contentDigest,
       },
+    });
+  }
+  if (node.internal.type === "Mdx") {
+    actions.createNodeField({
+      node,
+      name: "slug",
+      value: createFilePath({ node, getNode }),
     });
   }
 };
