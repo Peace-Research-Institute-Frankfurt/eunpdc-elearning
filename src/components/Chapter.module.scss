@@ -8,12 +8,12 @@
 
 .header {
   composes: grid;
-  padding: 5%;
+  padding: var(--padding);
   background: var(--yellow-10);
   padding-top: 6rem;
   padding-bottom: 2rem;
   @include bp(m) {
-    padding-top: 10rem;
+    padding-top: 8rem;
     padding-bottom: 8rem;
   }
 }
@@ -28,33 +28,26 @@
     grid-column: 3 / 4;
   }
   text-decoration: underline;
-  text-decoration-color: var(--yellow-40);
+  text-decoration-color: var(--yellow);
   text-decoration-thickness: 8px;
   text-decoration-skip-ink: none;
-  text-underline-offset: -0.2em;
+  text-underline-offset: -0.25em;
   display: block;
-  &:hover,
-  &:focus-visible {
-    text-decoration-color: var(--yellow);
-  }
 }
 
 .title {
   font-family: var(--serif);
-  line-height: 1;
+  line-height: 0.75;
   grid-column: 1 / 6;
   font-size: var(--ms-4);
-  font-weight: 600;
   margin-bottom: 0.25em;
-  letter-spacing: -0.02em;
+  font-weight: 800;
   @include bp(s) {
     font-size: var(--ms-5);
   }
   @include bp(m) {
     grid-column: 3 / 5;
-    margin-bottom: 0.45em;
-    letter-spacing: -0.03em;
-    font-size: var(--ms-6);
+    font-size: var(--ms-9);
   }
 }
 .intro {
@@ -223,7 +216,7 @@
   }
   a {
     text-decoration: underline;
-    text-underline-offset: .14em;;
+    text-underline-offset: 0.14em;
     // text-decoration-color: var(--blue-50);
   }
 }
@@ -235,6 +228,8 @@
   margin-bottom: 1rem;
   max-width: 40rem;
   text-decoration: none !important;
+  transition: var(--fast);
+  border: 1px solid transparent;
   @include bp(m) {
     padding: 1.5rem;
   }
@@ -243,10 +238,7 @@
   }
   &:hover,
   &:focus-visible {
-    .pagination-title {
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-    }
+    border: 1px solid var(--gray-70);
   }
 }
 
@@ -260,10 +252,10 @@
 
 .pagination {
   grid-column: 1 / 6;
+  margin-top: 2rem;
   @include bp(m) {
     grid-column: 3 / 4;
   }
-  margin-top: 2rem;
   a {
     display: block;
   }
@@ -274,20 +266,15 @@
   display: inline-block;
 }
 .pagination-title {
-  font-family: var(--serif);
   margin-top: 0.5rem;
-  font-weight: 600;
-  text-underline-offset: 0.12em;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   display: block;
   align-items: flex-start;
   font-size: var(--ms-2);
+  line-height: 1;
   @include bp(m) {
     font-size: var(--ms-3);
-  }
-  span {
-    transform: translateY(-0.125em);
-    margin-right: 1em;
   }
 }
 

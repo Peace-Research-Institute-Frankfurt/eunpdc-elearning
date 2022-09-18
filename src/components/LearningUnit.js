@@ -35,6 +35,8 @@ export const query = graphql`
           order
           hero_alt
           hero_credit
+          hero_background
+          hero_color
           hero_image {
             childImageSharp {
               gatsbyImageData(width: 1000, layout: FULL_WIDTH)
@@ -74,10 +76,14 @@ const LearningUnit = ({ data, context }) => {
 
   const bylines = authors.map((author) => {
     const fm = author.frontmatter;
+    const authorImage = getImage(fm.image);
     return (
       <li key={fm.name} className={LuStyles.byline}>
-        <em>{fm.name}</em>
-        <span>{fm.institution}</span>
+        <GatsbyImage className={LuStyles.bylineImage} image={authorImage} alt={fm.hero_alt} />
+        <div>
+          <em>{fm.name}</em>
+          <span>{fm.institution}</span>
+        </div>
       </li>
     );
   });
@@ -103,7 +109,7 @@ const LearningUnit = ({ data, context }) => {
       <li key={node.name}>
         <Link to={node.name}>
           <h3 className={LuStyles.chapterTitle}>
-            <Counter n={index + 1} />
+            <Counter n={index + 1}></Counter>
             {frontmatter.title}
           </h3>
           <p className={LuStyles.chapterIntro}>{frontmatter.intro}</p>
@@ -112,6 +118,12 @@ const LearningUnit = ({ data, context }) => {
       </li>
     );
   });
+
+  const headerStyles = {
+    background: frontmatter.hero_background,
+    color: frontmatter.hero_color,
+  };
+
   return (
     <App>
       <SiteHeader unit={frontmatter.order} chapter={""} bookmarks={bookmarks} />
@@ -119,29 +131,30 @@ const LearningUnit = ({ data, context }) => {
         <header className={LuStyles.header}>
           <div className={LuStyles.headerInner}>
             <GatsbyImage className={LuStyles.headerImage} image={heroImage} alt={frontmatter.hero_alt} />
-            <div className={LuStyles.headerCopy}>
-              <p className={LuStyles.headerEyebrow}>Unit {frontmatter.order}</p>
-              <h1 className={LuStyles.headerTitle}>{frontmatter.title}</h1>
-              <p className={LuStyles.headerIntro}>{frontmatter.intro}</p>
-              <ul>{bylines}</ul>
-              <p className={LuStyles.headerCredit}>{frontmatter.hero_credit}</p>
+            <div className={LuStyles.headerCopy} style={headerStyles}>
+              <div>
+                <p className={LuStyles.headerEyebrow}>Unit {frontmatter.order}</p>
+                <h1 className={LuStyles.headerTitle}>{frontmatter.title}</h1>
+                <p className={LuStyles.headerIntro}>{frontmatter.intro}</p>
+              </div>
+              <ul className={LuStyles.headerBylines}>{bylines}</ul>
             </div>
           </div>
         </header>
         <main>
           <section className={LuStyles.chapters}>
             <h2 className={LuStyles.sectionTitle}>Chapters</h2>
-            <div className="section__content">
+            <div className={LuStyles.sectionContent}>
               <ol>{chapterLinks}</ol>
             </div>
           </section>
           <section className="authors">
-            <h2 className={LuStyles.sectionTitle}>Credits</h2>
-            <div className="section__content">{bios}</div>
+            <h2 className={LuStyles.sectionTitle}>About the {bios.length > 1 ? "authors" : "author"}</h2>
+            <div className={LuStyles.sectionContent}>{bios}</div>
           </section>
           <section>
             <h2 className={LuStyles.sectionTitle}>Disclosures</h2>
-            <div className={LuStyles.disclosures}>
+            <div className={`${LuStyles.disclosures} ${LuStyles.sectionContent}`}>
               <h3>Funding</h3>
               <p>
                 This Learning Unit was produced with financial assistance from the European Union. The contents of this Learning Unit are however the

@@ -148,8 +148,7 @@ const Chapter = ({ data, children }) => {
               <Link className={ChapterStyles.next} to={`../..${next.childMdx.fields.slug}`}>
                 <span className={ChapterStyles.paginationLabel}>Next</span>
                 <span className={ChapterStyles.paginationTitle}>
-                  <Counter n={next.childMdx.frontmatter.order} />
-                  {next.childMdx.frontmatter.title}
+                  {next.childMdx.frontmatter.order}. {next.childMdx.frontmatter.title}
                 </span>
                 {next.childMdx.frontmatter.intro && <p className={ChapterStyles.paginationIntro}>{next.childMdx.frontmatter.intro}</p>}
               </Link>
