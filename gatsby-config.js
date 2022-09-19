@@ -1,3 +1,11 @@
+const wrapESMPlugin = name =>
+  function wrapESM(opts) {
+    return async (...args) => {
+      const mod = await import(name)
+      const plugin = mod.default(opts)
+      return plugin(...args)
+    }
+  }
 
 module.exports = {
   siteMetadata: {
@@ -16,6 +24,7 @@ module.exports = {
       options: {
         mdxOptions: {
           remarkPlugins: [require("remark-gfm")],
+          rehypePlugins: [wrapESMPlugin("rehype-slug")],
         },
         gatsbyRemarkPlugins: ["gatsby-remark-smartypants", "gatsby-plugin-remark-footnotes"],
       },

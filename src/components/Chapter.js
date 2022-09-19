@@ -38,7 +38,7 @@ export const query = graphql`
           intro
           order
         }
-        body
+        tableOfContents
       }
     }
     chapters: allFile(
@@ -88,9 +88,41 @@ const Chapter = ({ data, children }) => {
     return el.slug === data.post.childMdx.slug;
   });
 
+  const actions = (
+    <aside className={ChapterStyles.actions}>
+      <ul>
+        <li>
+          <button onClick={handlePrint}>Print</button>
+        </li>
+        <li>
+          <button href="#1">Share</button>
+        </li>
+        <li>
+          <button className={bookmarkIndex === -1 ? ChapterStyles.saveButton : ChapterStyles.saveButtonActive} onClick={toggleBookmark}>
+            {bookmarkIndex === -1 ? (
+              <>Save to bookmarks</>
+            ) : (
+              <>
+                <img alt="" src={BookmarkAdded} /> Saved
+              </>
+            )}
+          </button>
+        </li>
+      </ul>
+    </aside>
+  );
+
   function handlePrint() {
     window.print();
   }
+
+  const tocItems = data.post.childMdx.tableOfContents.items.map((h) => {
+    return (
+      <li>
+        <a href={h.url}>{h.title}</a>
+      </li>
+    );
+  });
 
   function toggleBookmark() {
     setBookmarks((prevBookmarks) => {
@@ -119,30 +151,12 @@ const Chapter = ({ data, children }) => {
           </Link>
           <h1 className={ChapterStyles.title}>{frontmatter.title}</h1>
           {frontmatter.intro && <p className={ChapterStyles.intro}>{frontmatter.intro}</p>}
-          <aside className={ChapterStyles.actions}>
-            <ul>
-              <li>
-                <button onClick={handlePrint}>Print</button>
-              </li>
-              <li>
-                <button href="#1">Share</button>
-              </li>
-              <li>
-                <button className={bookmarkIndex === -1 ? ChapterStyles.saveButton : ChapterStyles.saveButtonActive} onClick={toggleBookmark}>
-                  {bookmarkIndex === -1 ? (
-                    <>Save to bookmarks</>
-                  ) : (
-                    <>
-                      <img alt="" src={BookmarkAdded} /> Saved
-                    </>
-                  )}
-                </button>
-              </li>
-            </ul>
-          </aside>
+          {tocItems.length > 1 && <ol className={ChapterStyles.tocContainer}>{tocItems}</ol>}
         </header>
         <div className={ChapterStyles.body}>
-          <MDXProvider components={shortCodes}>{children}</MDXProvider>
+          <div className={ChapterStyles.bodyText}>
+            <MDXProvider components={shortCodes}>{children}</MDXProvider>
+          </div>
           <nav className={ChapterStyles.pagination}>
             {next && next.childMdx.frontmatter.title && (
               <Link className={ChapterStyles.next} to={`../..${next.childMdx.fields.slug}`}>

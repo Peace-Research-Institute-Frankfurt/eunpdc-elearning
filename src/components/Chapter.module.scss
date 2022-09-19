@@ -110,7 +110,7 @@
   padding: min(5%, 2rem);
   padding-top: 2rem;
   @include bp(m) {
-    padding-top: 5rem;
+    padding-top: 3rem;
   }
   p,
   ol,
@@ -248,6 +248,10 @@
   }
 }
 
+.body-text {
+  display: contents;
+}
+
 .next {
   border-radius: var(--br);
   background: var(--yellow-20);
@@ -308,4 +312,19 @@
 
 .pagination-intro {
   padding-top: 0.4rem;
+}
+
+.toc-container {
+  grid-column: 3/4;
+  grid-row: span 4;
+  font-size: var(--ms--1);
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+  list-style-position: inside;
+  a {
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
 }

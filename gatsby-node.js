@@ -1,4 +1,6 @@
 const { createFilePath } = require(`gatsby-source-filesystem`);
+const { compileMDXWithCustomOptions } = require(`gatsby-plugin-mdx`);
+const { remarkHeadingsPlugin } = require(`./remark-headings-plugin`);
 
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
@@ -77,8 +79,61 @@ exports.onCreateNode = ({ node, actions, createNodeId, getNode }) => {
   }
 };
 
-exports.createSchemaCustomization = ({ actions }) => {
+exports.createSchemaCustomization = async ({ getNode, getNodesByType, pathPrefix, reporter, cache, actions, schema }) => {
   const { createTypes } = actions;
+
+  const headingsResolver = schema.buildObjectType({
+    name: `Mdx`,
+    fields: {
+      headings: {
+        type: `[MdxHeading]`,
+        async resolve(mdxNode) {
+          const fileNode = getNode(mdxNode.parent);
+
+          if (!fileNode) {
+            return null;
+          }
+
+          const result = await compileMDXWithCustomOptions(
+            {
+              source: mdxNode.body,
+              absolutePath: fileNode.absolutePath,
+            },
+            {
+              pluginOptions: {},
+              customOptions: {
+                mdxOptions: {
+                  remarkPlugins: [remarkHeadingsPlugin],
+                },
+              },
+              getNode,
+              getNodesByType,
+              pathPrefix,
+              reporter,
+              cache,
+            }
+          );
+
+          if (!result) {
+            return null;
+          }
+
+          return result.metadata.headings;
+        },
+      },
+    },
+  });
+
+  createTypes([
+    `
+      type MdxHeading {
+        value: String
+        depth: Int
+      }
+    `,
+    headingsResolver,
+  ]);
+
   const typeDefs = `
   type Author implements Node {
     author_id: String
