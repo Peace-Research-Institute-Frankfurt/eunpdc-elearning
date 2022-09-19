@@ -226,7 +226,11 @@
   a {
     text-decoration: underline;
     text-underline-offset: 0.14em;
-    // text-decoration-color: var(--blue-50);
+    color: var(--blue-60);
+    text-decoration-color: var(--gray-30);
+    &:hover, &:focus-visible {
+      text-decoration-color: var(--gray-70);
+    }
   }
 }
 
@@ -238,6 +242,7 @@
   max-width: 40rem;
   text-decoration: none !important;
   transition: var(--fast);
+  color: var(--gray-90) !important;
   border: 1px solid transparent;
   @include bp(m) {
     padding: 1.5rem;
