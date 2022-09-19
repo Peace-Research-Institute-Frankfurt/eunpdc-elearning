@@ -175,11 +175,11 @@
   h4 {
     text-transform: uppercase;
     font-size: var(--ms--1);
-    letter-spacing: .02em;
+    letter-spacing: 0.02em;
     color: var(--blue-70);
     margin-top: 1rem;
     font-weight: 500;
-    margin-bottom: .25rem;
+    margin-bottom: 0.25rem;
   }
   table {
     margin-top: 1.5rem;
@@ -223,12 +223,26 @@
   strong {
     font-weight: bold;
   }
+  p,
+  li {
+    a {
+      &:after {
+        content: "↗";
+        font-size: 0.8em;
+      }
+      &[href^="/"]:after,
+      &[href^="#"]:after {
+        content: "";
+      }
+    }
+  }
   a {
     text-decoration: underline;
     text-underline-offset: 0.14em;
     color: var(--blue-60);
     text-decoration-color: var(--gray-30);
-    &:hover, &:focus-visible {
+    &:hover,
+    &:focus-visible {
       text-decoration-color: var(--gray-70);
     }
   }
