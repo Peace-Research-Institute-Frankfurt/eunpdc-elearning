@@ -109,8 +109,7 @@ const LearningUnit = ({ data, context }) => {
       <li key={node.name}>
         <Link to={node.name}>
           <h3 className={LuStyles.chapterTitle}>
-            <Counter n={index + 1}></Counter>
-            {frontmatter.title}
+          {index + 1}. {frontmatter.title}
           </h3>
           <p className={LuStyles.chapterIntro}>{frontmatter.intro}</p>
           <p className={LuStyles.chapterMeta}>{frontmatter.reading_time} min read</p>
