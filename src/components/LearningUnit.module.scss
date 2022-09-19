@@ -41,7 +41,6 @@
 .header-eyebrow {
   font-size: var(--ms--1);
   margin-bottom: 1rem;
-  font-weight: bold;
 }
 
 .header-copy {
@@ -84,7 +83,9 @@
 .header-intro {
   line-height: 1.3;
   font-size: var(--ms-1);
-  margin-bottom: 6em;
+  @include bp(m){
+    margin-bottom: 6em;
+  }
 }
 
 .header-bylines {
@@ -100,8 +101,9 @@
   display: flex;
   align-items: flex-end;
   gap: 0.5rem;
-  line-height: 1.1;
+  line-height: 1.2;
   color: var(--blue-90);
+  font-style: italic;
 
   em {
     display: block;
@@ -113,10 +115,10 @@
 .byline-image {
   border-radius: var(--br);
   display: block;
-  width: 2rem;
-  height: 2rem;
+  width:  2.5rem;
+  height: 2.5rem;
   flex-shrink: 0;
-  background: white;
+  background: rgba(white, .5);
   img {
     mix-blend-mode: multiply;
     filter: grayscale(1) contrast(1.2);
