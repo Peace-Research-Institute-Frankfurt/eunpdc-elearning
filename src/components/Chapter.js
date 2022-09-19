@@ -69,6 +69,8 @@ export const query = graphql`
           title
           short_title
           order
+          hero_color
+          hero_background
         }
       }
     }
@@ -144,11 +146,16 @@ const Chapter = ({ data, children }) => {
     });
   }
 
+  const headerStyles = {
+    background: data.unit.childMdx.frontmatter.hero_background,
+    color: data.unit.childMdx.frontmatter.hero_color,
+  };
+
   return (
     <App>
       <SiteHeader bookmarks={bookmarks} unit={data.unit.childMdx.frontmatter.order} chapter={frontmatter.title} />
       <article>
-        <header className={ChapterStyles.header}>
+        <header style={headerStyles} className={ChapterStyles.header}>
           <Link className={ChapterStyles.unit} to={`../`}>
           Unit {data.unit.childMdx.frontmatter.order} &middot; {data.unit.childMdx.frontmatter.title}
           </Link>

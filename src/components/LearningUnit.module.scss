@@ -2,12 +2,13 @@
 
 .header {
   padding: var(--padding);
-  background: var(--blue-10);
   margin-bottom: var(--padding);
 }
 .header-inner {
   display: flex;
   flex-flow: column;
+  border-radius: var(--br);
+  overflow: hidden;
   @include bp(m) {
     flex-flow: row-reverse;
     justify-content: flex-end;
