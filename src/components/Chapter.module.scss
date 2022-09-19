@@ -9,12 +9,12 @@
 .header {
   composes: grid;
   padding: var(--padding);
-  background: var(--yellow-10);
+  background: var(--gray-20);
   padding-top: 6rem;
   padding-bottom: 2rem;
   @include bp(m) {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 6rem;
+    padding-bottom: 5rem;
   }
 }
 .unit {
@@ -22,43 +22,38 @@
   display: block;
   font-weight: 700;
   grid-column: 1 / 6;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+  text-underline-offset: 0.1em;
   @include bp(m) {
-    margin-bottom: 1.8em;
     grid-column: 3 / 4;
   }
-  text-decoration: underline;
-  text-decoration-color: var(--yellow);
-  text-decoration-thickness: 8px;
-  text-decoration-skip-ink: none;
-  text-underline-offset: -0.25em;
-  display: block;
 }
 
 .title {
-  font-family: var(--serif);
-  line-height: 0.75;
   grid-column: 1 / 6;
   font-size: var(--ms-4);
-  margin-bottom: 0.25em;
-  font-weight: 800;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.02em;
   @include bp(s) {
     font-size: var(--ms-5);
   }
   @include bp(m) {
+    font-size: var(--ms-6);
     grid-column: 3 / 5;
-    font-size: var(--ms-9);
   }
 }
 .intro {
   grid-column: 1 / 6;
   font-family: var(--sans);
   line-height: 1.2;
-  max-width: 30em;
+  max-width: 40em;
   hyphens: auto;
   font-size: var(--ms-0);
   @include bp(m) {
-    font-size: var(--ms-2);
+    font-size: var(--ms-1);
     grid-column: 3 / 5;
   }
 }
