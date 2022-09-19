@@ -116,13 +116,16 @@ const Chapter = ({ data, children }) => {
     window.print();
   }
 
-  const tocItems = data.post.childMdx.tableOfContents.items.map((h) => {
-    return (
-      <li>
-        <a href={h.url}>{h.title}</a>
-      </li>
-    );
-  });
+  let tocItems = [];
+  if (data.post.childMdx.tableOfContents.items) {
+    tocItems = data.post.childMdx.tableOfContents.items.map((h) => {
+      return (
+        <li>
+          <a href={h.url}>{h.title}</a>
+        </li>
+      );
+    });
+  }
 
   function toggleBookmark() {
     setBookmarks((prevBookmarks) => {
