@@ -3,7 +3,7 @@
 }
 
 .tab {
-  border: 3px solid var(--blue-80);
+  border: 2px solid var(--blue-80);
   border-bottom: 0;
   border-left: 0;
   background: var(--blue-10);
@@ -11,7 +11,7 @@
   transition: var(--fast);
   font-size: var(--ms--1);
   margin-bottom: 0 !important;
-
+  
   a {
     display: block;
     padding: 0.5em 0.75em;
@@ -24,7 +24,7 @@
   }
   &:first-of-type {
     border-top-left-radius: var(--br);
-    border-left: 3px solid var(--blue-80);
+    border-left: 2px solid var(--blue-80);
   }
   &:last-of-type {
     border-top-right-radius: var(--br);
@@ -33,7 +33,9 @@
 
 .tab-active {
   background: var(--blue-80);
-  color: white;
+  a {
+    color: white;
+  }
 }
 
 .tabs-list {
@@ -49,7 +51,7 @@
 
 .tab-content {
   padding: 1rem;
-  border: 3px solid var(--blue-80);
+  border: 2px solid var(--blue-80);
   border-bottom-left-radius: var(--br);
   border-bottom-right-radius: var(--br);
   border-top-right-radius: var(--br);
