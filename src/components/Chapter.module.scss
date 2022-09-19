@@ -12,6 +12,8 @@
   background: var(--yellow-10);
   padding-top: 2rem;
   padding-bottom: 2rem;
+  margin: 0 var(--padding);
+  border-radius: var(--br);
   @include bp(m) {
     padding-top: 8rem;
     padding-bottom: 6rem;
@@ -24,7 +26,8 @@
   grid-column: 1 / 6;
   margin-bottom: 1rem;
   text-underline-offset: 0.1em;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     text-decoration: underline;
   }
   @include bp(m) {
@@ -36,7 +39,7 @@
   grid-column: 1 / 6;
   font-family: var(--serif);
   font-size: var(--ms-5);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   font-weight: 700;
   line-height: 0.85;
   @include bp(m) {
@@ -311,9 +314,9 @@
   list-style-position: inside;
   grid-column: 1/4;
   padding-top: 1rem;
+  list-style: none;
   @include bp(m) {
-    padding-top: 2rem;
-    margin-bottom: 2rem;
+    padding-top: 1.5rem;
     grid-column: 3/4;
   }
   a {
