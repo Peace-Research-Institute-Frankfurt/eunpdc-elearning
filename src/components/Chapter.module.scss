@@ -10,7 +10,7 @@
   composes: grid;
   padding: var(--padding);
   background: var(--gray-20);
-  padding-top: 6rem;
+  padding-top: 2rem;
   padding-bottom: 2rem;
   @include bp(m) {
     padding-top: 6rem;
@@ -20,10 +20,9 @@
 .unit {
   font-size: var(--ms--1);
   display: block;
-  font-weight: 700;
+  font-weight: 500;
   grid-column: 1 / 6;
   margin-bottom: 1rem;
-  text-decoration: underline;
   text-underline-offset: 0.1em;
   @include bp(m) {
     grid-column: 3 / 4;
@@ -32,15 +31,12 @@
 
 .title {
   grid-column: 1 / 6;
-  font-size: var(--ms-4);
+  font-size: var(--ms-5);
   margin-bottom: 1rem;
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -.02em;
-  @include bp(s) {
-    font-size: var(--ms-5);
-  }
+  font-weight: 800;
+  line-height: 1;
   @include bp(m) {
+    letter-spacing: -.03em;
     font-size: var(--ms-6);
     grid-column: 3 / 5;
   }
@@ -148,20 +144,18 @@
   h2 {
     font-size: var(--ms-2);
     margin-top: 1em;
-    line-height: 1.1;
+    line-height: 1.2;
     margin-bottom: 0.5rem;
     font-weight: 700;
-    letter-spacing: 0.01em;
     &:first-child {
       margin-top: 0;
     }
   }
   h3 {
-    font-size: var(--ms-0);
+    font-size: var(--ms-1);
     font-weight: 700;
     line-height: 1.2;
     margin-top: 1rem;
-    letter-spacing: -0.015em;
     margin-bottom: 0.25rem;
     & + table {
       margin-top: 0;
@@ -170,10 +164,10 @@
   h4 {
     text-transform: uppercase;
     font-size: var(--ms--1);
-    letter-spacing: 0.02em;
-    color: var(--blue-70);
+    letter-spacing: 0.04em;
+    color: var(--blue-60);
     margin-top: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 0.25rem;
   }
   table {
@@ -310,12 +304,16 @@
 }
 
 .toc-container {
-  grid-column: 3/4;
   grid-row: span 4;
   font-size: var(--ms--1);
-  margin-bottom: 2rem;
-  padding-top: 2rem;
   list-style-position: inside;
+  grid-column: 1/4;
+  padding-top: 1rem;
+  @include bp(m) {
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    grid-column: 3/4;
+  }
   a {
     &:hover,
     &:focus-visible {
