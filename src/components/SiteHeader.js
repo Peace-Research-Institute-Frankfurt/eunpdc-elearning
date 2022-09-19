@@ -39,7 +39,6 @@ export default function SiteHeader({ unit, chapter, bookmarks }) {
         <div className={styles.bookmarksContainer}>
           <button aria-controls="bookmarksOverlay" className={styles.bookmarksToggle} onClick={toggleBookmarks}>
             Bookmarks
-            <img alt="" src={BookmarkAdded} />
           </button>
           <Tooltip id="bookmarksOverlay" position="bottom-left" arrow="top-right" active={bookmarksActive}>
             <ul

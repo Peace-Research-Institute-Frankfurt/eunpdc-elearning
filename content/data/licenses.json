@@ -20,6 +20,11 @@
         "url": "https://creativecommons.org/licenses/by-nc/4.0/"
     },
     {
+        "license_id": "cc-by-nc-nd-2",
+        "title": "CC BY-NC-CD 2.0",
+        "url": "https://creativecommons.org/licenses/by-nc-nd/2.0/"
+    },
+    {
         "license_id": "all-reserved",
         "title": "All rights reserved",
         "url": ""

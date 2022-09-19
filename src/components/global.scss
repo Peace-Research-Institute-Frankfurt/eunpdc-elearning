@@ -32,9 +32,9 @@ button {
 }
 
 body {
-  background: var(--gray-10);
   font-family: var(--sans);
   font-size: var(--ms-0);
+  background: hsl(0, 0%, 99.5%);
 }
 
 .gatsby-image-wrapper [data-main-image] {
@@ -49,6 +49,10 @@ body {
   @include bp(m) {
     grid-column: 3 / 4;
   }
+  #footnote-label {
+    position: absolute;
+    font-size: 0;
+  }
   .footnote-backref {
     // display: none;
     margin-left: 0.2em;
@@ -61,7 +65,7 @@ body {
     display: inline-block;
     counter-increment: li;
     position: relative;
-    padding-bottom: .5em;
+    padding-bottom: 0.5em;
 
     &:target {
       font-weight: bold;
@@ -84,6 +88,6 @@ body {
   }
 }
 
-.footnote-backref {
+.data-footnote-backref {
   font-family: monospaced;
 }

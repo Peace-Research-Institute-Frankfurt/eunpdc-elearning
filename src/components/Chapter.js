@@ -1,10 +1,9 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import App from "./App";
 import { MDXProvider } from "@mdx-js/react";
 import * as ChapterStyles from "./Chapter.module.scss";
-import { Quiz, RadioChoice } from "./Quiz.js";
+import { Quiz, RadioChoice, Question } from "./Quiz.js";
 import { Choice } from "./MultipleChoice";
 import Quote from "./Quote.js";
 import Term from "./Term";
@@ -13,22 +12,26 @@ import SiteHeader from "./SiteHeader";
 import LectureVideo from "./LectureVideo";
 import SiteFooter from "./SiteFooter";
 import { Timeline, Event } from "./Timeline";
+import { Tabs, Tab } from "./Tabs";
 import useLocalStorage from "./useLocalStorage";
 import BookmarkAdded from "../assets/bookmark-added.svg";
 import Counter from "./Counter";
 import { FlipCards, Card } from "./FlipCards";
 import { Details } from "./Details";
 
-const shortCodes = { Quiz, RadioChoice, Choice, Quote, Term, Figure, LectureVideo, Event, Timeline, FlipCards, Card, Details };
+const shortCodes = { Quiz, RadioChoice, Question, Choice, Quote, Term, Figure, LectureVideo, Event, Timeline, FlipCards, Card, Details, Tabs, Tab };
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
+    mdx(id: { eq: $id }) {
+      frontmatter {
+        title
+      }
+    }
     post: file(id: { eq: $id }) {
       childMdx {
-        slug
-        headings {
-          value
-          depth
+        fields {
+          slug
         }
         frontmatter {
           title
@@ -39,13 +42,15 @@ export const query = graphql`
       }
     }
     chapters: allFile(
-      filter: { childMdx: { frontmatter: { unit: { eq: $lu_id } } }, name: { ne: "index" }, ext: { eq: ".mdx" } }
+      filter: { relativeDirectory: { eq: $lu_id }, name: { ne: "index" }, ext: { eq: ".mdx" } }
       sort: { fields: childMdx___frontmatter___order }
     ) {
       nodes {
         name
         childMdx {
-          slug
+          fields {
+            slug
+          }
           frontmatter {
             title
             intro
@@ -54,10 +59,12 @@ export const query = graphql`
         }
       }
     }
-    unit: file(name: { eq: "index" }, childMdx: { frontmatter: { unit: { eq: $lu_id } } }) {
+    unit: file(name: { eq: "index" }, relativeDirectory: { eq: $lu_id }) {
       name
       childMdx {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           short_title
@@ -107,7 +114,7 @@ const Chapter = ({ data, children }) => {
       <SiteHeader bookmarks={bookmarks} unit={data.unit.childMdx.frontmatter.order} chapter={frontmatter.title} />
       <article>
         <header className={ChapterStyles.header}>
-          <Link className={ChapterStyles.unit} to={`../../${data.unit.childMdx.slug}`}>
+          <Link className={ChapterStyles.unit} to={`../`}>
             Unit {data.unit.childMdx.frontmatter.order}
           </Link>
           <h1 className={ChapterStyles.title}>{frontmatter.title}</h1>
@@ -135,16 +142,13 @@ const Chapter = ({ data, children }) => {
           </aside>
         </header>
         <div className={ChapterStyles.body}>
-          <MDXProvider components={shortCodes}>
-            <MDXRenderer>{data.post.childMdx.body}</MDXRenderer>
-          </MDXProvider>
+          <MDXProvider components={shortCodes}>{children}</MDXProvider>
           <nav className={ChapterStyles.pagination}>
             {next && next.childMdx.frontmatter.title && (
-              <Link className={ChapterStyles.next} to={`../../${next.childMdx.slug}`}>
+              <Link className={ChapterStyles.next} to={`../..${next.childMdx.fields.slug}`}>
                 <span className={ChapterStyles.paginationLabel}>Next</span>
                 <span className={ChapterStyles.paginationTitle}>
-                  <Counter n={next.childMdx.frontmatter.order} />
-                  {next.childMdx.frontmatter.title}
+                  {next.childMdx.frontmatter.order}. {next.childMdx.frontmatter.title}
                 </span>
                 {next.childMdx.frontmatter.intro && <p className={ChapterStyles.paginationIntro}>{next.childMdx.frontmatter.intro}</p>}
               </Link>
@@ -152,7 +156,7 @@ const Chapter = ({ data, children }) => {
             {previous && (
               <>
                 <span className={ChapterStyles.paginationLabel}>Previous</span>
-                <Link className={ChapterStyles.previous} to={`../../${previous.childMdx.slug}`}>
+                <Link className={ChapterStyles.previous} to={`../..${previous.childMdx.fields.slug}`}>
                   <span>{previous.childMdx.frontmatter.title}</span>
                 </Link>
               </>

@@ -22,6 +22,7 @@
     "gatsby-plugin-manifest": "^4.23.0",
     "gatsby-plugin-mdx": "^4.2.0",
     "gatsby-plugin-netlify": "^5.0.1",
+    "gatsby-plugin-remark-footnotes": "^0.0.1",
     "gatsby-plugin-sass": "^5.23.0",
     "gatsby-plugin-sharp": "^4.23.0",
     "gatsby-remark-smartypants": "^5.23.0",
@@ -30,7 +31,8 @@
     "gatsby-transformer-sharp": "^4.23.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "remark-gfm": "^3.0.1",
+    "react-markdown-renderer": "^1.4.0",
+    "remark-gfm": "1.0.0",
     "remark-smartypants": "^2.0.0",
     "sass": "^1.54.2"
   }

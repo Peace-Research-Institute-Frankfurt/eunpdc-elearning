@@ -53,5 +53,10 @@
         "term_id": "CTBT",
         "title": "Comprehensive Test-Ban Treaty",
         "description": ""
+    },
+    {
+        "term_id": "IAEA",
+        "title": "International Atomic Energy Agency",
+        "description": ""
     }
 ]
