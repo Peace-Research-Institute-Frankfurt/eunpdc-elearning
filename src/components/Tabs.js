@@ -18,13 +18,19 @@ function Tabs({ children }) {
   function generateId(base, index) {
     return `${base}-${index}`;
   }
+
+  function handleTabClick(e, i) {
+    e.preventDefault();
+    setCurrentTab(i);
+  }
+
   const tabItems = React.Children.map(children, (c, i) => {
     const id = generateId(baseId, i);
     const isActive = currentTab === i;
     const activeClass = isActive ? styles.tabActive : "";
     return (
       <li className={`${styles.tab} ${activeClass}`}>
-        <a onClick={() => setCurrentTab(i)} aria-controls={id} href={`#${id}`} role="tab">
+        <a onClick={(e) => handleTabClick(e, i)} aria-controls={id} href={`#${id}`} role="tab">
           {c.props.title}
         </a>
       </li>
