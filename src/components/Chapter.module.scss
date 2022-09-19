@@ -9,12 +9,12 @@
 .header {
   composes: grid;
   padding: var(--padding);
-  background: var(--gray-20);
+  background: var(--yellow-10);
   padding-top: 2rem;
   padding-bottom: 2rem;
   @include bp(m) {
-    padding-top: 6rem;
-    padding-bottom: 5rem;
+    padding-top: 8rem;
+    padding-bottom: 6rem;
   }
 }
 .unit {
@@ -24,6 +24,9 @@
   grid-column: 1 / 6;
   margin-bottom: 1rem;
   text-underline-offset: 0.1em;
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
   @include bp(m) {
     grid-column: 3 / 4;
   }
@@ -31,13 +34,13 @@
 
 .title {
   grid-column: 1 / 6;
+  font-family: var(--serif);
   font-size: var(--ms-5);
   margin-bottom: 1rem;
-  font-weight: 800;
-  line-height: 1;
+  font-weight: 700;
+  line-height: 0.85;
   @include bp(m) {
-    letter-spacing: -.03em;
-    font-size: var(--ms-6);
+    font-size: var(--ms-10);
     grid-column: 3 / 5;
   }
 }
@@ -287,13 +290,12 @@
   display: inline-block;
 }
 .pagination-title {
-  margin-top: 0.5rem;
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
   display: block;
   align-items: flex-start;
   font-size: var(--ms-2);
-  line-height: 1;
+  line-height: 1.15;
   @include bp(m) {
     font-size: var(--ms-3);
   }
