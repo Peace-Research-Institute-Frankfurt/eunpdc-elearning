@@ -1,11 +1,11 @@
-const wrapESMPlugin = name =>
+const wrapESMPlugin = (name) =>
   function wrapESM(opts) {
     return async (...args) => {
-      const mod = await import(name)
-      const plugin = mod.default(opts)
-      return plugin(...args)
-    }
-  }
+      const mod = await import(name);
+      const plugin = mod.default(opts);
+      return plugin(...args);
+    };
+  };
 
 module.exports = {
   siteMetadata: {
@@ -48,6 +48,37 @@ module.exports = {
       options: {
         name: "luContent",
         path: `${__dirname}/content/learning-units`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-local-search",
+      options: {
+        name: "chapters",
+        engine: "flexsearch",
+        // engineOptions: 'speed',
+        query: `
+          {
+            allFile(filter: { extension: { eq: "mdx" }, name: { ne: "index" }, sourceInstanceName: { eq: "luContent" } }) {
+              nodes {
+                id
+                childMdx {
+                  frontmatter {
+                    title
+                  }
+                 
+                }
+              }
+            }
+          }
+        `,
+        ref: "id",
+        index: ["title"],
+        store: ["id", "title"],
+        normalizer: ({ data }) =>
+          data..nodes.map((node) => ({
+            id: node.id,
+            title: node.childMdx.frontmatter.title,
+          })),
       },
     },
   ],
