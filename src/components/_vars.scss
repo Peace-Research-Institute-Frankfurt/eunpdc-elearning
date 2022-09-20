@@ -23,16 +23,16 @@
   font-weight: 400;
   src: url("../assets/fonts/courierprime-regular-webfont.woff2") format("woff2");
 }
-@font-face {
-  font-family: "GT Super";
-  font-weight: 400;
-  src: url("../assets/fonts/GT-Super-Text-Regular.woff2") format("woff2");
-}
 
 @font-face {
   font-family: "Action";
   font-weight: 700;
-  src: url("../assets/fonts/ActionCondensedBold-Grade3-Trial.otf");
+  src: url("../assets/fonts/ActionTextBright-Bold-Trial.otf");
+}
+@font-face {
+  font-family: "Action";
+  font-weight: 900;
+  src: url("../assets/fonts/ActionTextBright-Extrabold-Trial.otf");
 }
 
 :root {

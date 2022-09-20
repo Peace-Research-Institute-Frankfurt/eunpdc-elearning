@@ -109,7 +109,7 @@ const LearningUnit = ({ data, context }) => {
       <li key={node.name}>
         <Link to={node.name}>
           <h3 className={LuStyles.chapterTitle}>
-          {index + 1}. {frontmatter.title}
+            {index + 1}. {frontmatter.title}
           </h3>
           <p className={LuStyles.chapterIntro}>{frontmatter.intro}</p>
           <p className={LuStyles.chapterMeta}>{frontmatter.reading_time} min read</p>
@@ -147,9 +147,11 @@ const LearningUnit = ({ data, context }) => {
               <ol>{chapterLinks}</ol>
             </div>
           </section>
-          <section className="authors">
+          <section className={LuStyles.authors}>
             <h2 className={LuStyles.sectionTitle}>About the {bios.length > 1 ? "authors" : "author"}</h2>
-            <div className={LuStyles.sectionContent}>{bios}</div>
+            <div className={LuStyles.sectionContent}>
+              <ul>{bios}</ul>
+            </div>
           </section>
           <section>
             <h2 className={LuStyles.sectionTitle}>Disclosures</h2>

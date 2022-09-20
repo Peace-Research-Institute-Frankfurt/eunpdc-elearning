@@ -40,10 +40,12 @@
   font-family: var(--serif);
   font-size: var(--ms-5);
   margin-bottom: 2rem;
-  font-weight: 700;
-  line-height: 0.85;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.025em;
   @include bp(m) {
-    font-size: var(--ms-10);
+    font-size: var(--ms-7);
+    letter-spacing: -.03em;
     grid-column: 3 / 5;
   }
 }
@@ -148,18 +150,20 @@
     margin-bottom: 0.5em;
   }
   h2 {
-    font-size: var(--ms-2);
+    font-family: var(--serif);
+    font-size: var(--ms-3);
     margin-top: 1em;
-    line-height: 1.2;
+    line-height: 1.15;
     margin-bottom: 0.5rem;
-    font-weight: 700;
+    font-weight: 900;
+    letter-spacing: -.01em;
     &:first-child {
       margin-top: 0;
     }
   }
   h3 {
     font-size: var(--ms-1);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
     margin-top: 1rem;
     margin-bottom: 0.25rem;
@@ -293,7 +297,8 @@
   display: inline-block;
 }
 .pagination-title {
-  font-weight: 700;
+  font-weight: 900;
+  font-family: var(--serif);
   letter-spacing: -0.01em;
   display: block;
   align-items: flex-start;
@@ -314,7 +319,6 @@
   list-style-position: inside;
   grid-column: 1/4;
   padding-top: 1rem;
-  list-style: none;
   @include bp(m) {
     padding-top: 1.5rem;
     grid-column: 3/4;
