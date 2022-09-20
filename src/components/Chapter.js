@@ -80,7 +80,10 @@ const Chapter = ({ data, children }) => {
   const frontmatter = data.post.childMdx.frontmatter;
   const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
   const { scrollX, scrollY } = useScrollPosition();
-  const scrollProgress = scrollY / (document.body.scrollHeight - window.innerHeight);
+  let scrollProgress = 0;
+  if (typeof window !== "undefined") {
+    scrollProgress = scrollY / (document.body.scrollHeight - window.innerHeight);
+  }
   const showStatus = scrollY > 200;
   const currentIndex = data.chapters.nodes.findIndex((el) => {
     return el.childMdx.frontmatter.order === frontmatter.order;
