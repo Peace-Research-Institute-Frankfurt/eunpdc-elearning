@@ -2,29 +2,23 @@
 
 .container {
   font-size: var(--ms--1);
-  top: 0;
+  width: 100%;
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 var(--padding)
 }
 
 .navigation-item {
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 0.75rem var(--padding);
 
   &:hover,
   &:focus {
     text-decoration: underline;
     background: rgba(gray, 0.02);
-  }
-}
-
-.breadcrumbs {
-  @include bp(m) {
-    display: flex;
   }
 }
 
@@ -34,13 +28,11 @@
 .logo {
   composes: navigation-item;
   position: relative;
-  padding-left: 3.5em;
+  padding: .75rem 0;
+  font-size: 0;
   img {
-    position: absolute;
-    height: 1.2rem;
+    height: 4.5rem;
     left: var(--padding);
-    top: 50%;
-    transform: translateY(-50%);
   }
 }
 
@@ -73,12 +65,6 @@
 
 .bookmarks-toggle {
   composes: navigation-item;
-  display: flex;
-  align-items: center;
-  font-size: 0;
-  @include bp(s) {
-    font-size: inherit;
-  }
 }
 .bookmarks-active {
   opacity: 1;

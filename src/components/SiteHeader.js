@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import Icon from "../assets/favicon.svg";
-import BookmarkAdded from "../assets/bookmark-added.svg";
+import Icon from "../assets/logo.png";
 import Tooltip from "./Tooltip";
 import * as styles from "./SiteHeader.module.scss";
 

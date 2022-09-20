@@ -167,10 +167,18 @@ const Chapter = ({ data, children }) => {
           {tocItems.length > 1 && <ol className={ChapterStyles.tocContainer}>{tocItems}</ol>}
         </header>
         <header className={`${ChapterStyles.status} ${showStatusClass}`}>
-          <Link to={`../`} className={ChapterStyles.statusUnit}>LU{data.unit.childMdx.frontmatter.order} &middot; {data.unit.childMdx.frontmatter.title}</Link>
-          <span className={ChapterStyles.statusTitle}>{frontmatter.title}</span>
+          <div className={ChapterStyles.statusLocation}>
+            <Link to={`../`} className={ChapterStyles.statusUnit}>
+              LU{data.unit.childMdx.frontmatter.order} &middot; {data.unit.childMdx.frontmatter.title}
+            </Link>
+            <span className={ChapterStyles.statusTitle}>{frontmatter.title}</span>
+          </div>
           <label htmlFor="chapterProgress">Chapter progress</label>
           <progress id="chapterProgress" max="1" value={scrollProgress} />
+          <nav className={ChapterStyles.statusPagination}>
+            {previous && <Link to={`../..${previous.childMdx.fields.slug}`}>Previous</Link>}
+            {next && <Link to={`../..${next.childMdx.fields.slug}`}>Next</Link>}
+          </nav>
         </header>
         <div className={ChapterStyles.body}>
           <div className={ChapterStyles.bodyText}>
