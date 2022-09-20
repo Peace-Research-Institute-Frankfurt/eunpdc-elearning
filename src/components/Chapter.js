@@ -85,7 +85,7 @@ const Chapter = ({ data, children }) => {
   const currentIndex = data.chapters.nodes.findIndex((el) => {
     return el.childMdx.frontmatter.order === frontmatter.order;
   });
-  const showStatusClass = showStatus ? ChapterStyles.statusActive : "" 
+  const showStatusClass = showStatus ? ChapterStyles.statusActive : "";
 
   const next = data.chapters.nodes[currentIndex + 1];
   const previous = data.chapters.nodes[currentIndex - 1];
@@ -167,7 +167,8 @@ const Chapter = ({ data, children }) => {
           {tocItems.length > 1 && <ol className={ChapterStyles.tocContainer}>{tocItems}</ol>}
         </header>
         <header className={`${ChapterStyles.status} ${showStatusClass}`}>
-          <span>{frontmatter.title}</span>
+          <Link to={`../`} className={ChapterStyles.statusUnit}>LU{data.unit.childMdx.frontmatter.order} &middot; {data.unit.childMdx.frontmatter.title}</Link>
+          <span className={ChapterStyles.statusTitle}>{frontmatter.title}</span>
           <label htmlFor="chapterProgress">Chapter progress</label>
           <progress id="chapterProgress" max="1" value={scrollProgress} />
         </header>

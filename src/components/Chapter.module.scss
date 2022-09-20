@@ -204,8 +204,8 @@
     position: relative;
     top: -0.3em;
     left: 0.1em;
-    color: var(--blue-50);
-    font-weight: 900;
+    color: var(--gray-60);
+    font-weight: 600;
     font-feature-settings: "tnum";
     a {
       text-decoration: none;
@@ -236,7 +236,7 @@
   a {
     text-decoration: underline;
     text-underline-offset: 0.14em;
-    color: var(--blue-60);
+    color: var(--gray-60);
     text-decoration-color: var(--gray-30);
     &:hover,
     &:focus-visible {
@@ -336,20 +336,18 @@
   right: 0;
   background: white;
   padding: 0.75rem var(--padding);
-  padding-bottom: .8rem;
+  padding-bottom: 0.8rem;
   z-index: 1000;
   border-bottom: 1px solid var(--blue-90);
   font-size: var(--ms--1);
   opacity: 0;
-  font-weight: 600;
   transition: var(--fast);
   pointer-events: none;
-  text-align: center;
   label {
     position: absolute;
     font-size: 0;
   }
-  
+
   progress {
     width: 100%;
     position: absolute;
@@ -364,6 +362,16 @@
       background: var(--blue-90);
     }
   }
+}
+
+.status-unit {
+  font-weight: 600;
+  margin-right: 1rem;
+  &:hover, &:focus-visible {
+    text-decoration: underline;
+  }
+}
+.status-title {
 }
 
 .status-active {
