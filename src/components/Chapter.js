@@ -15,9 +15,9 @@ import { Timeline, Event } from "./Timeline";
 import { Tabs, Tab } from "./Tabs";
 import useLocalStorage from "./useLocalStorage";
 import BookmarkAdded from "../assets/bookmark-added.svg";
-import Counter from "./Counter";
 import { FlipCards, Card } from "./FlipCards";
 import { Details } from "./Details";
+import { useScrollPosition } from "./useScrollPosition";
 
 const shortCodes = { Quiz, RadioChoice, Question, Choice, Quote, Term, Figure, LectureVideo, Event, Timeline, FlipCards, Card, Details, Tabs, Tab };
 
@@ -79,10 +79,13 @@ export const query = graphql`
 const Chapter = ({ data, children }) => {
   const frontmatter = data.post.childMdx.frontmatter;
   const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
-
+  const { scrollX, scrollY } = useScrollPosition();
+  const scrollProgress = scrollY / (document.body.scrollHeight - window.innerHeight);
+  const showStatus = scrollY > 200;
   const currentIndex = data.chapters.nodes.findIndex((el) => {
     return el.childMdx.frontmatter.order === frontmatter.order;
   });
+  const showStatusClass = showStatus ? ChapterStyles.statusActive : "" 
 
   const next = data.chapters.nodes[currentIndex + 1];
   const previous = data.chapters.nodes[currentIndex - 1];
@@ -120,9 +123,9 @@ const Chapter = ({ data, children }) => {
 
   let tocItems = [];
   if (data.post.childMdx.tableOfContents.items) {
-    tocItems = data.post.childMdx.tableOfContents.items.map((h) => {
+    tocItems = data.post.childMdx.tableOfContents.items.map((h, i) => {
       return (
-        <li>
+        <li key={`toc-${i}`}>
           <a href={h.url}>{h.title}</a>
         </li>
       );
@@ -157,11 +160,16 @@ const Chapter = ({ data, children }) => {
       <article>
         <header style={headerStyles} className={ChapterStyles.header}>
           <Link className={ChapterStyles.unit} to={`../`}>
-          Unit {data.unit.childMdx.frontmatter.order} &middot; {data.unit.childMdx.frontmatter.title}
+            Unit {data.unit.childMdx.frontmatter.order} &middot; {data.unit.childMdx.frontmatter.title}
           </Link>
           <h1 className={ChapterStyles.title}>{frontmatter.title}</h1>
           {frontmatter.intro && <p className={ChapterStyles.intro}>{frontmatter.intro}</p>}
           {tocItems.length > 1 && <ol className={ChapterStyles.tocContainer}>{tocItems}</ol>}
+        </header>
+        <header className={`${ChapterStyles.status} ${showStatusClass}`}>
+          <span>{frontmatter.title}</span>
+          <label htmlFor="chapterProgress">Chapter progress</label>
+          <progress id="chapterProgress" max="1" value={scrollProgress} />
         </header>
         <div className={ChapterStyles.body}>
           <div className={ChapterStyles.bodyText}>
