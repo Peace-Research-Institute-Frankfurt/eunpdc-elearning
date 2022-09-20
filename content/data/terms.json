@@ -56,7 +56,12 @@
     },
     {
         "term_id": "IAEA",
-        "title": "International Atomic Energy Agency",
+        "title": "International Atomic Energy Agency (IAEA)",
+        "description": ""
+    },
+    {
+        "term_id": "WMD",
+        "title": "Weapons of Mass Destruction (WMD)",
         "description": ""
     }
 ]
