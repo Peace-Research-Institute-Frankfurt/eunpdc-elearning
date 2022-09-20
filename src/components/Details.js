@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import * as styles from "./Details.module.scss";
 
+function DetailsGroup({ children }) {
+  return <div className={styles.detailsGroup}>{children}</div>;
+}
+
 function Details({ summary, children }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,4 +26,4 @@ function Details({ summary, children }) {
   );
 }
 
-export { Details };
+export { Details, DetailsGroup };

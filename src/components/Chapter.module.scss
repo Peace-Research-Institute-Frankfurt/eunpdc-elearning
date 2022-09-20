@@ -39,11 +39,12 @@
   grid-column: 1 / 6;
   font-family: var(--serif);
   font-size: var(--ms-5);
-  margin-bottom: 2rem;
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
   @include bp(m) {
+    margin-bottom: 2rem;
     font-size: var(--ms-7);
     letter-spacing: -0.03em;
     grid-column: 3 / 5;
@@ -175,8 +176,8 @@
     letter-spacing: 0.04em;
     color: var(--blue-60);
     margin-top: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
   }
   table {
     margin-top: 1.5rem;
@@ -314,9 +315,9 @@
 .toc-container {
   grid-row: span 4;
   font-size: var(--ms--1);
-  list-style-position: inside;
-  grid-column: 1/4;
+  grid-column: 1/6;
   padding-top: 1rem;
+  margin-left: 1.2em;
   @include bp(m) {
     padding-top: 1.5rem;
     grid-column: 3/4;
@@ -344,6 +345,10 @@
   opacity: 0;
   transition: var(--fast);
   pointer-events: none;
+  font-weight: 600;
+  @include bp(m) {
+    font-weight: 500;
+  }
   label {
     position: absolute;
     font-size: 0;
@@ -372,23 +377,35 @@
 .status-unit {
   font-weight: 600;
   margin-right: 1rem;
-  &:hover, &:focus-visible {
+  display: none;
+  &:hover,
+  &:focus-visible {
     text-decoration: underline;
   }
+  @include bp(m) {
+    display: block;
+  }
 }
-.status-title {
+.status-location {
+  display: flex;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  @include bp(m) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 }
 
 .status-pagination {
-  display: flex;
   padding-right: var(--padding);
+  display: none;
+  @include bp(m) {
+    display: flex;
+  }
   a {
     display: block;
-    padding: .6rem 1rem;
-    padding-bottom: .7rem;
-    border-right: 1px solid var(--gray-70);
     &:first-of-type {
-      border-left: 1px solid var(--gray-70);
+      margin-right: 1rem;
     }
   }
 }
