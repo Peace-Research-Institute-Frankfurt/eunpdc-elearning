@@ -25,14 +25,9 @@
 }
 
 @font-face {
-  font-family: "Action";
-  font-weight: 700;
-  src: url("../assets/fonts/ActionTextBright-Bold-Trial.otf");
-}
-@font-face {
-  font-family: "Action";
-  font-weight: 900;
-  src: url("../assets/fonts/ActionTextBright-Extrabold-Trial.otf");
+  font-family: "GT Super";
+  font-weight: 500;
+  src: url("../assets/fonts/GT-Super-Text-Medium.woff2") format("woff2")
 }
 
 :root {
@@ -56,7 +51,7 @@
   --yellow-10: hsl(49, 100%, 90%);
   --sans: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --serif: "Action", Georgia, serif;
+  --serif: "GT Super", sans-serif;
   --mono: Courier Prime, monospace;
   --ratio: 1.2; // Minor 3
   --ms-0: clamp(0.95rem, calc(1.3vw + 0.2rem), 1.15rem);

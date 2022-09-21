@@ -39,7 +39,7 @@
   grid-column: 1 / 6;
   font-family: var(--serif);
   font-size: var(--ms-5);
-  font-weight: 900;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: -0.025em;
   margin-bottom: 1.5rem;
@@ -298,7 +298,6 @@
   display: inline-block;
 }
 .pagination-title {
-  font-weight: 900;
   font-family: var(--serif);
   letter-spacing: -0.01em;
   display: block;
