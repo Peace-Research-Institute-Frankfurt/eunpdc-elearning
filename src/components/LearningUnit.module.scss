@@ -58,8 +58,8 @@
   padding: var(--padding);
   @include bp(m) {
     width: 60%;
-    min-height: 65vh;
-    max-width: 50rem;
+    min-height: 85vh;
+    max-width: 40rem;
   }
 }
 
@@ -133,7 +133,7 @@
   section {
     // margin: 0 auto;
     padding: 0 var(--padding);
-    margin-bottom: 4rem;
+    margin-bottom: var(--padding);
     display: grid;
     grid-template-columns: 0.25fr 1fr;
   }
@@ -158,6 +158,7 @@
   ul {
     border: 1px solid var(--gray-30);
     border-radius: var(--br);
+    background: white;
     max-width: 80rem;
   }
 }
