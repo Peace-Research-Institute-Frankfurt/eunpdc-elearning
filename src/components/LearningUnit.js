@@ -128,17 +128,15 @@ const LearningUnit = ({ data, context }) => {
     <App>
       <SiteHeader unit={frontmatter.order} chapter={""} bookmarks={bookmarks} />
       <article className={LuStyles.container}>
-        <header className={LuStyles.header}>
-          <div className={LuStyles.headerInner}>
-            <GatsbyImage className={LuStyles.headerImage} image={heroImage} alt={frontmatter.hero_alt} />
-            <div className={LuStyles.headerCopy} style={headerStyles}>
-              <div>
-                <p className={LuStyles.headerEyebrow}>Unit {frontmatter.order}</p>
-                <h1 className={LuStyles.headerTitle}>{frontmatter.title}</h1>
-                <p className={LuStyles.headerIntro}>{frontmatter.intro}</p>
-              </div>
-              <ul className={LuStyles.headerBylines}>{bylines}</ul>
+        <header className={LuStyles.header} style={headerStyles}>
+          <GatsbyImage className={LuStyles.headerImage} image={heroImage} alt={frontmatter.hero_alt} />
+          <div className={LuStyles.headerCopy}>
+            <div>
+              <p className={LuStyles.headerEyebrow}>Unit {frontmatter.order}</p>
+              <h1 className={LuStyles.headerTitle}>{frontmatter.title}</h1>
+              <p className={LuStyles.headerIntro}>{frontmatter.intro}</p>
             </div>
+            <ul className={LuStyles.headerBylines}>{bylines}</ul>
           </div>
         </header>
         <main>

@@ -1,18 +1,15 @@
 @import "vars";
 
 .header {
-  padding: 0 var(--padding);
-  margin-bottom: var(--padding);
-}
-.header-inner {
   display: flex;
   flex-flow: column;
-  border-radius: var(--br);
   overflow: hidden;
+  margin: 0 var(--padding);
+  margin-bottom: var(--padding);
+  border-radius: var(--br);
   @include bp(m) {
     flex-flow: row-reverse;
     justify-content: flex-end;
-    border-radius: var(--br);
   }
 }
 .header-title {
@@ -61,6 +58,11 @@
 .header-image {
   flex-grow: 0;
   flex-shrink: 1;
+  background: rgba(white, .5);
+  img {
+    mix-blend-mode: multiply;
+    filter: grayscale(1) contrast(1.1);
+  }
 }
 
 .header-credit {
