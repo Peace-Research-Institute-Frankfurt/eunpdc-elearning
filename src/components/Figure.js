@@ -45,7 +45,7 @@ export default function Figure(props) {
 
   let size = props.size;
 
-  let imageEl = `Image not found (${props.src})`;
+  let imageEl = <>Image not found (${props.src})</>;
 
   if (image) {
     if (image.extension === "svg") {
@@ -57,7 +57,7 @@ export default function Figure(props) {
 
   return (
     <figure className={[FigureStyles[size], FigureStyles.container].join(" ")}>
-      {ImageEl}
+      {imageEl}
       <figcaption className={FigureStyles.caption}>
         <span>{props.caption}</span>
         <span className={FigureStyles.credit}>
