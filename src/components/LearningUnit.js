@@ -18,6 +18,7 @@ export const query = graphql`
           authors {
             frontmatter {
               name
+              author_id
               institution
               image {
                 childImageSharp {
@@ -79,7 +80,7 @@ const LearningUnit = ({ data, context }) => {
     const authorImage = getImage(fm.image);
     return (
       <li key={fm.name} className={LuStyles.byline}>
-        <GatsbyImage className={LuStyles.bylineImage} image={authorImage} alt={fm.hero_alt} />
+        <GatsbyImage className={LuStyles.bylineImage} image={authorImage} alt={`${fm.name} profile image`} />
         <div>
           <em>{fm.name}</em>
           <span>{fm.institution}</span>
@@ -93,7 +94,7 @@ const LearningUnit = ({ data, context }) => {
     return (
       <li className={LuStyles.author} key={fm.author_id}>
         <div className={LuStyles.authorHeader}>
-          <GatsbyImage className={LuStyles.authorImage} image={authorImage} alt={fm.hero_alt} />
+          <GatsbyImage className={LuStyles.authorImage} image={authorImage} alt={`${fm.name} profile image`} />
           <div>
             <h3 className={LuStyles.authorTitle}>{fm.name}</h3>
             <span className={LuStyles.authorInstitution}>{fm.institution}</span>
