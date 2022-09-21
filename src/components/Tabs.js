@@ -30,9 +30,9 @@ function Tabs({ children }) {
     const activeClass = isActive ? styles.tabActive : "";
     return (
       <li className={`${styles.tab} ${activeClass}`}>
-        <a onClick={(e) => handleTabClick(e, i)} aria-controls={id} href={`#${id}`} role="tab">
+        <button onClick={(e) => handleTabClick(e, i)} aria-controls={id} role="tab">
           {c.props.title}
-        </a>
+        </button>
       </li>
     );
   });
@@ -49,7 +49,7 @@ function Tabs({ children }) {
       <ul className={styles.tabsList} role="tablist">
         {tabItems}
       </ul>
-      <div className={styles.tabContentContainer}>{tabContent}</div>
+      <div>{tabContent}</div>
     </div>
   );
 }

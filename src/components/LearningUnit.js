@@ -21,7 +21,7 @@ export const query = graphql`
               institution
               image {
                 childImageSharp {
-                  gatsbyImageData(width: 1000, layout: FULL_WIDTH)
+                  gatsbyImageData(width: 1000)
                 }
               }
             }
@@ -39,7 +39,7 @@ export const query = graphql`
           hero_color
           hero_image {
             childImageSharp {
-              gatsbyImageData(width: 1000, layout: FULL_WIDTH)
+              gatsbyImageData(width: 1000)
             }
           }
         }

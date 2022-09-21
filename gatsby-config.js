@@ -65,7 +65,6 @@ module.exports = {
                   frontmatter {
                     title
                   }
-                 
                 }
               }
             }
@@ -75,7 +74,7 @@ module.exports = {
         index: ["title"],
         store: ["id", "title"],
         normalizer: ({ data }) =>
-          data.nodes.map((node) => ({
+          data.allFile.nodes.map((node) => ({
             id: node.id,
             title: node.childMdx.frontmatter.title,
           })),

@@ -174,7 +174,7 @@ const Chapter = ({ data, children }) => {
             <Link to={`../`} className={ChapterStyles.statusUnit}>
               LU{data.unit.childMdx.frontmatter.order} &middot; {data.unit.childMdx.frontmatter.title}
             </Link>
-            <span className={ChapterStyles.statusTitle}>{frontmatter.title}</span>
+            <span>{frontmatter.title}</span>
           </div>
           <label htmlFor="chapterProgress">Chapter progress</label>
           <progress id="chapterProgress" max="1" value={scrollProgress} />
