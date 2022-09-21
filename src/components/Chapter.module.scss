@@ -354,19 +354,14 @@
     position: absolute;
     font-size: 0;
   }
-
-  progress {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border: 0;
-    appearance: none;
-    height: 2px;
-    background-color: transparent;
-    &::-moz-progress-bar {
-      background: var(--blue-90);
+  svg {
+    margin-left: .6rem;
+    overflow: visible;
+    margin-top: .1rem;
+    width: .9rem;
+    transform-origin: center;
+    circle {
+      stroke: var(--blue-90);
     }
   }
 }

@@ -20,7 +20,25 @@ import { Embed } from "./Embed";
 import { Details, DetailsGroup } from "./Details";
 import { useScrollPosition } from "./useScrollPosition";
 
-const shortCodes = { Embed, Quiz, RadioChoice, Question, Choice, Quote, Term, Figure, LectureVideo, Event, Timeline, FlipCards, Card, Details, DetailsGroup, Tabs, Tab };
+const shortCodes = {
+  Embed,
+  Quiz,
+  RadioChoice,
+  Question,
+  Choice,
+  Quote,
+  Term,
+  Figure,
+  LectureVideo,
+  Event,
+  Timeline,
+  FlipCards,
+  Card,
+  Details,
+  DetailsGroup,
+  Tabs,
+  Tab,
+};
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
@@ -153,6 +171,10 @@ const Chapter = ({ data, children }) => {
     });
   }
 
+  const strokeWidth = 50;
+  const r = 50 - 0.5 * strokeWidth;
+  const d = 2 * Math.PI * r;
+
   return (
     <App>
       <SiteHeader bookmarks={bookmarks} unit={data.unit.childMdx.frontmatter.order} chapter={frontmatter.title} />
@@ -171,9 +193,20 @@ const Chapter = ({ data, children }) => {
               LU{data.unit.childMdx.frontmatter.order} &middot; {data.unit.childMdx.frontmatter.title}
             </Link>
             <span>{frontmatter.title}</span>
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle fill="lightgray" cx={50} cy={50} r={50}/>
+              <circle
+                strokeWidth={strokeWidth}
+                cx="50"
+                cy="50"
+                fill="none"
+                r={r}
+                transform="rotate(-90, 50,50)"
+                strokeDasharray={d}
+                strokeDashoffset={-d * Math.min(scrollProgress, 1) + d}
+              />
+            </svg>
           </div>
-          <label htmlFor="chapterProgress">Chapter progress</label>
-          <progress id="chapterProgress" max="1" value={scrollProgress} />
           <nav className={ChapterStyles.statusPagination}>
             {previous && <Link to={`../..${previous.childMdx.fields.slug}`}>Previous</Link>}
             {next && <Link to={`../..${next.childMdx.fields.slug}`}>Next</Link>}
