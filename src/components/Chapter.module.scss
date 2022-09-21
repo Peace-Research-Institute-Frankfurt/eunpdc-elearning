@@ -154,14 +154,17 @@
     font-size: var(--ms-2);
     margin-top: 1em;
     line-height: 1.15;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
+    margin-bottom: 1rem;
+    font-weight: 600;
     &:first-child {
+      margin-top: 0;
+    }
+    & + h3 {
       margin-top: 0;
     }
   }
   h3 {
-    font-size: var(--ms-1);
+    font-size: var(--ms-0);
     font-weight: 600;
     line-height: 1.2;
     margin-top: 1rem;
