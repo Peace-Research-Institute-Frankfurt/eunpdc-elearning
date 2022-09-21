@@ -16,10 +16,11 @@ import { Tabs, Tab } from "./Tabs";
 import useLocalStorage from "./useLocalStorage";
 import BookmarkAdded from "../assets/bookmark-added.svg";
 import { FlipCards, Card } from "./FlipCards";
+import { Embed } from "./Embed";
 import { Details, DetailsGroup } from "./Details";
 import { useScrollPosition } from "./useScrollPosition";
 
-const shortCodes = { Quiz, RadioChoice, Question, Choice, Quote, Term, Figure, LectureVideo, Event, Timeline, FlipCards, Card, Details, DetailsGroup, Tabs, Tab };
+const shortCodes = { Embed, Quiz, RadioChoice, Question, Choice, Quote, Term, Figure, LectureVideo, Event, Timeline, FlipCards, Card, Details, DetailsGroup, Tabs, Tab };
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
