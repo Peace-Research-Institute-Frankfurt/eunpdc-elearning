@@ -44,7 +44,6 @@
   letter-spacing: -0.025em;
   margin-bottom: 1.5rem;
   @include bp(m) {
-    margin-bottom: 2rem;
     font-size: var(--ms-7);
     letter-spacing: -0.03em;
     grid-column: 3 / 5;
@@ -261,7 +260,7 @@
   text-decoration: none !important;
   transition: var(--fast);
   color: var(--gray-90) !important;
-  background: var(--blue-10);
+  background: var(--yellow-10);
   border: 1px solid transparent;
   @include bp(m) {
     padding: 1.5rem;
@@ -305,9 +304,9 @@
   display: block;
   align-items: flex-start;
   font-size: var(--ms-2);
-  line-height: 1.15;
+  line-height: 1.1;
   @include bp(m) {
-    font-size: var(--ms-3);
+    font-size: var(--ms-4);
   }
 }
 
@@ -393,10 +392,6 @@
   display: flex;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  @include bp(m) {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
 }
 
 .status-pagination {

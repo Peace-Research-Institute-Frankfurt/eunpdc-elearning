@@ -85,7 +85,7 @@ const Chapter = ({ data, children }) => {
   if (typeof window !== "undefined") {
     scrollProgress = scrollY / (document.body.scrollHeight - window.innerHeight);
   }
-  const showStatus = scrollY > 200;
+  const showStatus = scrollY > 50;
   const currentIndex = data.chapters.nodes.findIndex((el) => {
     return el.childMdx.frontmatter.order === frontmatter.order;
   });
@@ -153,16 +153,11 @@ const Chapter = ({ data, children }) => {
     });
   }
 
-  const headerStyles = {
-    background: data.unit.childMdx.frontmatter.hero_background,
-    color: data.unit.childMdx.frontmatter.hero_color,
-  };
-
   return (
     <App>
       <SiteHeader bookmarks={bookmarks} unit={data.unit.childMdx.frontmatter.order} chapter={frontmatter.title} />
       <article>
-        <header style={headerStyles} className={ChapterStyles.header}>
+        <header className={ChapterStyles.header}>
           <Link className={ChapterStyles.unit} to={`../`}>
             Unit {data.unit.childMdx.frontmatter.order} &middot; {data.unit.childMdx.frontmatter.title}
           </Link>
