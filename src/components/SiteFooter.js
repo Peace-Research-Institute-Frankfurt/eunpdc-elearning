@@ -1,7 +1,15 @@
 import React from "react";
 import * as styles from "./SiteFooter.module.scss";
+import { graphql, useStaticQuery } from "gatsby";
 
 export default function SiteFooter() {
+  const data = useStaticQuery(graphql`
+    query {
+      meta: site {
+        buildTime(formatString: "D MMMM Y, HH:mm")
+      }
+    }
+  `);
   return (
     <footer className={styles.container}>
       <nav className={styles.nav}>
@@ -25,8 +33,10 @@ export default function SiteFooter() {
       </nav>
       <p>
         The EU Non-Proliferation and Disarmament eLearning Course aims to cover all aspects of the EU non-proliferation and disarmament agenda. It's
-        produced by PRIF with financial assistance of the European Union. The contents of individual learning units are the sole responsibility of the respective authors and don't necessariy reflect the position of the European Union.
+        produced by PRIF with financial assistance of the European Union. The contents of individual learning units are the sole responsibility of the
+        respective authors and don't necessariy reflect the position of the European Union.
       </p>
+      <p className={styles.meta}>Built {data.meta.buildTime}</p>
     </footer>
   );
 }
