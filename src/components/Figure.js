@@ -44,14 +44,20 @@ export default function Figure(props) {
   });
 
   let size = props.size;
+
+  let imageEl = `Image not found (${props.src})`;
+
+  if (image) {
+    if (image.extension === "svg") {
+      imageEl = <img className={FigureStyles.image} alt={props.alt} src={image.publicURL} />;
+    } else {
+      imageEl = <GatsbyImage className={FigureStyles.image} image={getImage(image)} alt={props.alt}></GatsbyImage>;
+    }
+  }
+
   return (
     <figure className={[FigureStyles[size], FigureStyles.container].join(" ")}>
-      {image.extension === "svg" ? (
-        <img className={FigureStyles.image} alt={props.alt} src={image.publicURL} />
-      ) : (
-        <GatsbyImage className={FigureStyles.image} image={getImage(image)} alt={props.alt}></GatsbyImage>
-      )}
-
+      {ImageEl}
       <figcaption className={FigureStyles.caption}>
         <span>{props.caption}</span>
         <span className={FigureStyles.credit}>
