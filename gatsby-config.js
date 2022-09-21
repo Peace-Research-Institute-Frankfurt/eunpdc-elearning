@@ -75,7 +75,7 @@ module.exports = {
         index: ["title"],
         store: ["id", "title"],
         normalizer: ({ data }) =>
-          data..nodes.map((node) => ({
+          data.nodes.map((node) => ({
             id: node.id,
             title: node.childMdx.frontmatter.title,
           })),
