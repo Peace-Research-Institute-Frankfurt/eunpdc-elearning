@@ -6,20 +6,24 @@ We publish our learning content with a custom-built system based on [Gatsby](htt
 
 ### How to get set up
 
+You only need to do these steps once, when you start working on our project.
+
+If you've never worked in software engineering, you might want to read a [gentler introduction](https://awesomephant.github.io/untitled-coding-workshop/chapters/tools/) to the process before you move on.
+
 1. Download and install [Node.js](https://nodejs.org/en/), [git,](https://git-scm.com/) and [VS Code](https://code.visualstudio.com/)
 2. Sign up for a free [Github](https://github.com/) account using your work email
 3. Once you’re invited to [the repository](https://github.com/awesomephant/eunpdc-demo), run `git clone` on the command line to make a local copy of it
 4. Open the newly-created folder in VS Code
 5. Run `npm install` to pull down dependencies (this might take a few minutes)
 
-You only need to do these steps once. Here’s a [longer version of this](https://awesomephant.github.io/untitled-coding-workshop/chapters/tools/).
-
 ### How to make changes
 
+You need to complete these steps each time you sit down to work on the project.
+
 1. Open the project folder in VS Code
-2. Run `npm run start` to start a live preview server
+2. Run `npm run start` in the built-in command line to start a live preview server at `localhost:8000`.
 3. Make your changes
-4. Use the version control panel in VS Code to write a commit message and commit your changes to the repository. Your changes should be deployed in about a minute.
+4. Use the command line or the version control panel in VS Code to commit your changes to the repository. Your changes should be automatically deployed in about a 90 seconds.
 
 ## Project structure
 
