@@ -6,15 +6,13 @@ We publish our learning content with a custom-built system based on [Gatsby](htt
 
 ### How to get set up
 
-You only need to do these steps once, when you start working on our project.
-
-If you've never worked in software engineering, you might want to read a [gentler introduction](https://awesomephant.github.io/untitled-coding-workshop/chapters/tools/) to the process before you move on.
+You only need to do these steps once, when you start working on our project. If you've never worked in software engineering before, you might want to read a [gentler introduction](https://awesomephant.github.io/untitled-coding-workshop/chapters/tools/) to the process before you move on.
 
 1. Download and install [Node.js](https://nodejs.org/en/), [git,](https://git-scm.com/) and [VS Code](https://code.visualstudio.com/)
 2. Sign up for a free [Github](https://github.com/) account using your work email
-3. Once you’re invited to [the repository](https://github.com/awesomephant/eunpdc-demo), run `git clone` on the command line to make a local copy of it
+3. Once you’re invited to [the repository](https://github.com/awesomephant/eunpdc-demo), run `git clone https://github.com/awesomephant/eunpdc-demo.git` to make a local copy of it
 4. Open the newly-created folder in VS Code
-5. Run `npm install` to pull down dependencies (this might take a few minutes)
+5. Run `npm install` to download and install dependencies (this might take a few minutes)
 
 ### How to make changes
 
@@ -33,14 +31,17 @@ As an editor, everything you need to work on this site is inside the `/content` 
 
 This is where we keep all information related to learning unit authors. Each author is represented by an `mdx` file that looks like this:
 
-    ---
-    name: Federica Dall'Arche
-    author_id: federica-dall-arche
-    institution: Istituto Affari Internazionali I.A.I
-    image: "./assets/Federica-DallArche.jpg"
-    image_alt: ""
-    ---
-    Federica Dall’Arche is a policy advisor to the Italian Presidency of the Council of Ministers and a researcher at the \[International Affairs Institute\](https://www.iai.it/en) ...
+```yaml
+---
+name: Federica Dall'Arche
+author_id: federica-dall-arche
+institution: Istituto Affari Internazionali I.A.I
+image: "./assets/Federica-DallArche.jpg"
+image_alt: ""
+---
+
+Federica Dall’Arche is a policy advisor to the Italian Presidency of the Council of Ministers and a researcher at the \[International Affairs Institute\](https://www.iai.it/en) ...
+```
 
 #### Parameters
 
@@ -204,14 +205,15 @@ Display a collapsible section of arbitrary markdown content.
 ```
 
 #### Parameters
+
 - `summary` **(Required)**: Text to appear when the section is collapsed
 
 Wrap multiple `<Details>` components in a `<DetailsGroup>` component to display them in a coherent unit:
 
 ```jsx
 <DetailsGroup>
-    <Details summary="...">...</Details>
-    <Details summary="...">...</Details>
+  <Details summary="...">...</Details>
+  <Details summary="...">...</Details>
 </DetailsGroup>
 ```
 
