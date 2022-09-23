@@ -121,7 +121,6 @@ const LearningUnit = ({ data, context }) => {
 
   const headerStyles = {
     background: frontmatter.hero_background,
-    color: frontmatter.hero_color,
   };
 
   return (

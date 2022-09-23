@@ -88,7 +88,6 @@ export const query = graphql`
           title
           short_title
           order
-          hero_color
           hero_background
         }
       }
@@ -114,6 +113,10 @@ const Chapter = ({ data, children }) => {
   const bookmarkIndex = bookmarks.findIndex((el) => {
     return el.slug === data.post.childMdx.slug;
   });
+
+  const headerStyles = {
+    backgroundColor: data.unit.childMdx.frontmatter.hero_background,
+  };
 
   const actions = (
     <aside className={ChapterStyles.actions}>
@@ -179,7 +182,7 @@ const Chapter = ({ data, children }) => {
     <App>
       <SiteHeader bookmarks={bookmarks} unit={data.unit.childMdx.frontmatter.order} chapter={frontmatter.title} />
       <article>
-        <header className={ChapterStyles.header}>
+        <header className={ChapterStyles.header} style={headerStyles}>
           <Link className={ChapterStyles.unit} to={`../`}>
             Unit {data.unit.childMdx.frontmatter.order} &middot; {data.unit.childMdx.frontmatter.title}
           </Link>
@@ -194,7 +197,7 @@ const Chapter = ({ data, children }) => {
             </Link>
             <span>{frontmatter.title}</span>
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <circle fill="lightgray" cx={50} cy={50} r={50}/>
+              <circle fill="lightgray" cx={50} cy={50} r={50} />
               <circle
                 strokeWidth={strokeWidth}
                 cx="50"
@@ -218,7 +221,7 @@ const Chapter = ({ data, children }) => {
           </div>
           <nav className={ChapterStyles.pagination}>
             {next && next.childMdx.frontmatter.title && (
-              <Link className={ChapterStyles.next} to={`../..${next.childMdx.fields.slug}`}>
+              <Link style={headerStyles} className={ChapterStyles.next} to={`../..${next.childMdx.fields.slug}`}>
                 <span className={ChapterStyles.paginationLabel}>Next</span>
                 <span className={ChapterStyles.paginationTitle}>
                   {next.childMdx.frontmatter.order}. {next.childMdx.frontmatter.title}

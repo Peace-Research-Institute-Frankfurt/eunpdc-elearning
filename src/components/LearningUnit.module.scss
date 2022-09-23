@@ -58,7 +58,7 @@
 .header-image {
   flex-grow: 0;
   flex-shrink: 1;
-  background: rgba(white, 0.5);
+  background: rgba(white, 0.85);
   img {
     mix-blend-mode: multiply;
     filter: grayscale(1) contrast(1.1);
@@ -72,7 +72,6 @@
   padding: 0.1rem 0.4rem;
   border-top-left-radius: var(--br);
   font-size: var(--ms--2);
-  background: rgba(white, 0.8);
   top: 0;
   transform: translateY(-100%);
   color: var(--blue-80);
@@ -126,7 +125,7 @@
   width: 2.5rem;
   height: 2.5rem;
   flex-shrink: 0;
-  background: rgba(white, 1);
+  background: rgba(white, .5);
   img {
     mix-blend-mode: multiply;
     filter: grayscale(1) contrast(1.2);
