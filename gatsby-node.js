@@ -140,6 +140,7 @@ exports.createSchemaCustomization = async ({ getNode, getNodesByType, pathPrefix
     image: File
   }
   type FrontMatter {
+    hero_image: File @fileByRelativePath
     authors: [Author] @link(by: "author_id")
   }
   type Mdx {
