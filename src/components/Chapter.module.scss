@@ -12,11 +12,10 @@
   background: var(--yellow-10);
   padding-top: 2rem;
   padding-bottom: 2rem;
-  margin: 0 var(--padding);
   border-radius: var(--br);
   @include bp(m) {
-    padding-top: 8rem;
-    padding-bottom: 9rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 }
 .unit {
@@ -41,21 +40,20 @@
   font-size: var(--ms-5);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.025em;
-  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
   @include bp(m) {
     font-size: var(--ms-7);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
     grid-column: 3 / 5;
   }
 }
 .intro {
   grid-column: 1 / 6;
-  font-family: var(--sans);
   line-height: 1.2;
-  max-width: 40em;
-  hyphens: auto;
+  max-width: 33em;
   font-size: var(--ms-0);
+  hyphens: auto;
   @include bp(m) {
     font-size: var(--ms-1);
     grid-column: 3 / 5;
@@ -153,8 +151,8 @@
     font-size: var(--ms-2);
     margin-top: 1em;
     line-height: 1.15;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
     &:first-child {
       margin-top: 0;
     }
@@ -256,7 +254,6 @@
   border-radius: var(--br);
   padding: 1rem;
   margin-bottom: 1rem;
-  max-width: 40rem;
   text-decoration: none !important;
   transition: var(--fast);
   color: var(--gray-90) !important;
@@ -303,9 +300,10 @@
   display: block;
   align-items: flex-start;
   font-size: var(--ms-2);
-  line-height: 1.1;
+  line-height: 1;
+  font-weight: 700;
   @include bp(m) {
-    font-size: var(--ms-3);
+    font-size: var(--ms-4);
   }
 }
 
@@ -314,16 +312,26 @@
 }
 
 .toc-container {
-  grid-row: span 4;
   font-size: var(--ms--1);
   grid-column: 1/6;
-  padding-top: 1rem;
-  margin-left: 1.2em;
   @include bp(m) {
     padding-top: 1.5rem;
-    grid-column: 3/4;
+    position: sticky;
+    top: 4rem;
+    grid-column: 5/6;
+    grid-row: 1 / 6;
+  }
+  ol {
+    border-left: 1px solid var(--gray-30);
+    list-style: none;
+    margin: 0;
+    padding-left: 1rem;
+  }
+  li {
+    margin-bottom: 0.25rem;
   }
   a {
+    text-decoration: none;
     &:hover,
     &:focus-visible {
       text-decoration: underline;
@@ -355,10 +363,10 @@
     font-size: 0;
   }
   svg {
-    margin-left: .6rem;
+    margin-left: 0.6rem;
     overflow: visible;
-    margin-top: .1rem;
-    width: .9rem;
+    margin-top: 0.1rem;
+    width: 0.9rem;
     transform-origin: center;
     circle {
       stroke: var(--blue-90);

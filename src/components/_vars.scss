@@ -27,9 +27,10 @@
 @font-face {
   font-family: "GT Super";
   font-weight: 500;
-  src: url("../assets/fonts/GT-Super-Text-Medium.woff2") format("woff2")
+  src: url("../assets/fonts/GT-Super-Text-Medium.woff2") format("woff2");
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap");
 :root {
   --gray-10: rgb(255, 255, 255);
   --gray-20: rgb(249, 249, 248);
@@ -71,6 +72,7 @@
   --ms-12: calc(var(--ms-11) * var(--ratio));
   --br: 3px;
   --fast: 100ms;
-  --padding: min(5vw, 1.5rem);
+  --padding: min(5vw, 3rem);
+  --padding-small: calc(var(--padding) * .5);
   --ripPath: url(../assets/rip.svg);
 }

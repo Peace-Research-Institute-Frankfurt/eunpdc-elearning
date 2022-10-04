@@ -188,7 +188,6 @@ const Chapter = ({ data, children }) => {
           </Link>
           <h1 className={ChapterStyles.title}>{frontmatter.title}</h1>
           {frontmatter.intro && <p className={ChapterStyles.intro}>{frontmatter.intro}</p>}
-          {tocItems.length > 1 && <ol className={ChapterStyles.tocContainer}>{tocItems}</ol>}
         </header>
         <header className={`${ChapterStyles.status} ${showStatusClass}`}>
           <div className={ChapterStyles.statusLocation}>
@@ -216,6 +215,7 @@ const Chapter = ({ data, children }) => {
           </nav>
         </header>
         <div className={ChapterStyles.body}>
+          {tocItems.length > 1 && <div className={ChapterStyles.tocContainer}><ol>{tocItems}</ol></div>}
           <div className={ChapterStyles.bodyText}>
             <MDXProvider components={shortCodes}>{children}</MDXProvider>
           </div>
