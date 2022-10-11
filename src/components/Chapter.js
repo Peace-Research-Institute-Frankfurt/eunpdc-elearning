@@ -18,6 +18,7 @@ import BookmarkAdded from "../assets/bookmark-added.svg";
 import { FlipCards, Card } from "./FlipCards";
 import { Embed } from "./Embed";
 import { Details, DetailsGroup } from "./Details";
+import { Callout } from "./Callout";
 import { useScrollPosition } from "./useScrollPosition";
 
 const shortCodes = {
@@ -38,6 +39,7 @@ const shortCodes = {
   DetailsGroup,
   Tabs,
   Tab,
+  Callout,
 };
 
 export const query = graphql`
@@ -215,7 +217,11 @@ const Chapter = ({ data, children }) => {
           </nav>
         </header>
         <div className={ChapterStyles.body}>
-          {tocItems.length > 1 && <div className={ChapterStyles.tocContainer}><ol>{tocItems}</ol></div>}
+          {tocItems.length > 1 && (
+            <div className={ChapterStyles.tocContainer}>
+              <ol>{tocItems}</ol>
+            </div>
+          )}
           <div className={ChapterStyles.bodyText}>
             <MDXProvider components={shortCodes}>{children}</MDXProvider>
           </div>

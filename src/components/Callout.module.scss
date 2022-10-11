@@ -1,0 +1,16 @@
+@import "vars";
+
+.container {
+  grid-column: 1/6;
+  background: var(--blue-10);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border-radius: var(--br);
+  h3 {
+    margin-top: 0;
+  }
+  @include bp(m) {
+    grid-column: 3/4;
+  }
+}

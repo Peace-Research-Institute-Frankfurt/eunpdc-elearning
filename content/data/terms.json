@@ -60,6 +60,11 @@
         "description": ""
     },
     {
+        "term_id": "GPS",
+        "title": "Global Positioning System (GPS)",
+        "description": ""
+    },
+    {
         "term_id": "PAROS",
         "title": "Prevention of an Arms Race in Outer Space (PAROS)",
         "description": "PAROS is a UN resolution that reaffirms the fundamental principles of the 1967 Outer Space Treaty and advocates for a ban on the weaponization of space."
