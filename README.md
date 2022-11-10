@@ -1,5 +1,7 @@
 # E-Learning 2022 Documentation
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/daf3527b-10f7-458b-b1c4-189a9b818e6e/deploy-status)](https://app.netlify.com/sites/eunpdc-elearning/deploys)
+
 We publish our learning content with a custom-built system based on [Gatsby](https://www.gatsbyjs.com/).
 
 ## Workflow
