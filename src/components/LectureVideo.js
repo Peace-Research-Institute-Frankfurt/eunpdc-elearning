@@ -19,7 +19,7 @@ export default function LectureVideo({ lu, vl, transcript, size, provider, child
     src = `https://nonproliferation-elearning.eu/learningunits/video.php?lu=${lu}&vl=${vl}&sub`;
   }
 
-  const [currentTab, setCurrentTab] = useState(0);
+  const [currentTab, setCurrentTab] = useState(1);
   const tabs = ["video", "text"];
   function generateId(base, index) {
     return `${base}-${index}`;
