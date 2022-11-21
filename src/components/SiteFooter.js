@@ -1,6 +1,7 @@
 import React from "react";
 import * as styles from "./SiteFooter.module.scss";
 import { graphql, useStaticQuery } from "gatsby";
+import FundingLogo from "../assets/funded-by-eu.svg";
 
 export default function SiteFooter() {
   const data = useStaticQuery(graphql`
@@ -12,6 +13,7 @@ export default function SiteFooter() {
   `);
   return (
     <footer className={styles.container}>
+      <img src={FundingLogo} alt="Funded by the European Union" className={styles.funding}/>
       <nav className={styles.nav}>
         <ul>
           <li>

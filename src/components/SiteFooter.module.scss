@@ -3,13 +3,17 @@
 .container {
   padding-top: var(--padding);
   margin: var(--padding);
-  margin-top: 10rem;
   font-size: var(--ms--1);
   border-top: 1px solid var(--gray-30);
   p {
     max-width: 60em;
     opacity: 0.75;
   }
+}
+
+.funding {
+  margin-bottom: .75rem;
+  height: 3.5rem;
 }
 
 .nav {
