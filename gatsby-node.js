@@ -1,5 +1,7 @@
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const { compileMDXWithCustomOptions } = require(`gatsby-plugin-mdx`);
+const slug = require("slug");
+slug.extend({ "—": "-", "–": "-" });
 
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
