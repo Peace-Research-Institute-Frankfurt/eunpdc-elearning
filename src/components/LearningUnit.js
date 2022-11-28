@@ -108,7 +108,7 @@ const LearningUnit = ({ data, context }) => {
     const frontmatter = node.childMdx.frontmatter;
     return (
       <li key={node.name}>
-        <Link to={node.name}>
+        <Link to={node.childMdx.fields.slug}>
           <h3 className={LuStyles.chapterTitle}>
             {index + 1}. {frontmatter.title}
           </h3>

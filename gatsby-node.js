@@ -40,7 +40,7 @@ exports.createPages = async function ({ actions, graphql }) {
     const id = node.id;
     const template = require.resolve(`./src/components/Chapter.js`);
     actions.createPage({
-      path: slug,
+      path: `${lu_id}/${slug}`,
       component: `${template}?__contentFilePath=${node.childMdx.internal.contentFilePath}`,
       context: { id: id, lu_id: lu_id },
     });
@@ -51,7 +51,7 @@ exports.createPages = async function ({ actions, graphql }) {
     const slug = node.childMdx.fields.slug;
     const lu_id = node.relativeDirectory;
     actions.createPage({
-      path: slug,
+      path: lu_id,
       component: require.resolve(`./src/components/LearningUnit.js`),
       context: { id: id, lu_id: lu_id },
     });
@@ -72,10 +72,15 @@ exports.onCreateNode = ({ node, actions, createNodeId, getNode }) => {
     });
   }
   if (node.internal.type === "Mdx") {
+    console.log(node);
+    let path = createFilePath({ node, getNode });
+    if (node.frontmatter.title && node.internal.contentFilePath.indexOf("index.mdx") === -1) {
+      path = slug(node.frontmatter.title);
+    }
     actions.createNodeField({
       node,
       name: "slug",
-      value: createFilePath({ node, getNode }),
+      value: path,
     });
   }
 };
