@@ -72,7 +72,6 @@ exports.onCreateNode = ({ node, actions, createNodeId, getNode }) => {
     });
   }
   if (node.internal.type === "Mdx") {
-    console.log(node);
     let path = createFilePath({ node, getNode });
     if (node.frontmatter.title && node.internal.contentFilePath.indexOf("index.mdx") === -1) {
       path = slug(node.frontmatter.title);
