@@ -19,7 +19,7 @@ function Details({ summary, children }) {
   return (
     <details className={styles.container} open={false}>
       <summary onClick={toggleOpen} className={styles.summary}>
-        {summary}
+        <span className={styles.summaryText}>{summary}</span>
       </summary>
       <div className={styles.body}>{children}</div>
     </details>
