@@ -1,4 +1,4 @@
-import React from "react";
+import React, { cloneElement } from "react";
 import { useState } from "react";
 import { useId } from "react";
 import * as styles from "./Tabs.module.scss";
@@ -24,28 +24,30 @@ function Tabs({ children }) {
     setCurrentTab(i);
   }
 
-  const tabItems = React.Children.map(children, (c, i) => {
+  const filteredChildren = React.Children.toArray(children).filter((c) => c.type && c.type.name === "Tab");
+  const tabItems = filteredChildren.map((c, i) => {
     const id = generateId(baseId, i);
     const isActive = currentTab === i;
     const activeClass = isActive ? styles.tabActive : "";
+    const title = c.props.title;
     return (
       <li className={`${styles.tab} ${activeClass}`}>
         <button onClick={(e) => handleTabClick(e, i)} aria-controls={id} role="tab">
-          {c.props.title}
+          {title}
         </button>
       </li>
     );
   });
-  const tabContent = React.Children.map(children, (c, i) => {
+  const tabContent = filteredChildren.map((c, i) => {
     const props = {
       tabId: generateId(baseId, i),
       isActive: currentTab === i,
     };
-
-    return React.cloneElement(c, props);
+    return cloneElement(c, props);
   });
   return (
     <div className={styles.container}>
+      tablist
       <ul className={styles.tabsList} role="tablist">
         {tabItems}
       </ul>

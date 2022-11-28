@@ -11,8 +11,8 @@
   transition: var(--fast);
   font-size: var(--ms--1);
   margin-bottom: 0 !important;
-  
-  a {
+
+  button {
     display: block;
     padding: 0.5em 0.75em;
     text-decoration: none;
@@ -33,7 +33,7 @@
 
 .tab-active {
   background: var(--blue-80);
-  a {
+  button {
     color: white;
   }
 }
