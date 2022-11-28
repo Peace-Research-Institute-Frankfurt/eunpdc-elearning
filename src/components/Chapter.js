@@ -212,8 +212,8 @@ const Chapter = ({ data, children }) => {
             </svg>
           </div>
           <nav className={ChapterStyles.statusPagination}>
-            {previous && <Link to={`../..${previous.childMdx.fields.slug}`}>Previous</Link>}
-            {next && <Link to={`../..${next.childMdx.fields.slug}`}>Next</Link>}
+            {previous && <Link to={`../${previous.childMdx.fields.slug}`}>Previous</Link>}
+            {next && <Link to={`../${next.childMdx.fields.slug}`}>Next</Link>}
           </nav>
         </header>
         <div className={ChapterStyles.body}>
@@ -227,7 +227,7 @@ const Chapter = ({ data, children }) => {
           </div>
           <nav className={ChapterStyles.pagination}>
             {next && next.childMdx.frontmatter.title && (
-              <Link style={headerStyles} className={ChapterStyles.next} to={`../..${next.childMdx.fields.slug}`}>
+              <Link style={headerStyles} className={ChapterStyles.next} to={`../${next.childMdx.fields.slug}`}>
                 <span className={ChapterStyles.paginationLabel}>Next</span>
                 <span className={ChapterStyles.paginationTitle}>
                   {next.childMdx.frontmatter.order}. {next.childMdx.frontmatter.title}
@@ -238,7 +238,7 @@ const Chapter = ({ data, children }) => {
             {previous && (
               <>
                 <span className={ChapterStyles.paginationLabel}>Previous</span>
-                <Link className={ChapterStyles.previous} to={`../..${previous.childMdx.fields.slug}`}>
+                <Link className={ChapterStyles.previous} to={`../${previous.childMdx.fields.slug}`}>
                   <span>{previous.childMdx.frontmatter.title}</span>
                 </Link>
               </>
