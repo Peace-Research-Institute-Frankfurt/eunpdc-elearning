@@ -7,7 +7,7 @@ export const query = graphql`
   query {
     units: allFile(
       filter: { extension: { eq: "mdx" }, name: { eq: "index" }, sourceInstanceName: { eq: "luContent" } }
-      sort: { fields: childMdx___frontmatter___order }
+      sort: { childMdx: { frontmatter: { order: ASC } } }
     ) {
       nodes {
         id

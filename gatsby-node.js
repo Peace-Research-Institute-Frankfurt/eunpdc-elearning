@@ -1,6 +1,5 @@
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const { compileMDXWithCustomOptions } = require(`gatsby-plugin-mdx`);
-const { remarkHeadingsPlugin } = require(`./remark-headings-plugin`);
 
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
@@ -103,7 +102,7 @@ exports.createSchemaCustomization = async ({ getNode, getNodesByType, pathPrefix
               pluginOptions: {},
               customOptions: {
                 mdxOptions: {
-                  remarkPlugins: [remarkHeadingsPlugin],
+                  remarkPlugins: ["remark-headings-plugin"],
                 },
               },
               getNode,

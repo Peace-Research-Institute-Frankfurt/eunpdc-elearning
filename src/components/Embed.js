@@ -10,5 +10,4 @@ function Embed({ src, size }) {
     </figure>
   );
 }
-
 export { Embed };

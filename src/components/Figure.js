@@ -13,7 +13,7 @@ export default function Figure(props) {
           url
         }
       }
-      images: allFile(filter: { extension: { nin: ["mdx", "json", "mp3"] } }) {
+      images: allFile(filter: { extension: { nin: ["mdx", "json", "mp3", "svg"] } }) {
         nodes {
           relativePath
           base

@@ -64,7 +64,7 @@ export const query = graphql`
     }
     chapters: allFile(
       filter: { relativeDirectory: { eq: $lu_id }, name: { ne: "index" }, ext: { eq: ".mdx" } }
-      sort: { fields: childMdx___frontmatter___order }
+      sort: { childMdx: { frontmatter: { order: ASC } } }
     ) {
       nodes {
         name
