@@ -140,7 +140,7 @@ const LearningUnit = ({ data, context }) => {
         </header>
         <main>
           {frontmatter.learning_objectives && (
-            <section className={LuStyles.learningObjectives}>
+            <section>
               <h2 className={LuStyles.sectionTitle}>Learning Objectives</h2>
               <div className={LuStyles.sectionContent}>
                 <MarkdownRenderer markdown={frontmatter.learning_objectives} />
