@@ -6,7 +6,6 @@ import App from "./App";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import useLocalStorage from "./useLocalStorage";
-import Counter from "./Counter";
 import MarkdownRenderer from "react-markdown-renderer";
 
 export const query = graphql`
@@ -15,6 +14,7 @@ export const query = graphql`
       childMdx {
         frontmatter {
           title
+          learning_objectives
           authors {
             frontmatter {
               name
@@ -139,6 +139,14 @@ const LearningUnit = ({ data, context }) => {
           </div>
         </header>
         <main>
+          {frontmatter.learning_objectives && (
+            <section className={LuStyles.learningObjectives}>
+              <h2 className={LuStyles.sectionTitle}>Learning Objectives</h2>
+              <div className={LuStyles.sectionContent}>
+                <MarkdownRenderer markdown={frontmatter.learning_objectives} />
+              </div>
+            </section>
+          )}
           <section className={LuStyles.chapters}>
             <h2 className={LuStyles.sectionTitle}>Chapters</h2>
             <div className={LuStyles.sectionContent}>
