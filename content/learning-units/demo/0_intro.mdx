@@ -1,38 +1,64 @@
 ---
 title: This is the Chapter Title
-intro: This is the chapter introduction.
+intro: This is an optional introduction to the chapter. It can give additional context to the chapter title, or otherwise prepare the reader for the text that follows.
 order: 1
 reading_time: 9
 ---
 
-## Headline 2
-### Headline 3
-#### Headline 4
+This is the main body of the chapter. It can contain **bold**, _italics_, [links](#example), footnotes[^1], subheadings, lists, and a series of advanced components listed below.
 
-- Apples
-- Oranges
-- Bananas
+## Components
 
-1. Eat
-2. Sleep
-3. eLearning
-4. Repeat
+### Figure
 
-<Figure
-  size="large"
-  src="ban-is-coming.jpg"
-  caption="Campaigners dressed as nuclear bombs express confidence that a treaty banning nuclear weapons is on its way."
-  credit="International Campaign to Abolish Nuclear Weapons / Tim Wright"
-  license="cc-by-2"
-  alt=""
-></Figure>
+Both raster images (PNG, JPG, etc.) and raster images are supported. Raster images are automatically scaled and converted to web-ready formats.
 
-<Details summary="Biological weapons and materials">
+<Figure size="medium" src="ban-is-coming.jpg" caption="This is the caption for this medium-sized image." credit="This is the image credit." alt=""></Figure>
 
-- 1925 Protocol for the Prohibition of Asphyxiating, Poisonous or Other Gases, and of Bacteriological Methods of Warfare
-- 1972 Convention on the prohibition of the development, production and stockpiling of bacteriological (biological) and toxin weapons and on their destruction (BWC)
+<Figure size="large" src="ban-is-coming.jpg" caption="This is a large image" credit="This is the image credit." alt=""></Figure>
+
+<Figure size="full" src="ban-is-coming.jpg" caption="This is a full-bleed image." credit="This is the image credit." alt=""></Figure>
+
+### Tabs
+
+<Tabs>
+  <Tab title="Tab A">This is the content of tab A. There is no length restriction, and you can use *italics*, [links](#1) and other formatting.</Tab>
+  <Tab title="Tab B">Tab content B</Tab>
+  <Tab title="Tab C">Tab content C</Tab>
+</Tabs>
+
+### Detail/Expand
+
+<DetailsGroup>
+<Details summary="Title A">
+
+This is an expanded description of a concept. There is no length restriction, and you can use _italics_, [links](#1) and other formatting.
 
 </Details>
+<Details summary="Title B">
+
+Description B.
+
+</Details>
+</DetailsGroup>
+
+### Flipcards
+
+<FlipCards>
+<Card front="This the front of the card.">
+
+This is the back of the card. Both sides of the card shouldn't have more than 25 words.
+
+</Card>
+
+<Card front="And here is another card">
+
+... and here's the back of that one.
+
+</Card>
+</FlipCards>
+
+### Timeline
 
 <Timeline>
   <Event date="1675" title="Strasbourg Agreement">
@@ -45,13 +71,29 @@ reading_time: 9
   </Event>
 </Timeline>
 
-<Quote type="document" fullDocument="https://en.wikisource.org/wiki/The_Chance_for_Peace" cite='Dwight D. Eisenhower, "Chance for Peace", speech to American Society of Newspaper Editors.'>
+### Quote
+
+Both styles support a citation, an optional audio file and an optional link to the full document. 
+
+#### Style A (Default)
+
+<Quote audio="eisenhower-chance-for-peace.mp3" fullDocument="https://en.wikisource.org/wiki/The_Chance_for_Peace" cite='Dwight D. Eisenhower, "Chance for Peace", speech to American Society of Newspaper Editors.'>
+    
+[...] Every gun that is made, every warship launched, every rocket fired signifies, in the final sense, a theft from those who hunger and are not fed, those who are cold and are not clothed.
+
+</Quote>
+
+#### Style B (Document)
+
+<Quote audio="eisenhower-chance-for-peace.mp3" type="document" fullDocument="https://en.wikisource.org/wiki/The_Chance_for_Peace" cite='Dwight D. Eisenhower, "Chance for Peace", speech to American Society of Newspaper Editors.'>
     
 [...] **Every gun that is made, every warship launched, every rocket fired signifies, in the final sense, a theft from those who hunger and are not fed, those who are cold and are not clothed.**
 
 This world in arms is not spending money alone. **It is spending the sweat of its laborers, the genius of its scientists, the hopes of its children.**
 
 </Quote>
+
+### Quiz
 
 <Quiz>
   <Question type="MultipleChoice" question="What is the goal of arms control?" hint="Select all that apply.">
@@ -67,3 +109,5 @@ This world in arms is not spending money alone. **It is spending the sweat of it
     <RadioChoice value="The Hague Conference" />
   </Question>
 </Quiz>
+
+[^1]: This is the footnote content
