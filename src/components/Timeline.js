@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useId } from "react";
 import * as styles from "./Timeline.module.scss";
 
 function Timeline(props) {
-  const events = React.Children.map(props.children, (child) => {
+  const baseId = useId()
+  const events = React.Children.map(props.children, (child, i) => {
     return React.cloneElement(child, {
-      test: "I'm an injected prop",
+      key: `baseId-${i}`,
     });
   });
   return (
@@ -32,7 +34,7 @@ function Event({ date, title, collapsed, children }) {
             {isCollapsed ? "Expand" : "Collapse"}
           </button>
         </div>
-        {!isCollapsed && <div className={styles.eventBody}>{children}</div>}
+        {!isCollapsed && <div>{children}</div>}
       </div>
     </li>
   );
