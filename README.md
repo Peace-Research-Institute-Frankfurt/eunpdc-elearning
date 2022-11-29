@@ -41,7 +41,6 @@ institution: Istituto Affari Internazionali I.A.I
 image: "./assets/Federica-DallArche.jpg"
 image_alt: ""
 ---
-
 Federica Dall’Arche is a policy advisor to the Italian Presidency of the Council of Ministers and a researcher at the \[International Affairs Institute\](https://www.iai.it/en) ...
 ```
 
@@ -192,6 +191,7 @@ Display a simple timeline of chronological events. Each event is represented by 
 
 - `date` (Optional): When did the event take place? Currently, this is just String that’s not processed in any special way, but that might change in the future.
 - `title` (Optional): Title for the event.
+- `collapsed` (Optional): Minimize the event description by default. Default: `false`.
 
 ### Details
 
