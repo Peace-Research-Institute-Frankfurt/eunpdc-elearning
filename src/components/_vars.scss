@@ -39,6 +39,7 @@
   --gray-50: rgb(87, 94, 101);
   --gray-60: rgb(72, 72, 73);
   --gray-70: rgb(14, 14, 14);
+  --black: rgb(14, 14, 14);
   --blue-90: hsl(210, 37%, 7%);
   --blue-80: hsl(210, 25%, 15%);
   --blue-70: #464f58;
@@ -73,6 +74,10 @@
   --br: 3px;
   --fast: 100ms;
   --padding: min(5vw, 3rem);
-  --padding-small: calc(var(--padding) * .5);
+  --padding-small: calc(var(--padding) * 0.5);
   --ripPath: url(../assets/rip.svg);
+}
+
+%caption {
+  font-size: var(--ms--1);
 }

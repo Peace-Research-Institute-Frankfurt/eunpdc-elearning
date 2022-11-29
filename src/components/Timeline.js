@@ -1,5 +1,5 @@
-import React from "react";
-import * as Styles from "./Timeline.module.scss";
+import React, { useState } from "react";
+import * as styles from "./Timeline.module.scss";
 
 function Timeline(props) {
   const events = React.Children.map(props.children, (child) => {
@@ -8,19 +8,31 @@ function Timeline(props) {
     });
   });
   return (
-    <div className={Styles.container}>
-      <span className={Styles.line}></span>
+    <div className={styles.container}>
+      <span className={styles.line}></span>
       <ol>{events}</ol>
     </div>
   );
 }
-function Event(props) {
+function Event({ date, title, collapsed, children }) {
+  const [isCollapsed, setIsCollapsed] = useState(collapsed);
+  const handleToggle = () => {
+    setIsCollapsed(!isCollapsed);
+  };
   return (
-    <li className={Styles.event}>
-      <div className={Styles.eventDescription}>
-        <span className={Styles.eventDate}>{props.date}</span>
-        <h3 className={Styles.eventTitle}>{props.title}</h3>
-        {props.children}
+    <li className={styles.event}>
+      <div className={styles.eventDescription}>
+        <div className={styles.eventHeader}>
+          <div>
+            <span className={styles.eventDate}>{date}</span>
+            <h3 className={styles.eventTitle}>{title}</h3>
+          </div>
+          {/* {collapsed !== undefined && ( */}
+          <button className={styles.eventToggle} onClick={handleToggle}>
+            {isCollapsed ? "Expand" : "Collapse"}
+          </button>
+        </div>
+        {!isCollapsed && <div className={styles.eventBody}>{children}</div>}
       </div>
     </li>
   );
