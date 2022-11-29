@@ -134,6 +134,7 @@ const LearningUnit = ({ data, context }) => {
               <p className={LuStyles.headerEyebrow}>Unit {frontmatter.order}</p>
               <h1 className={LuStyles.headerTitle}>{frontmatter.title}</h1>
               <p className={LuStyles.headerIntro}>{frontmatter.intro}</p>
+              <Link className={LuStyles.headerCta} to={data.chapters.nodes[0].childMdx.fields.slug}>Start</Link>
             </div>
             <ul className={LuStyles.headerBylines}>{bylines}</ul>
           </div>
