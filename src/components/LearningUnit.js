@@ -149,7 +149,7 @@ const LearningUnit = ({ data, context }) => {
           )}
           <section className={LuStyles.chapters}>
             <h2 className={LuStyles.sectionTitle}>Chapters</h2>
-            <div className={LuStyles.sectionContent}>
+            <div id="chapters" className={LuStyles.sectionContent}>
               <ol>{chapterLinks}</ol>
             </div>
           </section>

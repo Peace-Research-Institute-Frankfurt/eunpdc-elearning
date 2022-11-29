@@ -14,12 +14,11 @@ import SiteFooter from "./SiteFooter";
 import { Timeline, Event } from "./Timeline";
 import { Tabs, Tab } from "./Tabs";
 import useLocalStorage from "./useLocalStorage";
-import BookmarkAdded from "../assets/bookmark-added.svg";
 import { FlipCards, Card } from "./FlipCards";
 import { Embed } from "./Embed";
 import { Details, DetailsGroup } from "./Details";
 import { Callout } from "./Callout";
-import { useScrollPosition } from "./useScrollPosition";
+import StickyHeader from "./StickyHeader";
 
 const shortCodes = {
   Embed,
@@ -99,54 +98,16 @@ export const query = graphql`
 const Chapter = ({ data, children }) => {
   const frontmatter = data.post.childMdx.frontmatter;
   const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
-  const { scrollX, scrollY } = useScrollPosition();
-  let scrollProgress = 0;
-  if (typeof window !== "undefined") {
-    scrollProgress = scrollY / (document.body.scrollHeight - window.innerHeight);
-  }
-  const showStatus = scrollY > 50;
   const currentIndex = data.chapters.nodes.findIndex((el) => {
     return el.childMdx.frontmatter.order === frontmatter.order;
   });
-  const showStatusClass = showStatus ? ChapterStyles.statusActive : "";
 
   const next = data.chapters.nodes[currentIndex + 1];
-  const previous = data.chapters.nodes[currentIndex - 1];
-  const bookmarkIndex = bookmarks.findIndex((el) => {
-    return el.slug === data.post.childMdx.slug;
-  });
+  const prev = data.chapters.nodes[currentIndex - 1];
 
   const headerStyles = {
     backgroundColor: data.unit.childMdx.frontmatter.hero_background,
   };
-
-  const actions = (
-    <aside className={ChapterStyles.actions}>
-      <ul>
-        <li>
-          <button onClick={handlePrint}>Print</button>
-        </li>
-        <li>
-          <button href="#1">Share</button>
-        </li>
-        <li>
-          <button className={bookmarkIndex === -1 ? ChapterStyles.saveButton : ChapterStyles.saveButtonActive} onClick={toggleBookmark}>
-            {bookmarkIndex === -1 ? (
-              <>Save to bookmarks</>
-            ) : (
-              <>
-                <img alt="" src={BookmarkAdded} /> Saved
-              </>
-            )}
-          </button>
-        </li>
-      </ul>
-    </aside>
-  );
-
-  function handlePrint() {
-    window.print();
-  }
 
   let tocItems = [];
   if (data.post.childMdx.tableOfContents.items) {
@@ -176,10 +137,6 @@ const Chapter = ({ data, children }) => {
     });
   }
 
-  const strokeWidth = 50;
-  const r = 50 - 0.5 * strokeWidth;
-  const d = 2 * Math.PI * r;
-
   return (
     <App>
       <SiteHeader bookmarks={bookmarks} unit={data.unit.childMdx.frontmatter.order} chapter={frontmatter.title} />
@@ -191,31 +148,7 @@ const Chapter = ({ data, children }) => {
           <h1 className={ChapterStyles.title}>{frontmatter.title}</h1>
           {frontmatter.intro && <p className={ChapterStyles.intro}>{frontmatter.intro}</p>}
         </header>
-        <header className={`${ChapterStyles.status} ${showStatusClass}`}>
-          <div className={ChapterStyles.statusLocation}>
-            <Link to={`../`} className={ChapterStyles.statusUnit}>
-              LU{data.unit.childMdx.frontmatter.order} &middot; {data.unit.childMdx.frontmatter.title}
-            </Link>
-            <span>{frontmatter.title}</span>
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <circle fill="lightgray" cx={50} cy={50} r={50} />
-              <circle
-                strokeWidth={strokeWidth}
-                cx="50"
-                cy="50"
-                fill="none"
-                r={r}
-                transform="rotate(-90, 50,50)"
-                strokeDasharray={d}
-                strokeDashoffset={-d * Math.min(scrollProgress, 1) + d}
-              />
-            </svg>
-          </div>
-          <nav className={ChapterStyles.statusPagination}>
-            {previous && <Link to={`../${previous.childMdx.fields.slug}`}>Previous</Link>}
-            {next && <Link to={`../${next.childMdx.fields.slug}`}>Next</Link>}
-          </nav>
-        </header>
+        <StickyHeader unit={data.unit} post={data.post} next={next} prev={prev} />
         <div className={ChapterStyles.body}>
           {tocItems.length > 1 && (
             <div className={ChapterStyles.tocContainer}>
@@ -235,11 +168,11 @@ const Chapter = ({ data, children }) => {
                 {next.childMdx.frontmatter.intro && <p className={ChapterStyles.paginationIntro}>{next.childMdx.frontmatter.intro}</p>}
               </Link>
             )}
-            {previous && (
+            {prev && (
               <>
                 <span className={ChapterStyles.paginationLabel}>Previous</span>
-                <Link className={ChapterStyles.previous} to={`../${previous.childMdx.fields.slug}`}>
-                  <span>{previous.childMdx.frontmatter.title}</span>
+                <Link className={ChapterStyles.previous} to={`../${prev.childMdx.fields.slug}`}>
+                  <span>{prev.childMdx.frontmatter.title}</span>
                 </Link>
               </>
             )}
