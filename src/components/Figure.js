@@ -25,12 +25,24 @@ export default function Figure(props) {
           }
         }
       }
+      svgs: allFile(filter: { extension: { in: ["svg"] } }) {
+        nodes {
+          base
+          extension
+          publicURL
+        }
+      }
     }
   `);
 
   // Let's find our image
   let image = null;
   data.images.nodes.forEach((img) => {
+    if (img.base === props.src) {
+      image = img;
+    }
+  });
+  data.svgs.nodes.forEach((img) => {
     if (img.base === props.src) {
       image = img;
     }
@@ -45,7 +57,7 @@ export default function Figure(props) {
 
   let size = props.size;
 
-  let imageEl = <>Image not found (${props.src})</>;
+  let imageEl = <>Image not found ({props.src})</>;
 
   if (image) {
     if (image.extension === "svg") {
