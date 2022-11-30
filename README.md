@@ -104,7 +104,7 @@ TBD
 Display a collapsible block containing arbitrary Markdown content.
 
 ```jsx
-<Details summary="UNSR 1325">This can be any _Markdown_ content (see above).</Details>
+<Details summary="UNSR 1325">This can be any Markdown content</Details>
 ```
 
 Make sure you leave empty lines above and below Markdown content, or it won’t render as expected.
@@ -112,6 +112,32 @@ Make sure you leave empty lines above and below Markdown content, or it won’t 
 #### Parameters
 
 - `summary` (Required). Text to show when the section is collapsed.
+
+### Flip Cards
+
+Display a set of flippable cards containing Markdown content.
+
+```jsx
+<FlipCards>
+<Card front="This the front of the card.">
+
+This is the back of the card.
+
+</Card>
+
+<Card front="This is another card">
+
+... and here's the back of that one.
+
+</Card>
+</FlipCards>
+```
+
+Make sure you leave empty lines above and below Markdown content, or it won’t render as expected.
+
+#### Parameters
+
+- `front` (Required). Text to show on the front of the card. Shouldn't be longer than ~25 words.
 
 ### Figure
 
@@ -163,7 +189,7 @@ This world in arms is not spending money alone. **It is spending the sweat of it
 </Quote>
 ```
 
-#### Paramters
+#### Parameters
 
 - `type` (Optional)**.** Possible values are `document` and `default`.
 - `audio` (Optional): Must be a valid `.mp3` file.
