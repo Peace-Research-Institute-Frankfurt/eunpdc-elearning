@@ -36,14 +36,22 @@
   justify-content: center;
   border-radius: var(--br);
   overflow: hidden;
+  transition: var(--fast);
+  cursor: pointer;
+  &:hover,
+  &:focus-visible {
+    border: 1px solid var(--blue-70);
+  }
 }
 
 .front {
   background: var(--blue-10);
+  border: 1px solid var(--blue-20);
   position: relative;
 }
 .back {
-  background: rgb(252, 249, 249);
+  background: var(--gray-20);
+  border: 1px solid var(--gray-30);
   position: absolute;
   top: 0;
   bottom: 0;
