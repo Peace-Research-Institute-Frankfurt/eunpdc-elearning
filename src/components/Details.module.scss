@@ -32,7 +32,7 @@
 }
 
 .details-group {
-  border: 1px solid var(--gray-30);
+  border: 1px solid var(--gray-40);
   border-radius: var(--br);
   grid-column: 1/6;
   margin-top: 1rem;
@@ -45,7 +45,7 @@
     margin-top: 0;
     border-radius: 0;
     margin-bottom: 0;
-    border-bottom: 1px solid var(--gray-30);
+    border-bottom: 1px solid var(--gray-40);
     &:last-of-type {
       border-bottom: 0;
     }

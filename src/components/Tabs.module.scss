@@ -3,7 +3,7 @@
 }
 
 .tab {
-  border: 2px solid var(--blue-80);
+  border: 1px solid var(--gray-40);
   border-bottom: 0;
   border-left: 0;
   background: var(--blue-10);
@@ -17,6 +17,8 @@
     padding: 0.5em 0.75em;
     text-decoration: none;
     overflow: hidden;
+    cursor: pointer;
+    text-underline-offset: .15em;
     &:hover,
     &:focus-visible {
       text-decoration: underline;
@@ -24,7 +26,7 @@
   }
   &:first-of-type {
     border-top-left-radius: var(--br);
-    border-left: 2px solid var(--blue-80);
+    border-left: 1px solid var(--blue-80);
   }
   &:last-of-type {
     border-top-right-radius: var(--br);
@@ -51,7 +53,7 @@
 
 .tab-content {
   padding: 1rem;
-  border: 2px solid var(--blue-80);
+  border: 1px solid var(--gray-40);
   border-bottom-left-radius: var(--br);
   border-bottom-right-radius: var(--br);
   border-top-right-radius: var(--br);
