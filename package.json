@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "description": "eunpdc-next",
-  "author": "Max Kohler",
   "keywords": [
     "gatsby"
   ],
+  "author": "Max Kohler",
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
     "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "start": "gatsby develop"
   },
   "dependencies": {
     "@mdx-js/mdx": "^2.1.5",
