@@ -97,15 +97,17 @@ export const query = graphql`
 `;
 
 const TocItems = function ({ items }) {
-  const listItems = items.map((item, i) => {
-    return (
-      <li key={`toc-${i}`}>
-        <a href={item.url}>{item.title}</a>
-        {item.items && <TocItems items={item.items} />}
-      </li>
-    );
-  });
-  return <ol>{listItems}</ol>;
+  if (items) {
+    const listItems = items.map((item, i) => {
+      return (
+        <li key={`toc-${i}`}>
+          <a href={item.url}>{item.title}</a>
+          {item.items && <TocItems items={item.items} />}
+        </li>
+      );
+    });
+    return <ol>{listItems}</ol>;
+  }
 };
 
 const Chapter = ({ data, children }) => {
@@ -152,7 +154,7 @@ const Chapter = ({ data, children }) => {
         </header>
         <StickyHeader unit={data.unit} post={data.post} next={next} prev={prev} />
         <div className={ChapterStyles.body}>
-          {data.post.childMdx.tableOfContents.items.length > 0 && (
+          {data.post.childMdx.tableOfContents && (
             <div className={ChapterStyles.tocContainer}>
               <TocItems items={data.post.childMdx.tableOfContents.items} />
             </div>
