@@ -19,7 +19,7 @@ import { Embed } from "./Embed";
 import { Details, DetailsGroup } from "./Details";
 import { Callout } from "./Callout";
 import StickyHeader from "./StickyHeader";
-
+import TableOfContents from "./TableOfContents";
 const shortCodes = {
   Embed,
   Quiz,
@@ -96,20 +96,6 @@ export const query = graphql`
   }
 `;
 
-const TocItems = function ({ items }) {
-  if (items) {
-    const listItems = items.map((item, i) => {
-      return (
-        <li key={`toc-${i}`}>
-          <a href={item.url}>{item.title}</a>
-          {item.items && <TocItems items={item.items} />}
-        </li>
-      );
-    });
-    return <ol>{listItems}</ol>;
-  }
-};
-
 const Chapter = ({ data, children }) => {
   const frontmatter = data.post.childMdx.frontmatter;
   const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
@@ -154,9 +140,9 @@ const Chapter = ({ data, children }) => {
         </header>
         <StickyHeader unit={data.unit} post={data.post} next={next} prev={prev} />
         <div className={ChapterStyles.body}>
-          {data.post.childMdx.tableOfContents && (
+          {data.post.childMdx.tableOfContents.items && (
             <div className={ChapterStyles.tocContainer}>
-              <TocItems items={data.post.childMdx.tableOfContents.items} />
+              <TableOfContents items={data.post.childMdx.tableOfContents.items} />
             </div>
           )}
 
