@@ -95,6 +95,19 @@ export const query = graphql`
     }
   }
 `;
+
+const TocItems = function ({ items }) {
+  const listItems = items.map((item, i) => {
+    return (
+      <li key={`toc-${i}`}>
+        <a href={item.url}>{item.title}</a>
+        {item.items && <TocItems items={item.items} />}
+      </li>
+    );
+  });
+  return <ol>{listItems}</ol>;
+};
+
 const Chapter = ({ data, children }) => {
   const frontmatter = data.post.childMdx.frontmatter;
   const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
@@ -108,17 +121,6 @@ const Chapter = ({ data, children }) => {
   const headerStyles = {
     backgroundColor: data.unit.childMdx.frontmatter.hero_background,
   };
-
-  let tocItems = [];
-  if (data.post.childMdx.tableOfContents.items) {
-    tocItems = data.post.childMdx.tableOfContents.items.map((h, i) => {
-      return (
-        <li key={`toc-${i}`}>
-          <a href={h.url}>{h.title}</a>
-        </li>
-      );
-    });
-  }
 
   function toggleBookmark() {
     setBookmarks((prevBookmarks) => {
@@ -150,11 +152,12 @@ const Chapter = ({ data, children }) => {
         </header>
         <StickyHeader unit={data.unit} post={data.post} next={next} prev={prev} />
         <div className={ChapterStyles.body}>
-          {tocItems.length > 1 && (
+          {data.post.childMdx.tableOfContents.items.length > 0 && (
             <div className={ChapterStyles.tocContainer}>
-              <ol>{tocItems}</ol>
+              <TocItems items={data.post.childMdx.tableOfContents.items} />
             </div>
           )}
+
           <div className={ChapterStyles.bodyText}>
             <MDXProvider components={shortCodes}>{children}</MDXProvider>
           </div>

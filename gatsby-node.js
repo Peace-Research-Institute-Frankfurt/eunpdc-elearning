@@ -87,58 +87,6 @@ exports.onCreateNode = ({ node, actions, createNodeId, getNode }) => {
 exports.createSchemaCustomization = async ({ getNode, getNodesByType, pathPrefix, reporter, cache, actions, schema }) => {
   const { createTypes } = actions;
 
-  const headingsResolver = schema.buildObjectType({
-    name: `Mdx`,
-    fields: {
-      headings: {
-        type: `[MdxHeading]`,
-        async resolve(mdxNode) {
-          const fileNode = getNode(mdxNode.parent);
-
-          if (!fileNode) {
-            return null;
-          }
-
-          const result = await compileMDXWithCustomOptions(
-            {
-              source: mdxNode.body,
-              absolutePath: fileNode.absolutePath,
-            },
-            {
-              pluginOptions: {},
-              customOptions: {
-                mdxOptions: {
-                  remarkPlugins: ["remark-headings-plugin"],
-                },
-              },
-              getNode,
-              getNodesByType,
-              pathPrefix,
-              reporter,
-              cache,
-            }
-          );
-
-          if (!result) {
-            return null;
-          }
-
-          return result.metadata.headings;
-        },
-      },
-    },
-  });
-
-  createTypes([
-    `
-      type MdxHeading {
-        value: String
-        depth: Int
-      }
-    `,
-    headingsResolver,
-  ]);
-
   const typeDefs = `
   type Author implements Node {
     author_id: String
