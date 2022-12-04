@@ -84,7 +84,7 @@
 .header-intro {
   line-height: 1.3;
   font-size: var(--ms-1);
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 
 .header-cta {
@@ -92,7 +92,8 @@
   color: white;
   display: inline-flex;
   font-size: var(--ms-1);
-  padding: 0.5em 1em;
+  padding: 0.45em .75em;
+  padding-bottom: .5em;
   letter-spacing: .015em;
   font-weight: 400;
   line-height: 1;
