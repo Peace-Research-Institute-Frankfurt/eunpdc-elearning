@@ -43,6 +43,11 @@ const shortCodes = {
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
+    site: site {
+      siteMetadata {
+        title
+      }
+    }
     mdx(id: { eq: $id }) {
       frontmatter {
         title
@@ -181,7 +186,7 @@ export function Head({ data }) {
   return (
     <>
       <title>
-        {chapter.title} – {unit.title}
+        {chapter.title} / {unit.title} – {data.site.siteMetadata.title}
       </title>
       <meta name="description" content={chapter.intro} />
     </>

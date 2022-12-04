@@ -10,7 +10,6 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--blue-90);
-  font-size: var(--ms--1);
   opacity: 0;
   transition: var(--fast);
   pointer-events: none;
@@ -44,8 +43,12 @@
 .status-location {
   display: flex;
   align-items: center;
-  padding-top: 0.65rem;
-  padding-bottom: 0.65rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  @include bp(m) {
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+  }
 }
 
 .status-pagination {
@@ -79,12 +82,15 @@
 }
 
 .home {
-  margin-right: 1rem;
   border-radius: 100px;
   display: flex;
   position: relative;
-  top: .1em;
+  top: 0.1em;
   padding: 0.1em;
+  margin-right: 0.5rem;
+  @include bp(m) {
+    margin-right: 1rem;
+  }
   &:hover,
   &:focus-visible {
     background: var(--gray-30);

@@ -67,7 +67,10 @@ body {
     display: inline-block;
     counter-increment: li;
     position: relative;
-    padding-bottom: 0.5em;
+    padding-bottom: 0;
+    @include bp(m){
+      padding-bottom: 0.25em;
+    }
 
     &:target {
       font-weight: bold;

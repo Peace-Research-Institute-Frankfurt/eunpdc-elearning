@@ -5,6 +5,11 @@ import { SearchForm } from "../components/SearchFrom";
 
 export const query = graphql`
   query {
+    site: site {
+      siteMetadata {
+        title
+      }
+    }
     units: allFile(
       filter: { extension: { eq: "mdx" }, name: { eq: "index" }, sourceInstanceName: { eq: "luContent" } }
       sort: { childMdx: { frontmatter: { order: ASC } } }
@@ -44,5 +49,5 @@ const IndexPage = ({ data }) => {
     </main>
   );
 };
-
+export const Head = ({ data }) => <title>{data.site.siteMetadata.title}</title>;
 export default IndexPage;

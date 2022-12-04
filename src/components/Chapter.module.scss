@@ -293,15 +293,15 @@
 .pagination-label {
   font-size: var(--ms--1);
   display: inline-block;
+  margin-bottom: .5em;
 }
 .pagination-title {
   font-family: var(--serif);
   letter-spacing: -0.01em;
   display: block;
   align-items: flex-start;
-  font-size: var(--ms-2);
+  font-size: var(--ms-3);
   line-height: 1;
-  font-weight: 700;
   @include bp(m) {
     font-size: var(--ms-4);
   }
@@ -314,6 +314,7 @@
 .toc-container {
   font-size: var(--ms--1);
   grid-column: 1/6;
+  margin-bottom: 1.5rem;
   @include bp(m) {
     padding-top: 1.5rem;
     position: sticky;

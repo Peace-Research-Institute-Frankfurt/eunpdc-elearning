@@ -13,7 +13,10 @@
 
 .funding {
   margin-bottom: .75rem;
-  height: 3.5rem;
+  height: 2.5rem;
+  @include bp(m){
+    height: 3.5rem;
+  }
 }
 
 .nav {

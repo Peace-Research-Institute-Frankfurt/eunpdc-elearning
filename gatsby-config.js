@@ -9,7 +9,7 @@ const wrapESMPlugin = (name) =>
 
 module.exports = {
   siteMetadata: {
-    title: `eunpdc-next`,
+    title: `EUNPDC E-Learning`,
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [

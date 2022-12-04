@@ -10,6 +10,11 @@ import MarkdownRenderer from "react-markdown-renderer";
 
 export const query = graphql`
   query ($id: String, $lu_id: String) {
+    site: site {
+      siteMetadata {
+        title
+      }
+    }
     post: file(id: { eq: $id }) {
       childMdx {
         frontmatter {
@@ -134,7 +139,9 @@ const LearningUnit = ({ data, context }) => {
               <p className={LuStyles.headerEyebrow}>Unit {frontmatter.order}</p>
               <h1 className={LuStyles.headerTitle}>{frontmatter.title}</h1>
               <p className={LuStyles.headerIntro}>{frontmatter.intro}</p>
-              <Link className={LuStyles.headerCta} to={data.chapters.nodes[0].childMdx.fields.slug}>Start</Link>
+              <Link className={LuStyles.headerCta} to={data.chapters.nodes[0].childMdx.fields.slug}>
+                Start
+              </Link>
             </div>
             <ul className={LuStyles.headerBylines}>{bylines}</ul>
           </div>
@@ -190,7 +197,7 @@ export function Head({ data }) {
   const post = data.post.childMdx.frontmatter;
   return (
     <>
-      <title>{post.title}</title>
+      <title>{post.title} – {data.site.siteMetadata.title}</title>
       <meta name="description" content={post.intro} />
     </>
   );
