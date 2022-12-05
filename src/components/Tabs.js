@@ -6,8 +6,8 @@ import * as styles from "./Tabs.module.scss";
 function Tab({ children, tabId, labelledBy, isActive, key }) {
   const activeClass = isActive ? styles.tabContentActive : "";
   return (
-    <div key={key} className={`${styles.tabContent} ${activeClass}`} aria-labelledby={labelledBy} id={tabId}>
-      <p>{children}</p>
+    <div key={key} className={`${styles.tabContent} ${activeClass}`} aria-labelledby={labelledBy}>
+      {children}
     </div>
   );
 }
@@ -15,9 +15,6 @@ function Tab({ children, tabId, labelledBy, isActive, key }) {
 function Tabs({ children }) {
   const baseId = useId();
   const [currentTab, setCurrentTab] = useState(0);
-  function generateId(base, index) {
-    return `${base}-${index}`;
-  }
 
   function handleTabClick(e, i) {
     e.preventDefault();
@@ -26,13 +23,12 @@ function Tabs({ children }) {
 
   const filteredChildren = React.Children.toArray(children).filter((c) => c.type && c.type.name === "Tab");
   const tabItems = filteredChildren.map((c, i) => {
-    const id = generateId(baseId, i);
     const isActive = currentTab === i;
     const activeClass = isActive ? styles.tabActive : "";
     const title = c.props.title;
     return (
-      <li key={`tabs-${id}-${i}`} className={`${styles.tab} ${activeClass}`}>
-        <button type="button" onClick={(e) => handleTabClick(e, i)} aria-controls={id} role="tab">
+      <li key={`tabs-${i}`} className={`${styles.tab} ${activeClass}`}>
+        <button type="button" onClick={(e) => handleTabClick(e, i)} role="tab">
           {title}
         </button>
       </li>
@@ -40,9 +36,9 @@ function Tabs({ children }) {
   });
   const tabContent = filteredChildren.map((c, i) => {
     const props = {
-      tabId: generateId(baseId, i),
+      tabId: baseId,
       isActive: currentTab === i,
-      key: `tabcontent-${baseId}-${i}`,
+      key: `tabcontent-${i}`,
     };
     return cloneElement(c, props);
   });
