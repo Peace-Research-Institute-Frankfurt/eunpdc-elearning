@@ -189,11 +189,10 @@ const LearningUnit = ({ data, context }) => {
 
 export function Head({ data }) {
   const post = data.post.childMdx.frontmatter;
+  const title = `${post.title} – ${data.site.siteMetadata.title}`
   return (
     <>
-      <title>
-        {post.title} – {data.site.siteMetadata.title}
-      </title>
+      <title>{title}</title>
       <meta name="description" content={post.intro} />
     </>
   );
