@@ -38,8 +38,8 @@ function Tabs({ children }) {
       isActive: currentTab === i,
       key: `tabcontent-${i}`,
     };
-    // return(<div>This is a test element</div>)
-    return cloneElement(c, props);
+    return(<div>This is a test element (where the cloned tab should be)</div>)
+    // return cloneElement(c, props);
   });
   return (
     <div className={styles.container}>
