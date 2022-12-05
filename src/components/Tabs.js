@@ -21,10 +21,11 @@ function Tabs({ children }) {
   }
 
   const filteredChildren = React.Children.toArray(children).filter((c) => c.type && c.type.name === "Tab");
+  console.log(filteredChildren)
   const tabItems = filteredChildren.map((c, i) => {
     const isActive = currentTab === i;
-    const activeClass = isActive ? styles.tabActive : "";
-    const title = c.props.title;
+    // const activeClass = isActive ? styles.tabActive : "";
+    // const title = c.props.title;
       // <li key={`tabs-${i}`} className={`${styles.tab} ${activeClass}`}>
       //   <button type="button" onClick={(e) => handleTabClick(e, i)} role="tab">
       //     {title}
