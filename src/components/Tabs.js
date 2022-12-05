@@ -21,6 +21,9 @@ function Tabs({ children }) {
   }
 
   const filteredChildren = React.Children.toArray(children).filter((c) => c.type && c.type.name === "Tab");
+  console.log(`Children`)
+  console.log(children)
+  console.log(`filteredChildren`)
   console.log(filteredChildren)
   const tabItems = filteredChildren.map((c, i) => {
     const isActive = currentTab === i;
