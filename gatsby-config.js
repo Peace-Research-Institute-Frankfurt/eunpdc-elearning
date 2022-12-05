@@ -15,9 +15,14 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
-    "gatsby-plugin-netlify",
     "gatsby-transformer-sharp",
     "gatsby-transformer-json",
+    {
+      resolve: "gatsby-plugin-netlify",
+      options: {
+        allPageHeaders: ["X-Frame-Options: SAMEORIGIN"],
+      },
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
