@@ -5,9 +5,10 @@ import * as styles from "./Tabs.module.scss";
 function Tab({ children, tabId, labelledBy, isActive, key }) {
   const activeClass = isActive ? styles.tabContentActive : "";
   return (
-    <div key={key} className={`${styles.tabContent} ${activeClass}`} aria-labelledby={labelledBy}>
-      {children}
-    </div>
+    <div>This is a test tab element</div> 
+    // <div key={key} className={`${styles.tabContent} ${activeClass}`} aria-labelledby={labelledBy}>
+    //   {children}
+    // </div>
   );
 }
 
@@ -37,15 +38,13 @@ function Tabs({ children }) {
       isActive: currentTab === i,
       key: `tabcontent-${i}`,
     };
-    return(<div>This is a test element</div>)
-    // return cloneElement(c, props);
+    // return(<div>This is a test element</div>)
+    return cloneElement(c, props);
   });
   return (
-    <React.Suspense fallback={<div/>}>
     <div className={styles.container}>
       <div>{tabContent}</div>
     </div>
-    </React.Suspense>
   );
 }
 
