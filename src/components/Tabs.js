@@ -44,6 +44,7 @@ function Tabs({ children }) {
   const tabContent = <>This is tabContent</>;
   return (
     <div className={styles.container}>
+      <ul>{tabItems}</ul>
       <div>{tabContent}</div>
     </div>
   );
