@@ -37,7 +37,8 @@ function Tabs({ children }) {
       isActive: currentTab === i,
       key: `tabcontent-${i}`,
     };
-    return cloneElement(c, props);
+    return(<div>This is a test element</div>)
+    // return cloneElement(c, props);
   });
   return (
     <React.Suspense fallback={<div/>}>
