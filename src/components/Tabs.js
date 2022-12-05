@@ -3,10 +3,10 @@ import { useState } from "react";
 import { useId } from "react";
 import * as styles from "./Tabs.module.scss";
 
-function Tab({ children, tabId, labelledBy, isActive }) {
+function Tab({ children, tabId, labelledBy, isActive, key }) {
   const activeClass = isActive ? styles.tabContentActive : "";
   return (
-    <div className={`${styles.tabContent} ${activeClass}`} aria-labelledby={labelledBy} id={tabId}>
+    <div key={key} className={`${styles.tabContent} ${activeClass}`} aria-labelledby={labelledBy} id={tabId}>
       {children}
     </div>
   );
@@ -42,6 +42,7 @@ function Tabs({ children }) {
     const props = {
       tabId: generateId(baseId, i),
       isActive: currentTab === i,
+      key: `tabcontent-${baseId}-${i}`,
     };
     return cloneElement(c, props);
   });
