@@ -5,7 +5,7 @@ import * as styles from "./Tabs.module.scss";
 function Tab({ children, tabId, labelledBy, isActive, key }) {
   const activeClass = isActive ? styles.tabContentActive : "";
   return (
-    <div>This is a test tab element</div> 
+    <div>This is a test tab element</div>
     // <div key={key} className={`${styles.tabContent} ${activeClass}`} aria-labelledby={labelledBy}>
     //   {children}
     // </div>
@@ -13,14 +13,14 @@ function Tab({ children, tabId, labelledBy, isActive, key }) {
 }
 
 function Tabs({ children }) {
-  // const [currentTab, setCurrentTab] = useState(0);
+  const [currentTab, setCurrentTab] = useState(0);
 
-  // function handleTabClick(e, i) {
-  //   e.preventDefault();
-  //   setCurrentTab(i);
-  // }
+  function handleTabClick(e, i) {
+    e.preventDefault();
+    setCurrentTab(i);
+  }
 
-  // const filteredChildren = React.Children.toArray(children).filter((c) => c.type && c.type.name === "Tab");
+  const filteredChildren = React.Children.toArray(children).filter((c) => c.type && c.type.name === "Tab");
   // const tabItems = filteredChildren.map((c, i) => {
   //   const isActive = currentTab === i;
   //   const activeClass = isActive ? styles.tabActive : "";
@@ -41,7 +41,7 @@ function Tabs({ children }) {
   //   return(<div>This is a test element (where the cloned tab should be)</div>)
   //   // return cloneElement(c, props);
   // });
-  const tabContent = <>This is tabContent</>
+  const tabContent = <>This is tabContent</>;
   return (
     <div className={styles.container}>
       <div>{tabContent}</div>
