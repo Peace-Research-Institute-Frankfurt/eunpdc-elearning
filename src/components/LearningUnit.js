@@ -6,6 +6,7 @@ import App from "./App";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import useLocalStorage from "./useLocalStorage";
+import LearningUnitHeader from "./LearningUnitHeader";
 import MarkdownRenderer from "react-markdown-renderer";
 
 export const query = graphql`
@@ -124,28 +125,21 @@ const LearningUnit = ({ data, context }) => {
     );
   });
 
-  const headerStyles = {
-    background: frontmatter.hero_background,
-  };
-
   return (
     <App>
       <SiteHeader unit={frontmatter.order} chapter={""} bookmarks={bookmarks} />
       <article className={LuStyles.container}>
-        <header className={LuStyles.header} style={headerStyles}>
-          <GatsbyImage className={LuStyles.headerImage} image={heroImage} alt={frontmatter.hero_alt} />
-          <div className={LuStyles.headerCopy}>
-            <div>
-              <p className={LuStyles.headerEyebrow}>Unit {frontmatter.order}</p>
-              <h1 className={LuStyles.headerTitle}>{frontmatter.title}</h1>
-              <p className={LuStyles.headerIntro}>{frontmatter.intro}</p>
-              <Link className={LuStyles.headerCta} to={data.chapters.nodes[0].childMdx.fields.slug}>
-                Start
-              </Link>
-            </div>
-            <ul className={LuStyles.headerBylines}>{bylines}</ul>
-          </div>
-        </header>
+        <LearningUnitHeader
+          frontmatter={frontmatter}
+          title={frontmatter.title}
+          intro={frontmatter.intro}
+          alt={frontmatter.hero_alt}
+          order={frontmatter.order}
+          bylines={bylines}
+          image={heroImage}
+          background={frontmatter.hero_background}
+          startLink={data.chapters.nodes[0].childMdx.fields.slug}
+        />
         <main>
           {frontmatter.learning_objectives && (
             <section>
@@ -197,7 +191,9 @@ export function Head({ data }) {
   const post = data.post.childMdx.frontmatter;
   return (
     <>
-      <title>{post.title} – {data.site.siteMetadata.title}</title>
+      <title>
+        {post.title} – {data.site.siteMetadata.title}
+      </title>
       <meta name="description" content={post.intro} />
     </>
   );
