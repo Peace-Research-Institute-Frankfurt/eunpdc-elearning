@@ -147,7 +147,9 @@ const Chapter = ({ data, children }) => {
         <div className={ChapterStyles.body}>
           {data.post.childMdx.tableOfContents.items && (
             <div className={ChapterStyles.tocContainer}>
-              <TableOfContents items={data.post.childMdx.tableOfContents.items} />
+              <div className={ChapterStyles.tocContainerInner}>
+                <TableOfContents items={data.post.childMdx.tableOfContents.items} />
+              </div>
             </div>
           )}
 
@@ -183,7 +185,7 @@ const Chapter = ({ data, children }) => {
 export function Head({ data }) {
   const chapter = data.post.childMdx.frontmatter;
   const unit = data.unit.childMdx.frontmatter;
-  const title = `${chapter.title} / ${unit.title} – ${data.site.siteMetadata.title}`
+  const title = `${chapter.title} / ${unit.title} – ${data.site.siteMetadata.title}`;
   return (
     <>
       <title>{title}</title>
