@@ -46,7 +46,7 @@ function Tabs({ children }) {
   const tabContent = <>This is tabContent</>;
   return (
     <div className={styles.container}>
-      <ul className={styles.tabsList}>{tabItems}</ul>
+      <ul className={styles.tabsList}>{tabItems && tabItems}</ul>
       <div>{tabContent}</div>
     </div>
   );
