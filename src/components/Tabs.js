@@ -25,12 +25,13 @@ function Tabs({ children }) {
     const isActive = currentTab === i;
     const activeClass = isActive ? styles.tabActive : "";
     const title = c.props.title;
+      // <li key={`tabs-${i}`} className={`${styles.tab} ${activeClass}`}>
+      //   <button type="button" onClick={(e) => handleTabClick(e, i)} role="tab">
+      //     {title}
+      //   </button>
+      // </li>
     return (
-      <li key={`tabs-${i}`} className={`${styles.tab} ${activeClass}`}>
-        <button type="button" onClick={(e) => handleTabClick(e, i)} role="tab">
-          {title}
-        </button>
-      </li>
+      <li key={`tabs-${i}`}>Tabs Item</li>
     );
   });
   // const tabContent = filteredChildren.map((c, i) => {
@@ -44,7 +45,7 @@ function Tabs({ children }) {
   const tabContent = <>This is tabContent</>;
   return (
     <div className={styles.container}>
-      <ul>{tabItems}</ul>
+      <ul className={styles.tabsList}>{tabItems}</ul>
       <div>{tabContent}</div>
     </div>
   );
