@@ -15,6 +15,7 @@
   pointer-events: none;
   font-weight: 600;
   @include bp(m) {
+    font-size: var(--ms--1);
     font-weight: 500;
   }
   label {
