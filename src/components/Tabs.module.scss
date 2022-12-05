@@ -3,7 +3,7 @@
 }
 
 .tab {
-  border: 1px solid var(--gray-40);
+  border: 1px solid var(--blue-80);
   border-bottom: 0;
   border-left: 0;
   line-height: 1.25;
@@ -13,7 +13,7 @@
 
   button {
     display: block;
-    padding: 0.5em 0.75em;
+    padding: 0.35em 0.85em;
     text-decoration: none;
     overflow: hidden;
     font-weight: 600;
@@ -53,7 +53,7 @@
 
 .tab-content {
   padding: 1rem;
-  border: 1px solid var(--gray-40);
+  border: 1px solid var(--blue-80);
   border-bottom-left-radius: var(--br);
   border-bottom-right-radius: var(--br);
   border-top-right-radius: var(--br);
