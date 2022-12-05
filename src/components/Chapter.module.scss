@@ -316,17 +316,22 @@
   grid-column: 1/6;
   margin-bottom: 1.5rem;
   @include bp(m) {
+    grid-column: 3/6;
+  }
+  @include bp(l) {
     padding-top: 1.5rem;
     position: sticky;
     top: 4rem;
     grid-row: 1 / 2;
     grid-column: 4/6;
   }
-  @include bp(l){
+  @include bp(xl){
     grid-column: 5/6;
   }
 }
 
 .toc-container-inner {
-  position: absolute;
+  @include bp(l){
+    position: absolute;
+  }
 }
