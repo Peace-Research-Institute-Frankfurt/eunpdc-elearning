@@ -8,13 +8,14 @@ function DetailsGroup({ children }) {
 function Details({ summary, children, open }) {
   const [isOpen, setIsOpen] = useState(open || false);
 
-  function toggleOpen() {
+  function toggleOpen(e) {
+    e.preventDefault();
     setIsOpen(!isOpen);
   }
 
   return (
-    <details className={styles.container} open={isOpen}>
-      <summary onClick={toggleOpen} className={styles.summary}>
+    <details onClick={toggleOpen} className={styles.container} open={isOpen}>
+      <summary className={styles.summary}>
         <span className={styles.summaryText}>{summary}</span>
       </summary>
       <div className={styles.body}>{children}</div>
