@@ -7,7 +7,7 @@ function Tab({ children, tabId, labelledBy, isActive, key }) {
   const activeClass = isActive ? styles.tabContentActive : "";
   return (
     <div key={key} className={`${styles.tabContent} ${activeClass}`} aria-labelledby={labelledBy} id={tabId}>
-      {children}
+      <p>{children}</p>
     </div>
   );
 }
