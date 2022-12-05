@@ -9,11 +9,7 @@ function Details({ summary, children, open }) {
   const [isOpen, setIsOpen] = useState(open || false);
 
   function toggleOpen() {
-    if (isOpen) {
-      setIsOpen(false);
-    } else {
-      setIsOpen(true);
-    }
+    setIsOpen(!isOpen);
   }
 
   return (
