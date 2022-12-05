@@ -183,11 +183,10 @@ const Chapter = ({ data, children }) => {
 export function Head({ data }) {
   const chapter = data.post.childMdx.frontmatter;
   const unit = data.unit.childMdx.frontmatter;
+  const title = `${chapter.title} / ${unit.title} – ${data.site.siteMetadata.title}`
   return (
     <>
-      <title>
-        {chapter.title} / {unit.title} – {data.site.siteMetadata.title}
-      </title>
+      <title>{title}</title>
       <meta name="description" content={chapter.intro} />
     </>
   );
