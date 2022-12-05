@@ -6,7 +6,7 @@ function DetailsGroup({ children }) {
 }
 
 function Details({ summary, children, open }) {
-  const [isOpen, setIsOpen] = useState(false || open);
+  const [isOpen, setIsOpen] = useState(open || false);
 
   function toggleOpen() {
     if (isOpen) {
