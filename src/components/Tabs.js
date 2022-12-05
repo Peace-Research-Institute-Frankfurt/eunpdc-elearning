@@ -32,7 +32,7 @@ function Tabs({ children }) {
     const title = c.props.title;
     return (
       <li key={`tabs-${id}-${i}`} className={`${styles.tab} ${activeClass}`}>
-        <button onClick={(e) => handleTabClick(e, i)} aria-controls={id} role="tab">
+        <button type="button" onClick={(e) => handleTabClick(e, i)} aria-controls={id} role="tab">
           {title}
         </button>
       </li>
