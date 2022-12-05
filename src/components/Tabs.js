@@ -20,7 +20,7 @@ function Tabs({ children }) {
     setCurrentTab(i);
   }
 
-  const filteredChildren = React.Children.toArray(children).filter((c) => c.type && c.type.name === "Tab");
+  const filteredChildren = React.Children.toArray(children).filter((c) => c.type);
   console.log(`Children`)
   console.log(children)
   console.log(`filteredChildren`)
