@@ -60,7 +60,7 @@
 .header-image {
   flex-grow: 0;
   flex-shrink: 1;
-  position: absolute;
+  position: absolute !important;
   left: 40%;
   bottom: 0;
   right: 0;
