@@ -20,7 +20,9 @@ module.exports = {
     {
       resolve: "gatsby-plugin-netlify",
       options: {
-        "/*": ["X-Frame-Options: SAMEORIGIN"],
+        headers: {
+          "/*": ["X-Frame-Options: SAMEORIGIN"],
+        },
       },
     },
     {
