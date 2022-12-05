@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-netlify",
       options: {
-        allPageHeaders: ["X-Frame-Options: SAMEORIGIN"],
+        "/*": ["X-Frame-Options: SAMEORIGIN"],
       },
     },
     {
