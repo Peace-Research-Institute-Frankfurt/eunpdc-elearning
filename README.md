@@ -104,7 +104,7 @@ TBD
 Display a collapsible block containing arbitrary Markdown content.
 
 ```jsx
-<Details summary="UNSR 1325">This can be any Markdown content</Details>
+<Details summary="UNSR 1325" open>This can be any Markdown content</Details>
 ```
 
 Make sure you leave empty lines above and below Markdown content, or it won’t render as expected.
@@ -112,6 +112,7 @@ Make sure you leave empty lines above and below Markdown content, or it won’t 
 #### Parameters
 
 - `summary` (Required). Text to show when the section is collapsed.
+- `open` (Optional). If this prop is set, the details block will be expanded by default.
 
 ### Flip Cards
 
@@ -224,7 +225,7 @@ Display a simple timeline of chronological events. Each event is represented by 
 Display a collapsible section of arbitrary markdown content.
 
 ```md
-<Details summary="Biological weapons and materials">
+<Details summary="Biological weapons and materials" open>
 
 - 1925 Protocol for the Prohibition of Asphyxiating, Poisonous or Other Gases, and of Bacteriological Methods of Warfare
 - 1972 Convention on the prohibition of the development, production and stockpiling of bacteriological (biological) and toxin weapons and on their destruction (BWC)
@@ -235,6 +236,7 @@ Display a collapsible section of arbitrary markdown content.
 #### Parameters
 
 - `summary` **(Required)**: Text to appear when the section is collapsed
+- `open` (Optional). If this prop is set, the details block will be expanded by default.
 
 Wrap multiple `<Details>` components in a `<DetailsGroup>` component to display them in a coherent unit:
 
