@@ -43,7 +43,7 @@ export default function LectureVideo({ lu, vl, transcript, size, provider, child
     const isActive = currentTab === i;
     const activeClass = isActive ? styles.tabActive : "";
     return (
-      <li className={`${styles.tab} ${activeClass}`}>
+      <li className={`${styles.tab} ${activeClass}`} key={`tab-${i}`}>
         <button onClick={(e) => handleTabClick(e, i)} aria-controls={id} role="tab">
           {tab}
         </button>
