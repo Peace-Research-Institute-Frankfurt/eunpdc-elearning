@@ -1,6 +1,5 @@
 import React, { cloneElement } from "react";
 import { useState } from "react";
-import { useId } from "react";
 import * as styles from "./Tabs.module.scss";
 
 function Tab({ children, tabId, labelledBy, isActive, key }) {
@@ -13,7 +12,6 @@ function Tab({ children, tabId, labelledBy, isActive, key }) {
 }
 
 function Tabs({ children }) {
-  const baseId = useId();
   const [currentTab, setCurrentTab] = useState(0);
 
   function handleTabClick(e, i) {
@@ -36,7 +34,6 @@ function Tabs({ children }) {
   });
   const tabContent = filteredChildren.map((c, i) => {
     const props = {
-      tabId: baseId,
       isActive: currentTab === i,
       key: `tabcontent-${i}`,
     };
