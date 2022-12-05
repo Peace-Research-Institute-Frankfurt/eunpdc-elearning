@@ -44,7 +44,6 @@ function Tabs({ children }) {
       <ul className={styles.tabsList} role="tablist">
         {tabItems}
       </ul>
-      <div>{tabContent}</div>
     </div>
   );
 }
