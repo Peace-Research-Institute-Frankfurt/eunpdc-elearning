@@ -5,8 +5,7 @@ import { Link } from "gatsby";
 
 export default function LearningUnitHeader({ image, alt, order, title, intro, startLink, background, bylines }) {
   const headerStyles = {
-    // background: `linear-gradient(to right, ${background} 70%, transparent 100%)`,
-    background: `linear-gradient(to right, ${background} 60%, transparent 100%)`,
+    "--background": background,
   };
   return (
     <header className={styles.header}>

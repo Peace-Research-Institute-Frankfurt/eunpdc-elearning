@@ -51,22 +51,26 @@
   position: relative;
   padding: var(--padding);
   flex-grow: 0;
-  flex-basis: 75%;
-  padding-right: 25%;
+  background: var(--background);
   @include bp(m) {
-    min-height: 85vh;
+    padding-right: 25%;
+    flex-basis: 75%;
+    background: linear-gradient(to right, var(--background) 65%, transparent 90%);
+    min-height: 70vh;
   }
 }
 .header-image {
   flex-grow: 0;
   flex-shrink: 1;
-  position: absolute !important;
-  left: 40%;
-  bottom: 0;
-  right: 0;
-  top: 0;
   z-index: -100;
   background: rgba(white, 0.2);
+  @include bp(m) {
+    bottom: 0;
+    right: 0;
+    top: 0;
+    position: absolute !important;
+    left: 40%;
+  }
 }
 
 .header-credit {
