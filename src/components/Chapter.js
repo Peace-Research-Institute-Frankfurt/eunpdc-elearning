@@ -62,6 +62,7 @@ export const query = graphql`
           title
           intro
           order
+          reading_time
         }
         tableOfContents
       }
@@ -142,6 +143,7 @@ const Chapter = ({ data, children }) => {
           </Link>
           <h1 className={ChapterStyles.title}>{frontmatter.title}</h1>
           {frontmatter.intro && <p className={ChapterStyles.intro}>{frontmatter.intro}</p>}
+          <span className={ChapterStyles.readingTime}>{frontmatter.reading_time}min read</span>
         </header>
         <StickyHeader unit={data.unit} post={data.post} next={next} prev={prev} />
         <div className={ChapterStyles.body}>
