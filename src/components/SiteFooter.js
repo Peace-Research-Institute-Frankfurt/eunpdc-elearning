@@ -13,23 +13,23 @@ export default function SiteFooter() {
   `);
   return (
     <footer className={styles.container}>
-      <img src={FundingLogo} alt="Funded by the European Union" className={styles.funding}/>
+      <img src={FundingLogo} alt="Funded by the European Union" className={styles.funding} />
       <nav className={styles.nav}>
         <ul>
           <li>
-            <a href="#1">EUNPDC</a>
+            <a href="https://www.nonproliferation.eu/">EUNPDC</a>
           </li>
           <li>
-            <a href="#1">PRIF</a>
+            <a href="https://www.hsfk.de/en/">PRIF</a>
           </li>
           <li>
-            <a href="#1">Terms</a>
+            <a href="https://nonproliferation-elearning.eu/termsofuse">Terms</a>
           </li>
           <li>
-            <a href="#1">Privacy</a>
+            <a href="https://nonproliferation-elearning.eu/privacy/?id=56">Privacy</a>
           </li>
           <li>
-            <a href="#1">Contact</a>
+            <a href="https://nonproliferation-elearning.eu/imprint">Contact</a>
           </li>
         </ul>
       </nav>
