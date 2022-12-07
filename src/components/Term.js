@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import * as styles from "./Term.module.scss";
 import Tooltip from "./Tooltip";
+import CloseIcon from "../assets/close.svg";
 
 export default function Term(props) {
   const data = useStaticQuery(graphql`
@@ -17,7 +18,7 @@ export default function Term(props) {
   `);
 
   const [active, setActive] = useState(false);
-
+  const triggerRef = useRef();
   // Let's find our term
   let term = null;
   data.terms.nodes.forEach((t) => {
@@ -26,25 +27,28 @@ export default function Term(props) {
     }
   });
 
-  function showTooltip() {
-    setActive(true);
-  }
-  function hideTooltip() {
-    setActive(false);
+  function toggleTooltip() {
+    setActive(!active);
   }
 
   if (term) {
     return (
       <>
-        <button onMouseEnter={showTooltip} onFocus={showTooltip} onMouseLeave={hideTooltip} onBlur={hideTooltip} className={styles.container}>
+        <button type="button" ref={triggerRef} onClick={toggleTooltip} className={styles.container}>
           {props.children ? <>{props.children}</> : <>{term.term_id}</>}
-          <Tooltip position="top-center" active={active}>
-            <div className={styles.content}>
-              <span className={styles.title}>{term.title}</span>
-              <span className={styles.description}>{term.description}</span>
-            </div>
-          </Tooltip>
         </button>
+        <Tooltip position="top-center" active={active} triggerEl={triggerRef.current}>
+          <span className={styles.content}>
+            <span className={styles.header}>
+              <em className={styles.title}>{term.title}</em>
+              <button onClick={toggleTooltip} role="button" className={styles.close}>
+                Close
+                <CloseIcon />
+              </button>
+            </span>
+            <span className={styles.description}>{term.description}</span>
+          </span>
+        </Tooltip>
       </>
     );
   } else {

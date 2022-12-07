@@ -19,7 +19,7 @@ export default function StickyHeader({ post, unit, next, prev }) {
           <img src={icon} alt="Home" />
         </Link>
         <Link to={`../#chapters`} className={styles.statusUnit}>
-          LU{unit.childMdx.frontmatter.order} &middot; {unit.childMdx.frontmatter.title}
+          Unit {unit.childMdx.frontmatter.order} &middot; {unit.childMdx.frontmatter.title}
         </Link>
         <span>{post.childMdx.frontmatter.title}</span>
       </div>

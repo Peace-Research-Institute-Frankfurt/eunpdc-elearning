@@ -1,50 +1,33 @@
 .tooltip {
   position: absolute;
   background: white;
-  left: 50%;
   font-size: var(--ms--1);
   border-radius: var(--br);
-  filter: drop-shadow(0px 2px 2px rgba(black, 0.1));
-  border: 1px solid var(--gray-40);
+  filter: drop-shadow(0px 2px 3px rgba(black, 0.2));
+  border: 1px solid var(--blue-80);
+  display: inline-block;
   max-width: 26rem;
-  width: 90vw;
-  transform: translateX(-50%);
   opacity: 0;
   transition: var(--fast);
   pointer-events: none;
-  scale: 0.98;
-  transform-origin: center;
-}
-
-.tooltip-bottom-left {
-  composes: tooltip;
-  top: calc(100% + 1.2rem);
-  left: auto;
-  transform: translateX(0);
-  right: 0;
-  .arrow {
-    transform: translateX(-50%) translateY(-50%) rotate(-135deg);
-    top: 0;
-    right: 2.5rem;
-  }
-}
-.tooltip-top-center {
-  composes: tooltip;
-  top: -0.5rem;
-  left: 50%;
-  transform: translateX(-50%) translateY(-100%);
-  right: 0;
-  .arrow {
-    transform: translateX(-50%) translateY(50%) rotate(45deg);
-    bottom: 0;
-    left: 50%;
-  }
 }
 
 .active {
   opacity: 1;
-  scale: 1;
   pointer-events: all;
+}
+
+.tooltip-top-center {
+  composes: tooltip;
+  transform: translateX(-50%) translateY(calc(-100% + 5px));
+  &.active {
+    transform: translateX(-50%) translateY(-100%);
+  }
+  .arrow {
+    transform: translateX(-50%) translateY(50%) rotate(45deg);
+    bottom: -1px;
+    left: 50%;
+  }
 }
 
 .arrow {
@@ -53,6 +36,6 @@
   height: 1rem;
   position: absolute;
   display: block;
-  border-bottom: 1px solid var(--gray-40);
-  border-right: 1px solid var(--gray-40);
+  border-bottom: 1px solid var(--blue-80);
+  border-right: 1px solid var(--blue-80);
 }

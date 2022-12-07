@@ -1,21 +1,67 @@
+@import "vars";
+
 .container {
   background: var(--blue-20);
-  position: relative;
   cursor: pointer;
   text-align: left;
   font-weight: 600;
-  padding: 0 .25em;
+  padding: 0.15em 0.2em;
+  line-height: 1;
+  border-radius: 3px;
+  transition: var(--fast);
+  border: 1px solid var(--blue-20);
+  &:hover,
+  &:focus-visible {
+    border: 1px solid var(--blue-80);
+  }
 }
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  padding-bottom: .35rem;
+  margin-bottom: 0.35rem;
+  font-size: var(--ms-0);
+  border-bottom: 1px dotted black;
+  align-items: flex-start;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 0;
+  border-radius: var(--br);
+  padding: 0rem 0.35rem;
+  background: var(--gray-30);
+  border: 1px solid var(--gray-30);
+  svg {
+    width: 0.75rem;
+    display: block;
+  }
+  &:hover,
+  &:focus-visible {
+    border: 1px solid var(--gray-40);
+  }
+}
+
 .title {
   display: block;
   font-weight: 600;
+  line-height: 1.1;
+  font-style: normal;
 }
 
 .description {
-  hyphens: auto;
+  display: block;
   font-weight: 400;
+  hyphens: auto;
 }
 
 .content {
-  padding: 0.75rem;
+  @extend %caption;
+  display: block;
+  line-height: 1.3;
+  padding: 1em;
+  padding-top: 0.9em;
+  width: 100%;
+  hyphens: auto;
 }

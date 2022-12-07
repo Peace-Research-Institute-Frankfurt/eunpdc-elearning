@@ -12,8 +12,7 @@ module.exports = {
     title: `EUNPDC E-Learning`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  flags: {
-  },
+  flags: {},
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
@@ -24,6 +23,14 @@ module.exports = {
       options: {
         headers: {
           "/*": ["X-Frame-Options: SAMEORIGIN"],
+        },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          omitKeys: ['xmlnsDc', 'xmlnsCc', 'xmlnsRdf', 'xmlnsSvg', 'xmlnsSodipodi', 'xmlnsInkscape']
         },
       },
     },
