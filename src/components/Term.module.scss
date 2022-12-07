@@ -5,7 +5,7 @@
   cursor: pointer;
   text-align: left;
   font-weight: 600;
-  padding: 0.15em 0.2em;
+  padding: 0.1em 0.2em;
   line-height: 1;
   border-radius: 3px;
   transition: var(--fast);
@@ -19,7 +19,7 @@
   display: flex;
   justify-content: space-between;
   gap: 1em;
-  padding-bottom: .35rem;
+  padding-bottom: 0.35rem;
   margin-bottom: 0.35rem;
   font-size: var(--ms-0);
   border-bottom: 1px dotted black;
@@ -30,16 +30,21 @@
   cursor: pointer;
   font-size: 0;
   border-radius: var(--br);
-  padding: 0rem 0.35rem;
+  padding: 0.25rem;
   background: var(--gray-30);
   border: 1px solid var(--gray-30);
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
   svg {
-    width: 0.75rem;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
     display: block;
   }
   &:hover,
   &:focus-visible {
-    border: 1px solid var(--gray-40);
+    border: 1px solid var(--gray-60);
   }
 }
 
