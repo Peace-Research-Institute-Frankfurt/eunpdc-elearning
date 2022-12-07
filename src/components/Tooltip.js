@@ -4,7 +4,7 @@ import * as styles from "./Tooltip.module.scss";
 export default function Tooltip({ active, position, children, id, triggerEl }) {
   let containerClass = styles.tooltip;
   let offsetY = 0;
-  if (window) {
+  if (typeof window !== "undefined") {
     offsetY = window.scrollY;
   }
   if (position === "top-center") {
