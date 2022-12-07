@@ -87,17 +87,17 @@
   display: flex;
   position: relative;
   top: 0.1em;
-  padding: 0.1em;
+  padding: 0.3em;
   margin-right: 0.5rem;
-  @include bp(m) {
-    margin-right: 1rem;
-  }
+  width: 2rem;
+  margin-top: -.25rem;
+  margin-bottom: -.2rem;
   &:hover,
   &:focus-visible {
     background: var(--gray-30);
   }
-  img {
-    height: 1.5em;
-    width: auto;
+  svg {
+    height: auto;
+    width: 100%;
   }
 }

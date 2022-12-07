@@ -1,7 +1,7 @@
 import React from "react";
 import * as styles from "./StickyHeader.module.scss";
 import { useScrollPosition } from "./useScrollPosition";
-import icon from "../assets/favicon.svg";
+import BookIcon from "../assets/favicon.svg";
 import { Link } from "gatsby";
 
 export default function StickyHeader({ post, unit, next, prev }) {
@@ -16,7 +16,7 @@ export default function StickyHeader({ post, unit, next, prev }) {
     <header className={`${styles.status} ${showStatusClass}`}>
       <div className={styles.statusLocation}>
         <Link className={styles.home} to="/">
-          <img src={icon} alt="Home" />
+          <BookIcon/>
         </Link>
         <Link to={`../#chapters`} className={styles.statusUnit}>
           Unit {unit.childMdx.frontmatter.order} &middot; {unit.childMdx.frontmatter.title}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import Icon from "../assets/logo.png";
+import Logo from "../assets/logo.png";
 import Tooltip from "./Tooltip";
 import * as styles from "./SiteHeader.module.scss";
 
@@ -31,7 +31,7 @@ export default function SiteHeader({ unit, chapter, bookmarks }) {
   return (
     <header className={styles.container}>
       <Link className={styles.logo} to="/">
-        <img src={Icon} alt="" />
+        <img src={Logo} alt="" />
         EUNPDC E-Learning
       </Link>
       <div className={styles.tools}>
