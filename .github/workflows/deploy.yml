@@ -42,7 +42,7 @@ jobs:
     needs: [build]
     steps:
       - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@3.1.2
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           ftp-server: ${{ secrets.PRODUCTION_FTP_HOST }}/${{ secrets.PRODUCTION_DIR }}
           ftp-username: ${{ secrets.PRODUCTION_FTP_USER }}
