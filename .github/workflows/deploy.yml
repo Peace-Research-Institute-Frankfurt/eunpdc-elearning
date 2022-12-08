@@ -47,4 +47,4 @@ jobs:
           ftp-server: ${{ secrets.PRODUCTION_FTP_HOST }}/${{ secrets.PRODUCTION_DIR }}
           ftp-username: ${{ secrets.PRODUCTION_FTP_USER }}
           ftp-password: ${{ secrets.PRODUCTION_FTP_PASSWORD }}
-          local-dir: ./public/
+          local-dir: public
