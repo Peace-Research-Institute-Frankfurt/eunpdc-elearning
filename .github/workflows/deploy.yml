@@ -50,5 +50,5 @@ jobs:
           host: ${{ secrets.PRODUCTION_FTP_HOST }}
           user: ${{ secrets.PRODUCTION_FTP_USER }}
           password: ${{ secrets.PRODUCTION_FTP_PASSWORD }}
-          localDir: ./public
-          remoteDir: ./test
+          localDir: ./public/
+          remoteDir: ${{ secrets.PRODUCTION_DIR }}
