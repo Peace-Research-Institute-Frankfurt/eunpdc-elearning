@@ -46,4 +46,4 @@ jobs:
           local-dir: ./public/
           server-dir: ${{ secrets.PRODUCTION_DIR }}
           log-level: standard
-          dry-run: true
+          dry-run: false
