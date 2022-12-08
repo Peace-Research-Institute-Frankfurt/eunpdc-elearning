@@ -12,7 +12,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
@@ -38,17 +37,14 @@ jobs:
         env:
           PREFIX_PATHS: 'true'
         run: npm run build
-
-  # Deployment job
   deploy:
     runs-on: ubuntu-latest
     needs: [build]
     steps:
-      - name: Deploy via FTP
-        uses: sebastianpopp/ftp-action@v2.0.0
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@3.1.2
         with:
-          host: ${{ secrets.PRODUCTION_FTP_HOST }}
-          user: ${{ secrets.PRODUCTION_FTP_USER }}
-          password: ${{ secrets.PRODUCTION_FTP_PASSWORD }}
-          localDir: ./public/
-          remoteDir: ${{ secrets.PRODUCTION_DIR }}
+          ftp-server: ${{ secrets.PRODUCTION_FTP_HOST }}/${{ secrets.PRODUCTION_DIR }}
+          ftp-username: ${{ secrets.PRODUCTION_FTP_USER }}
+          ftp-password: ${{ secrets.PRODUCTION_FTP_PASSWORD }}
+          local-dir: ./public/
