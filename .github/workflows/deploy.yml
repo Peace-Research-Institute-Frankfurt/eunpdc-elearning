@@ -1,4 +1,4 @@
-name: Build Gatsby site and deploy to production via FTP
+name: Build and deploy
 
 on:
   # push:
