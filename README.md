@@ -1,6 +1,6 @@
 # E-Learning 2022 Documentation
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/daf3527b-10f7-458b-b1c4-189a9b818e6e/deploy-status)](https://app.netlify.com/sites/eunpdc-elearning/deploys)
+[![Build and deploy](https://github.com/Peace-Research-Institute-Frankfurt/eunpdc-elearning/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/Peace-Research-Institute-Frankfurt/eunpdc-elearning/actions/workflows/deploy.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/be127c78-15e4-457f-8880-078ca5f1128c/deploy-status)](https://app.netlify.com/sites/eunpdc-elearning/deploys)
 
 We publish our learning content with a custom-built system based on [Gatsby](https://www.gatsbyjs.com/).
 
