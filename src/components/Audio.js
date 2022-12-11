@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import playIcon from "../assets/icon-play.svg";
-import pauseIcon from "../assets/pause.svg";
+import PlayIcon from "../assets/icon-play.svg";
+import PauseIcon from "../assets/pause.svg";
 import { graphql, useStaticQuery } from "gatsby";
 import * as Styles from "./Audio.module.scss";
 
@@ -61,7 +61,7 @@ export default function Audio({ src, type }) {
     <>
       <audio src={file.publicURL} ref={audioRef} onError={handleAudioError}></audio>
       <button className={Styles.container} onClick={toggleAudio}>
-        {playing ? <img src={pauseIcon} alt="" /> : <img src={playIcon} alt="" />}
+        {playing ? <PauseIcon /> : <PlayIcon />}
         {playing ? <>{formatDuration(remaining)}</> : "Listen"}
       </button>
     </>
