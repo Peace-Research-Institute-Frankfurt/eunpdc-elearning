@@ -13,6 +13,7 @@ module.exports = {
     siteUrl: `https://www.yourdomain.tld`,
   },
   flags: {},
+  pathPrefix: `/lu`,
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
@@ -30,7 +31,7 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          omitKeys: ['xmlnsDc', 'xmlnsCc', 'xmlnsRdf', 'xmlnsSvg', 'xmlnsSodipodi', 'xmlnsInkscape']
+          omitKeys: ["xmlnsDc", "xmlnsCc", "xmlnsRdf", "xmlnsSvg", "xmlnsSodipodi", "xmlnsInkscape"],
         },
       },
     },
