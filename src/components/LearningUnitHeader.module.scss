@@ -1,36 +1,43 @@
 @import "vars";
 
 .header {
+  margin-bottom: var(--padding);
+  @include bp(m){
+    padding: var(--padding);
+    padding-top: 1rem;
+    margin-bottom: 0;
+  }
+}
+
+.inner {
   display: flex;
   flex-flow: column;
   overflow: hidden;
-  margin-bottom: var(--padding);
   position: relative;
   @include bp(m) {
+    border-radius: var(--br);
     flex-flow: row-reverse;
     justify-content: flex-end;
   }
 }
+
 .header-title {
   font-family: var(--serif);
   font-size: var(--ms-5);
   font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.025em;
+  line-height: .9;
+  letter-spacing: -0.04em;
   margin-bottom: 0.25em;
   @include bp(s) {
-    font-size: var(--ms-6);
+    font-size: var(--ms-7);
+    letter-spacing: -0.05em;
   }
   @include bp(m) {
-    font-size: var(--ms-7);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.05em;
-    line-height: 0.85;
+    margin-bottom: .45em;
   }
   @include bp(l) {
     font-size: var(--ms-8);
     letter-spacing: -0.05em;
-    line-height: 0.85;
   }
 }
 
@@ -54,9 +61,12 @@
   background: var(--background);
   @include bp(m) {
     padding-right: 25%;
-    flex-basis: 75%;
-    background: linear-gradient(to right, var(--background) 65%, transparent 90%);
+    flex-basis: 85%;
+    background: linear-gradient(to right, var(--background) 70%, transparent 85%);
     min-height: 70vh;
+  }
+  @include bp(l){
+    flex-basis: 70%;
   }
 }
 .header-image {

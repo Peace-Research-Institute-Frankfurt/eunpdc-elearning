@@ -13,7 +13,7 @@ export default function SiteFooter() {
   `);
   return (
     <footer className={styles.container}>
-      <img src={FundingLogo} alt="Funded by the European Union" className={styles.funding} />
+      <FundingLogo className={styles.funding} />
       <nav className={styles.nav}>
         <ul>
           <li>

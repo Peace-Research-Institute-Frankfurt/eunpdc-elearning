@@ -14,6 +14,7 @@
 .funding {
   margin-bottom: .75rem;
   height: 2.5rem;
+  width: auto;
   @include bp(m){
     height: 3.5rem;
   }
