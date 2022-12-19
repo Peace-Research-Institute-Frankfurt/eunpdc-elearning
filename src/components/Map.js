@@ -25,7 +25,7 @@ export default function Map({ caption }) {
       container: containerRef.current,
       //   style: "mapbox://styles/maxkoehler/clbut1yqt003614pmprm2jnn8",
       style: "mapbox://styles/maxkoehler/clbutx1dv002n14qfy1thccqf",
-      zoom: 1,
+      zoom: 1.1,
       interactive: false,
       projection: "naturalEarth",
       attributionControl: false,
