@@ -20,6 +20,7 @@ import { Details, DetailsGroup } from "./Details";
 import { Callout } from "./Callout";
 import StickyHeader from "./StickyHeader";
 import TableOfContents from "./TableOfContents";
+import Map from "./Map";
 const shortCodes = {
   Embed,
   Quiz,
@@ -39,6 +40,7 @@ const shortCodes = {
   Tabs,
   Tab,
   Callout,
+  Map,
 };
 
 export const query = graphql`
