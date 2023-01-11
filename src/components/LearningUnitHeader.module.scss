@@ -135,4 +135,6 @@
   padding-top: 1rem;
   flex-flow: row;
   flex-wrap: wrap;
+  mix-blend-mode: multiply;
+  filter: grayscale(1)
 }
